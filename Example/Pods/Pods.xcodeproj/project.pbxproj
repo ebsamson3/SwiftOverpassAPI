@@ -1,0 +1,770 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0277F7BBC7AD5E02D4397FF2D35EC86B /* Pods-SwiftOverpassAPI_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A990AB085F81DB8C783671ABC8E46173 /* Pods-SwiftOverpassAPI_Example-dummy.m */; };
+		0B7A263767832E310C542DE9FB1F8D42 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		4CA82598E1F2B94E52AE841223C6D2A5 /* Pods-SwiftOverpassAPI_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F855FFCA50135A9FA6DD1C2C26AC35 /* Pods-SwiftOverpassAPI_Tests-dummy.m */; };
+		7A80FC53BEFB6217A3ED3CB31FC5A1C4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		7C2F12CCE066A9F1CC7BF638A34E92F1 /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569156E6DB76D02ABB6A3A5804AC1052 /* ReplaceMe.swift */; };
+		989EDAC921AA7B8C8FC272FC202F1F13 /* Pods-SwiftOverpassAPI_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0ED27BD684B20F72914D443E07B405C3 /* Pods-SwiftOverpassAPI_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E6BDD08DE5B49B601E29424AFCBA6890 /* SwiftOverpassAPI-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C59E8C73B3568B64A9717920425039 /* SwiftOverpassAPI-dummy.m */; };
+		EA1488FA4DAF820471704604F561D0C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		EFD49BCF1901A09F1E4A07A599F6B8FD /* Pods-SwiftOverpassAPI_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D902F29E6B9C804E994DE4D61538095 /* Pods-SwiftOverpassAPI_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FBB74214B7210EA5061FBFA8E3593EC1 /* SwiftOverpassAPI-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 710B6FCD5C7268B9761ABF741590E985 /* SwiftOverpassAPI-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1143243DB82B5FB23C83553820931315 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3B0C89053DE1181328D482F760710F4B;
+			remoteInfo = SwiftOverpassAPI;
+		};
+		5FDF63C8830BA8A7B86FCA00CAB5286A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 229368C702F2AB1D65018F52B2E9D053;
+			remoteInfo = "Pods-SwiftOverpassAPI_Example";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0ED27BD684B20F72914D443E07B405C3 /* Pods-SwiftOverpassAPI_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftOverpassAPI_Tests-umbrella.h"; sourceTree = "<group>"; };
+		1CB1CD3E019E280B6116C2578AE947EE /* Pods-SwiftOverpassAPI_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftOverpassAPI_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		24D5529ACB381BC29228DE69FE4D27EB /* Pods-SwiftOverpassAPI_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftOverpassAPI_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		27F068A06C0AA975F444B227711C270D /* Pods-SwiftOverpassAPI_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SwiftOverpassAPI_Example.modulemap"; sourceTree = "<group>"; };
+		2D7B1094603F80E91AAF025BF959DD63 /* Pods-SwiftOverpassAPI_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SwiftOverpassAPI_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		31F855FFCA50135A9FA6DD1C2C26AC35 /* Pods-SwiftOverpassAPI_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwiftOverpassAPI_Tests-dummy.m"; sourceTree = "<group>"; };
+		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		338C72968134542F920425EDBC97FBA1 /* Pods-SwiftOverpassAPI_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SwiftOverpassAPI_Tests.modulemap"; sourceTree = "<group>"; };
+		33AA2561849199BA1DC7569ED9669A18 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		38C59E8C73B3568B64A9717920425039 /* SwiftOverpassAPI-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftOverpassAPI-dummy.m"; sourceTree = "<group>"; };
+		3D902F29E6B9C804E994DE4D61538095 /* Pods-SwiftOverpassAPI_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftOverpassAPI_Example-umbrella.h"; sourceTree = "<group>"; };
+		438487E358F7CC22418905B1D91E4618 /* Pods_SwiftOverpassAPI_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SwiftOverpassAPI_Tests.framework; path = "Pods-SwiftOverpassAPI_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		46061E5392411378E3CC1D8449814E0E /* Pods-SwiftOverpassAPI_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftOverpassAPI_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		4C929E87D86C497CDCB42AACC24CB65D /* Pods_SwiftOverpassAPI_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SwiftOverpassAPI_Example.framework; path = "Pods-SwiftOverpassAPI_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		569156E6DB76D02ABB6A3A5804AC1052 /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReplaceMe.swift; path = SwiftOverpassAPI/Classes/ReplaceMe.swift; sourceTree = "<group>"; };
+		684BC1AAC2DB6A1428E5F077EE304813 /* Pods-SwiftOverpassAPI_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SwiftOverpassAPI_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		6BF3C6CE13D7F9F17143EE79C62287A7 /* SwiftOverpassAPI.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftOverpassAPI.modulemap; sourceTree = "<group>"; };
+		710B6FCD5C7268B9761ABF741590E985 /* SwiftOverpassAPI-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftOverpassAPI-umbrella.h"; sourceTree = "<group>"; };
+		7965AA5DD7B49D31806F2134D5D21485 /* Pods-SwiftOverpassAPI_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftOverpassAPI_Example.release.xcconfig"; sourceTree = "<group>"; };
+		7F067E7ED0C0C60C9F51481F3CA64F3D /* Pods-SwiftOverpassAPI_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwiftOverpassAPI_Tests-Info.plist"; sourceTree = "<group>"; };
+		815C5DDBCDD8C4A2A430D64CD230F6C9 /* SwiftOverpassAPI-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftOverpassAPI-Info.plist"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9EB26C1FDB59630CEA806BAF1C5CDCCD /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		A850D302B7954633B1DBA45427A28601 /* Pods-SwiftOverpassAPI_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwiftOverpassAPI_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		A990AB085F81DB8C783671ABC8E46173 /* Pods-SwiftOverpassAPI_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwiftOverpassAPI_Example-dummy.m"; sourceTree = "<group>"; };
+		AED96CE62DC1C7782601154BDBF6D06F /* Pods-SwiftOverpassAPI_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwiftOverpassAPI_Example-Info.plist"; sourceTree = "<group>"; };
+		BB9B29567809B4A8B648FA81AC14C3A4 /* Pods-SwiftOverpassAPI_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwiftOverpassAPI_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		E3EB1D23FF93A664E5C81CC35B0B3357 /* SwiftOverpassAPI.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftOverpassAPI.xcconfig; sourceTree = "<group>"; };
+		F189F4CD817180B6E5365B23236D1A78 /* SwiftOverpassAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftOverpassAPI.framework; path = SwiftOverpassAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2EDBCA7D39E48F822295B0C6B8DB4A4 /* Pods-SwiftOverpassAPI_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftOverpassAPI_Example-frameworks.sh"; sourceTree = "<group>"; };
+		F5F18414F35610B9021A862FCFF1B2C6 /* SwiftOverpassAPI.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = SwiftOverpassAPI.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		F89C2104BE986AA9E39A26F19AF6FD51 /* SwiftOverpassAPI-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftOverpassAPI-prefix.pch"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7BD7DBACB6CAFA9FCAF561FCCB37B222 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B7A263767832E310C542DE9FB1F8D42 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7C0939776373A3884BDB9F31D26A5058 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A80FC53BEFB6217A3ED3CB31FC5A1C4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAE33A43C39BBD926815E1B73290347C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA1488FA4DAF820471704604F561D0C5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		16E2DE78EB3C1E918BC7E67D8A295CAB /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				33AA2561849199BA1DC7569ED9669A18 /* LICENSE */,
+				9EB26C1FDB59630CEA806BAF1C5CDCCD /* README.md */,
+				F5F18414F35610B9021A862FCFF1B2C6 /* SwiftOverpassAPI.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		63C5C512CB9A9CF8C2854291C68EB43B /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B11A91E09C34F217842D6A379FB83D39 /* Pods-SwiftOverpassAPI_Example */,
+				97D0776FD43156C6A56AEDF8853A43D1 /* Pods-SwiftOverpassAPI_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		97D0776FD43156C6A56AEDF8853A43D1 /* Pods-SwiftOverpassAPI_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				338C72968134542F920425EDBC97FBA1 /* Pods-SwiftOverpassAPI_Tests.modulemap */,
+				2D7B1094603F80E91AAF025BF959DD63 /* Pods-SwiftOverpassAPI_Tests-acknowledgements.markdown */,
+				A850D302B7954633B1DBA45427A28601 /* Pods-SwiftOverpassAPI_Tests-acknowledgements.plist */,
+				31F855FFCA50135A9FA6DD1C2C26AC35 /* Pods-SwiftOverpassAPI_Tests-dummy.m */,
+				7F067E7ED0C0C60C9F51481F3CA64F3D /* Pods-SwiftOverpassAPI_Tests-Info.plist */,
+				0ED27BD684B20F72914D443E07B405C3 /* Pods-SwiftOverpassAPI_Tests-umbrella.h */,
+				46061E5392411378E3CC1D8449814E0E /* Pods-SwiftOverpassAPI_Tests.debug.xcconfig */,
+				1CB1CD3E019E280B6116C2578AE947EE /* Pods-SwiftOverpassAPI_Tests.release.xcconfig */,
+			);
+			name = "Pods-SwiftOverpassAPI_Tests";
+			path = "Target Support Files/Pods-SwiftOverpassAPI_Tests";
+			sourceTree = "<group>";
+		};
+		A38B1BCDCBBCE08B59E04A4CDA153BBE /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				6BF3C6CE13D7F9F17143EE79C62287A7 /* SwiftOverpassAPI.modulemap */,
+				E3EB1D23FF93A664E5C81CC35B0B3357 /* SwiftOverpassAPI.xcconfig */,
+				38C59E8C73B3568B64A9717920425039 /* SwiftOverpassAPI-dummy.m */,
+				815C5DDBCDD8C4A2A430D64CD230F6C9 /* SwiftOverpassAPI-Info.plist */,
+				F89C2104BE986AA9E39A26F19AF6FD51 /* SwiftOverpassAPI-prefix.pch */,
+				710B6FCD5C7268B9761ABF741590E985 /* SwiftOverpassAPI-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/SwiftOverpassAPI";
+			sourceTree = "<group>";
+		};
+		AA691A41DB2336DB7978E3B2B6B51E66 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4C929E87D86C497CDCB42AACC24CB65D /* Pods_SwiftOverpassAPI_Example.framework */,
+				438487E358F7CC22418905B1D91E4618 /* Pods_SwiftOverpassAPI_Tests.framework */,
+				F189F4CD817180B6E5365B23236D1A78 /* SwiftOverpassAPI.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B11A91E09C34F217842D6A379FB83D39 /* Pods-SwiftOverpassAPI_Example */ = {
+			isa = PBXGroup;
+			children = (
+				27F068A06C0AA975F444B227711C270D /* Pods-SwiftOverpassAPI_Example.modulemap */,
+				684BC1AAC2DB6A1428E5F077EE304813 /* Pods-SwiftOverpassAPI_Example-acknowledgements.markdown */,
+				BB9B29567809B4A8B648FA81AC14C3A4 /* Pods-SwiftOverpassAPI_Example-acknowledgements.plist */,
+				A990AB085F81DB8C783671ABC8E46173 /* Pods-SwiftOverpassAPI_Example-dummy.m */,
+				F2EDBCA7D39E48F822295B0C6B8DB4A4 /* Pods-SwiftOverpassAPI_Example-frameworks.sh */,
+				AED96CE62DC1C7782601154BDBF6D06F /* Pods-SwiftOverpassAPI_Example-Info.plist */,
+				3D902F29E6B9C804E994DE4D61538095 /* Pods-SwiftOverpassAPI_Example-umbrella.h */,
+				24D5529ACB381BC29228DE69FE4D27EB /* Pods-SwiftOverpassAPI_Example.debug.xcconfig */,
+				7965AA5DD7B49D31806F2134D5D21485 /* Pods-SwiftOverpassAPI_Example.release.xcconfig */,
+			);
+			name = "Pods-SwiftOverpassAPI_Example";
+			path = "Target Support Files/Pods-SwiftOverpassAPI_Example";
+			sourceTree = "<group>";
+		};
+		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				DDE4B3B2CF9E828C55600DD8F80638D3 /* Development Pods */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				AA691A41DB2336DB7978E3B2B6B51E66 /* Products */,
+				63C5C512CB9A9CF8C2854291C68EB43B /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C0834CEBB1379A84116EF29F93051C60 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DDE4B3B2CF9E828C55600DD8F80638D3 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FA760005222E0BD22B261626F58F689F /* SwiftOverpassAPI */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		FA760005222E0BD22B261626F58F689F /* SwiftOverpassAPI */ = {
+			isa = PBXGroup;
+			children = (
+				569156E6DB76D02ABB6A3A5804AC1052 /* ReplaceMe.swift */,
+				16E2DE78EB3C1E918BC7E67D8A295CAB /* Pod */,
+				A38B1BCDCBBCE08B59E04A4CDA153BBE /* Support Files */,
+			);
+			name = SwiftOverpassAPI;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		27C9AB012E8C03015EAD75B7423625D8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFD49BCF1901A09F1E4A07A599F6B8FD /* Pods-SwiftOverpassAPI_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D45A65A2AB6F3266AE0D8FD57CCB129 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBB74214B7210EA5061FBFA8E3593EC1 /* SwiftOverpassAPI-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD559FBD5D6BBF7CF2AD4AE52B28F56E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				989EDAC921AA7B8C8FC272FC202F1F13 /* Pods-SwiftOverpassAPI_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		229368C702F2AB1D65018F52B2E9D053 /* Pods-SwiftOverpassAPI_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F1F64920903094E7834F477BAD179143 /* Build configuration list for PBXNativeTarget "Pods-SwiftOverpassAPI_Example" */;
+			buildPhases = (
+				27C9AB012E8C03015EAD75B7423625D8 /* Headers */,
+				479CD5A6BD6688B89A6308F32A1A4073 /* Sources */,
+				7C0939776373A3884BDB9F31D26A5058 /* Frameworks */,
+				9E3453FE5830C26D9DDE0FD02B452BD8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CD7B7C105FF2111C80672870B4DC80D1 /* PBXTargetDependency */,
+			);
+			name = "Pods-SwiftOverpassAPI_Example";
+			productName = "Pods-SwiftOverpassAPI_Example";
+			productReference = 4C929E87D86C497CDCB42AACC24CB65D /* Pods_SwiftOverpassAPI_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3B0C89053DE1181328D482F760710F4B /* SwiftOverpassAPI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5BFC07A3B40D3FF825B7F2872A3FECD9 /* Build configuration list for PBXNativeTarget "SwiftOverpassAPI" */;
+			buildPhases = (
+				3D45A65A2AB6F3266AE0D8FD57CCB129 /* Headers */,
+				DB115DE73ABE8D68C615CA54C46A43F2 /* Sources */,
+				7BD7DBACB6CAFA9FCAF561FCCB37B222 /* Frameworks */,
+				785B7AAB51D8DD790D6840254E7FCF5A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftOverpassAPI;
+			productName = SwiftOverpassAPI;
+			productReference = F189F4CD817180B6E5365B23236D1A78 /* SwiftOverpassAPI.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D31F21C4268191AB4888E0C65C86AEAC /* Pods-SwiftOverpassAPI_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E2CE62A735FE4CC9C69AC3A65BB07C81 /* Build configuration list for PBXNativeTarget "Pods-SwiftOverpassAPI_Tests" */;
+			buildPhases = (
+				BD559FBD5D6BBF7CF2AD4AE52B28F56E /* Headers */,
+				BE6A3C8B968497C3C04B297BE22D08D8 /* Sources */,
+				DAE33A43C39BBD926815E1B73290347C /* Frameworks */,
+				3EA122ED425C87F2C363C112C46A748C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DA777549EE0B856B471E21C14BDCF81A /* PBXTargetDependency */,
+			);
+			name = "Pods-SwiftOverpassAPI_Tests";
+			productName = "Pods-SwiftOverpassAPI_Tests";
+			productReference = 438487E358F7CC22418905B1D91E4618 /* Pods_SwiftOverpassAPI_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = AA691A41DB2336DB7978E3B2B6B51E66 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				229368C702F2AB1D65018F52B2E9D053 /* Pods-SwiftOverpassAPI_Example */,
+				D31F21C4268191AB4888E0C65C86AEAC /* Pods-SwiftOverpassAPI_Tests */,
+				3B0C89053DE1181328D482F760710F4B /* SwiftOverpassAPI */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3EA122ED425C87F2C363C112C46A748C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		785B7AAB51D8DD790D6840254E7FCF5A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E3453FE5830C26D9DDE0FD02B452BD8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		479CD5A6BD6688B89A6308F32A1A4073 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0277F7BBC7AD5E02D4397FF2D35EC86B /* Pods-SwiftOverpassAPI_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE6A3C8B968497C3C04B297BE22D08D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CA82598E1F2B94E52AE841223C6D2A5 /* Pods-SwiftOverpassAPI_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB115DE73ABE8D68C615CA54C46A43F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C2F12CCE066A9F1CC7BF638A34E92F1 /* ReplaceMe.swift in Sources */,
+				E6BDD08DE5B49B601E29424AFCBA6890 /* SwiftOverpassAPI-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CD7B7C105FF2111C80672870B4DC80D1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftOverpassAPI;
+			target = 3B0C89053DE1181328D482F760710F4B /* SwiftOverpassAPI */;
+			targetProxy = 1143243DB82B5FB23C83553820931315 /* PBXContainerItemProxy */;
+		};
+		DA777549EE0B856B471E21C14BDCF81A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-SwiftOverpassAPI_Example";
+			target = 229368C702F2AB1D65018F52B2E9D053 /* Pods-SwiftOverpassAPI_Example */;
+			targetProxy = 5FDF63C8830BA8A7B86FCA00CAB5286A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		175CA61A52A9A7916D214555124BC5FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46061E5392411378E3CC1D8449814E0E /* Pods-SwiftOverpassAPI_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SwiftOverpassAPI_Tests/Pods-SwiftOverpassAPI_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SwiftOverpassAPI_Tests/Pods-SwiftOverpassAPI_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		45B0D4A540B807C43A5B12502BB48D93 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7965AA5DD7B49D31806F2134D5D21485 /* Pods-SwiftOverpassAPI_Example.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SwiftOverpassAPI_Example/Pods-SwiftOverpassAPI_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SwiftOverpassAPI_Example/Pods-SwiftOverpassAPI_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6992931E9C82608C7D778292FDEC6BC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24D5529ACB381BC29228DE69FE4D27EB /* Pods-SwiftOverpassAPI_Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SwiftOverpassAPI_Example/Pods-SwiftOverpassAPI_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SwiftOverpassAPI_Example/Pods-SwiftOverpassAPI_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		81C15967532B4AB759C47F36109380DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3EB1D23FF93A664E5C81CC35B0B3357 /* SwiftOverpassAPI.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftOverpassAPI/SwiftOverpassAPI-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftOverpassAPI/SwiftOverpassAPI-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftOverpassAPI/SwiftOverpassAPI.modulemap";
+				PRODUCT_MODULE_NAME = SwiftOverpassAPI;
+				PRODUCT_NAME = SwiftOverpassAPI;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B0087CB4594321EF41619F3181FE120E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		B8BCBD0110C2658BB5DAADB9B7D97B92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		CFF16BEF92B8EC41F4DD26BA3471BC2E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3EB1D23FF93A664E5C81CC35B0B3357 /* SwiftOverpassAPI.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftOverpassAPI/SwiftOverpassAPI-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftOverpassAPI/SwiftOverpassAPI-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftOverpassAPI/SwiftOverpassAPI.modulemap";
+				PRODUCT_MODULE_NAME = SwiftOverpassAPI;
+				PRODUCT_NAME = SwiftOverpassAPI;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D07BDACCE5D1AB9E54908011BD09597F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CB1CD3E019E280B6116C2578AE947EE /* Pods-SwiftOverpassAPI_Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SwiftOverpassAPI_Tests/Pods-SwiftOverpassAPI_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SwiftOverpassAPI_Tests/Pods-SwiftOverpassAPI_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8BCBD0110C2658BB5DAADB9B7D97B92 /* Debug */,
+				B0087CB4594321EF41619F3181FE120E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5BFC07A3B40D3FF825B7F2872A3FECD9 /* Build configuration list for PBXNativeTarget "SwiftOverpassAPI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81C15967532B4AB759C47F36109380DC /* Debug */,
+				CFF16BEF92B8EC41F4DD26BA3471BC2E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E2CE62A735FE4CC9C69AC3A65BB07C81 /* Build configuration list for PBXNativeTarget "Pods-SwiftOverpassAPI_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				175CA61A52A9A7916D214555124BC5FD /* Debug */,
+				D07BDACCE5D1AB9E54908011BD09597F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F1F64920903094E7834F477BAD179143 /* Build configuration list for PBXNativeTarget "Pods-SwiftOverpassAPI_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6992931E9C82608C7D778292FDEC6BC1 /* Debug */,
+				45B0D4A540B807C43A5B12502BB48D93 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

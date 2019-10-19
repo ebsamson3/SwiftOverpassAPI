@@ -1,0 +1,6 @@
+framework module Pods_SwiftOverpassAPI_Example {
+  umbrella header "Pods-SwiftOverpassAPI_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+framework module SwiftOverpassAPI {
+  umbrella header "SwiftOverpassAPI-umbrella.h"
+
+  export *
+  module * { export * }
+}

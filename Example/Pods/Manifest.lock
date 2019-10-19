@@ -1,0 +1,16 @@
+PODS:
+  - SwiftOverpassAPI (0.1.0)
+
+DEPENDENCIES:
+  - SwiftOverpassAPI (from `../`)
+
+EXTERNAL SOURCES:
+  SwiftOverpassAPI:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SwiftOverpassAPI: 5c393c758ed4e6f2ac5092b013a06a153f96f35e
+
+PODFILE CHECKSUM: eea53c5aff4448ac6bc2a434b559f295f29b3453
+
+COCOAPODS: 1.8.4
