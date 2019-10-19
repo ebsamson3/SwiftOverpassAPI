@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'SwiftOverpassAPI_Example' do
+  pod 'SwiftOverpassAPI', :path => '../'
+
+  target 'SwiftOverpassAPI_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
