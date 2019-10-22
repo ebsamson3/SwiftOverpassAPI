@@ -10,8 +10,32 @@
 		0277F7BBC7AD5E02D4397FF2D35EC86B /* Pods-SwiftOverpassAPI_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A990AB085F81DB8C783671ABC8E46173 /* Pods-SwiftOverpassAPI_Example-dummy.m */; };
 		0B7A263767832E310C542DE9FB1F8D42 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		4CA82598E1F2B94E52AE841223C6D2A5 /* Pods-SwiftOverpassAPI_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F855FFCA50135A9FA6DD1C2C26AC35 /* Pods-SwiftOverpassAPI_Tests-dummy.m */; };
+		5F888CC3235ADA4600B478C5 /* ElementDecodingOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CA7235ADA4600B478C5 /* ElementDecodingOperation.swift */; };
+		5F888CC4235ADA4600B478C5 /* OverpassClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CA8235ADA4600B478C5 /* OverpassClient.swift */; };
+		5F888CC5235ADA4600B478C5 /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CAA235ADA4600B478C5 /* Element.swift */; };
+		5F888CC6235ADA4600B478C5 /* Relation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CAC235ADA4600B478C5 /* Relation.swift */; };
+		5F888CC7235ADA4600B478C5 /* ElementCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CAD235ADA4600B478C5 /* ElementCenter.swift */; };
+		5F888CC8235ADA4600B478C5 /* OverpassQueryOutputType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CAE235ADA4600B478C5 /* OverpassQueryOutputType.swift */; };
+		5F888CC9235ADA4600B478C5 /* ElementType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CAF235ADA4600B478C5 /* ElementType.swift */; };
+		5F888CCA235ADA4600B478C5 /* NestedPolygonCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CB0235ADA4600B478C5 /* NestedPolygonCoordinates.swift */; };
+		5F888CCB235ADA4600B478C5 /* BoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CB1235ADA4600B478C5 /* BoundingBox.swift */; };
+		5F888CCC235ADA4600B478C5 /* ElementCodingKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CB2235ADA4600B478C5 /* ElementCodingKeys.swift */; };
+		5F888CCD235ADA4600B478C5 /* ElementsCodingKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CB3235ADA4600B478C5 /* ElementsCodingKeys.swift */; };
+		5F888CCE235ADA4600B478C5 /* ElementGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CB4235ADA4600B478C5 /* ElementGeometry.swift */; };
+		5F888CCF235ADA4600B478C5 /* OPMapKitVisualization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CB5235ADA4600B478C5 /* OPMapKitVisualization.swift */; };
+		5F888CD0235ADA4600B478C5 /* Way.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CB6235ADA4600B478C5 /* Way.swift */; };
+		5F888CD1235ADA4600B478C5 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CB7235ADA4600B478C5 /* Node.swift */; };
+		5F888CD2235ADA4600B478C5 /* VisualizationGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CB9235ADA4600B478C5 /* VisualizationGenerator.swift */; };
+		5F888CD3235ADA4600B478C5 /* OverpassController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CBA235ADA4600B478C5 /* OverpassController.swift */; };
+		5F888CD4235ADA4600B478C5 /* PolygonChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CBB235ADA4600B478C5 /* PolygonChecker.swift */; };
+		5F888CD5235ADA4600B478C5 /* OverpassQueryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CBC235ADA4600B478C5 /* OverpassQueryBuilder.swift */; };
+		5F888CD6235ADA4600B478C5 /* TagChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CBE235ADA4600B478C5 /* TagChecker.swift */; };
+		5F888CD7235ADA4600B478C5 /* CLLocationCoordinate2D+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CBF235ADA4600B478C5 /* CLLocationCoordinate2D+Extensions.swift */; };
+		5F888CD8235ADA4600B478C5 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CC0235ADA4600B478C5 /* Result.swift */; };
+		5F888CD9235ADA4600B478C5 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CC1235ADA4600B478C5 /* Errors.swift */; };
+		5F888CDA235ADA4600B478C5 /* DecoderExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CC2235ADA4600B478C5 /* DecoderExtractor.swift */; };
+		5F888CDC235AE4B100B478C5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CDB235AE4B100B478C5 /* Constants.swift */; };
 		7A80FC53BEFB6217A3ED3CB31FC5A1C4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		7C2F12CCE066A9F1CC7BF638A34E92F1 /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569156E6DB76D02ABB6A3A5804AC1052 /* ReplaceMe.swift */; };
 		989EDAC921AA7B8C8FC272FC202F1F13 /* Pods-SwiftOverpassAPI_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0ED27BD684B20F72914D443E07B405C3 /* Pods-SwiftOverpassAPI_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E6BDD08DE5B49B601E29424AFCBA6890 /* SwiftOverpassAPI-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C59E8C73B3568B64A9717920425039 /* SwiftOverpassAPI-dummy.m */; };
 		EA1488FA4DAF820471704604F561D0C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
@@ -45,29 +69,53 @@
 		31F855FFCA50135A9FA6DD1C2C26AC35 /* Pods-SwiftOverpassAPI_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwiftOverpassAPI_Tests-dummy.m"; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		338C72968134542F920425EDBC97FBA1 /* Pods-SwiftOverpassAPI_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SwiftOverpassAPI_Tests.modulemap"; sourceTree = "<group>"; };
-		33AA2561849199BA1DC7569ED9669A18 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		33AA2561849199BA1DC7569ED9669A18 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		38C59E8C73B3568B64A9717920425039 /* SwiftOverpassAPI-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftOverpassAPI-dummy.m"; sourceTree = "<group>"; };
 		3D902F29E6B9C804E994DE4D61538095 /* Pods-SwiftOverpassAPI_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftOverpassAPI_Example-umbrella.h"; sourceTree = "<group>"; };
-		438487E358F7CC22418905B1D91E4618 /* Pods_SwiftOverpassAPI_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SwiftOverpassAPI_Tests.framework; path = "Pods-SwiftOverpassAPI_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		438487E358F7CC22418905B1D91E4618 /* Pods_SwiftOverpassAPI_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftOverpassAPI_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		46061E5392411378E3CC1D8449814E0E /* Pods-SwiftOverpassAPI_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftOverpassAPI_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		4C929E87D86C497CDCB42AACC24CB65D /* Pods_SwiftOverpassAPI_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SwiftOverpassAPI_Example.framework; path = "Pods-SwiftOverpassAPI_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		569156E6DB76D02ABB6A3A5804AC1052 /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReplaceMe.swift; path = SwiftOverpassAPI/Classes/ReplaceMe.swift; sourceTree = "<group>"; };
+		4C929E87D86C497CDCB42AACC24CB65D /* Pods_SwiftOverpassAPI_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftOverpassAPI_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F888CA7235ADA4600B478C5 /* ElementDecodingOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementDecodingOperation.swift; sourceTree = "<group>"; };
+		5F888CA8235ADA4600B478C5 /* OverpassClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverpassClient.swift; sourceTree = "<group>"; };
+		5F888CAA235ADA4600B478C5 /* Element.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
+		5F888CAC235ADA4600B478C5 /* Relation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Relation.swift; sourceTree = "<group>"; };
+		5F888CAD235ADA4600B478C5 /* ElementCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementCenter.swift; sourceTree = "<group>"; };
+		5F888CAE235ADA4600B478C5 /* OverpassQueryOutputType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverpassQueryOutputType.swift; sourceTree = "<group>"; };
+		5F888CAF235ADA4600B478C5 /* ElementType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementType.swift; sourceTree = "<group>"; };
+		5F888CB0235ADA4600B478C5 /* NestedPolygonCoordinates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NestedPolygonCoordinates.swift; sourceTree = "<group>"; };
+		5F888CB1235ADA4600B478C5 /* BoundingBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoundingBox.swift; sourceTree = "<group>"; };
+		5F888CB2235ADA4600B478C5 /* ElementCodingKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementCodingKeys.swift; sourceTree = "<group>"; };
+		5F888CB3235ADA4600B478C5 /* ElementsCodingKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementsCodingKeys.swift; sourceTree = "<group>"; };
+		5F888CB4235ADA4600B478C5 /* ElementGeometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementGeometry.swift; sourceTree = "<group>"; };
+		5F888CB5235ADA4600B478C5 /* OPMapKitVisualization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPMapKitVisualization.swift; sourceTree = "<group>"; };
+		5F888CB6235ADA4600B478C5 /* Way.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Way.swift; sourceTree = "<group>"; };
+		5F888CB7235ADA4600B478C5 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		5F888CB9235ADA4600B478C5 /* VisualizationGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualizationGenerator.swift; sourceTree = "<group>"; };
+		5F888CBA235ADA4600B478C5 /* OverpassController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverpassController.swift; sourceTree = "<group>"; };
+		5F888CBB235ADA4600B478C5 /* PolygonChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolygonChecker.swift; sourceTree = "<group>"; };
+		5F888CBC235ADA4600B478C5 /* OverpassQueryBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverpassQueryBuilder.swift; sourceTree = "<group>"; };
+		5F888CBE235ADA4600B478C5 /* TagChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagChecker.swift; sourceTree = "<group>"; };
+		5F888CBF235ADA4600B478C5 /* CLLocationCoordinate2D+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Extensions.swift"; sourceTree = "<group>"; };
+		5F888CC0235ADA4600B478C5 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		5F888CC1235ADA4600B478C5 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		5F888CC2235ADA4600B478C5 /* DecoderExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecoderExtractor.swift; sourceTree = "<group>"; };
+		5F888CDB235AE4B100B478C5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		684BC1AAC2DB6A1428E5F077EE304813 /* Pods-SwiftOverpassAPI_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SwiftOverpassAPI_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		6BF3C6CE13D7F9F17143EE79C62287A7 /* SwiftOverpassAPI.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftOverpassAPI.modulemap; sourceTree = "<group>"; };
 		710B6FCD5C7268B9761ABF741590E985 /* SwiftOverpassAPI-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftOverpassAPI-umbrella.h"; sourceTree = "<group>"; };
 		7965AA5DD7B49D31806F2134D5D21485 /* Pods-SwiftOverpassAPI_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftOverpassAPI_Example.release.xcconfig"; sourceTree = "<group>"; };
 		7F067E7ED0C0C60C9F51481F3CA64F3D /* Pods-SwiftOverpassAPI_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwiftOverpassAPI_Tests-Info.plist"; sourceTree = "<group>"; };
 		815C5DDBCDD8C4A2A430D64CD230F6C9 /* SwiftOverpassAPI-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftOverpassAPI-Info.plist"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9EB26C1FDB59630CEA806BAF1C5CDCCD /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9EB26C1FDB59630CEA806BAF1C5CDCCD /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A850D302B7954633B1DBA45427A28601 /* Pods-SwiftOverpassAPI_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwiftOverpassAPI_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		A990AB085F81DB8C783671ABC8E46173 /* Pods-SwiftOverpassAPI_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwiftOverpassAPI_Example-dummy.m"; sourceTree = "<group>"; };
 		AED96CE62DC1C7782601154BDBF6D06F /* Pods-SwiftOverpassAPI_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwiftOverpassAPI_Example-Info.plist"; sourceTree = "<group>"; };
 		BB9B29567809B4A8B648FA81AC14C3A4 /* Pods-SwiftOverpassAPI_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwiftOverpassAPI_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		E3EB1D23FF93A664E5C81CC35B0B3357 /* SwiftOverpassAPI.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftOverpassAPI.xcconfig; sourceTree = "<group>"; };
-		F189F4CD817180B6E5365B23236D1A78 /* SwiftOverpassAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftOverpassAPI.framework; path = SwiftOverpassAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F189F4CD817180B6E5365B23236D1A78 /* SwiftOverpassAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftOverpassAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2EDBCA7D39E48F822295B0C6B8DB4A4 /* Pods-SwiftOverpassAPI_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftOverpassAPI_Example-frameworks.sh"; sourceTree = "<group>"; };
-		F5F18414F35610B9021A862FCFF1B2C6 /* SwiftOverpassAPI.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = SwiftOverpassAPI.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		F5F18414F35610B9021A862FCFF1B2C6 /* SwiftOverpassAPI.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = SwiftOverpassAPI.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F89C2104BE986AA9E39A26F19AF6FD51 /* SwiftOverpassAPI-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftOverpassAPI-prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,6 +155,78 @@
 				F5F18414F35610B9021A862FCFF1B2C6 /* SwiftOverpassAPI.podspec */,
 			);
 			name = Pod;
+			sourceTree = "<group>";
+		};
+		5F888CA5235AD99200B478C5 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				5F888CB8235ADA4600B478C5 /* Controllers */,
+				5F888CAB235ADA4600B478C5 /* Models */,
+				5F888CA6235ADA4600B478C5 /* Networking */,
+				5F888CA9235ADA4600B478C5 /* Protocols */,
+				5F888CBD235ADA4600B478C5 /* Utilities */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		5F888CA6235ADA4600B478C5 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				5F888CA7235ADA4600B478C5 /* ElementDecodingOperation.swift */,
+				5F888CA8235ADA4600B478C5 /* OverpassClient.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		5F888CA9235ADA4600B478C5 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				5F888CAA235ADA4600B478C5 /* Element.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		5F888CAB235ADA4600B478C5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5F888CB7235ADA4600B478C5 /* Node.swift */,
+				5F888CB6235ADA4600B478C5 /* Way.swift */,
+				5F888CAC235ADA4600B478C5 /* Relation.swift */,
+				5F888CAD235ADA4600B478C5 /* ElementCenter.swift */,
+				5F888CAE235ADA4600B478C5 /* OverpassQueryOutputType.swift */,
+				5F888CAF235ADA4600B478C5 /* ElementType.swift */,
+				5F888CB0235ADA4600B478C5 /* NestedPolygonCoordinates.swift */,
+				5F888CB1235ADA4600B478C5 /* BoundingBox.swift */,
+				5F888CB2235ADA4600B478C5 /* ElementCodingKeys.swift */,
+				5F888CB3235ADA4600B478C5 /* ElementsCodingKeys.swift */,
+				5F888CB4235ADA4600B478C5 /* ElementGeometry.swift */,
+				5F888CB5235ADA4600B478C5 /* OPMapKitVisualization.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5F888CB8235ADA4600B478C5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5F888CB9235ADA4600B478C5 /* VisualizationGenerator.swift */,
+				5F888CBA235ADA4600B478C5 /* OverpassController.swift */,
+				5F888CBB235ADA4600B478C5 /* PolygonChecker.swift */,
+				5F888CBC235ADA4600B478C5 /* OverpassQueryBuilder.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5F888CBD235ADA4600B478C5 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				5F888CBE235ADA4600B478C5 /* TagChecker.swift */,
+				5F888CBF235ADA4600B478C5 /* CLLocationCoordinate2D+Extensions.swift */,
+				5F888CC0235ADA4600B478C5 /* Result.swift */,
+				5F888CC1235ADA4600B478C5 /* Errors.swift */,
+				5F888CC2235ADA4600B478C5 /* DecoderExtractor.swift */,
+				5F888CDB235AE4B100B478C5 /* Constants.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		63C5C512CB9A9CF8C2854291C68EB43B /* Targets Support Files */ = {
@@ -213,7 +333,7 @@
 		FA760005222E0BD22B261626F58F689F /* SwiftOverpassAPI */ = {
 			isa = PBXGroup;
 			children = (
-				569156E6DB76D02ABB6A3A5804AC1052 /* ReplaceMe.swift */,
+				5F888CA5235AD99200B478C5 /* Source */,
 				16E2DE78EB3C1E918BC7E67D8A295CAB /* Pod */,
 				A38B1BCDCBBCE08B59E04A4CDA153BBE /* Support Files */,
 			);
@@ -315,6 +435,14 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1100;
+				TargetAttributes = {
+					229368C702F2AB1D65018F52B2E9D053 = {
+						LastSwiftMigration = 1110;
+					};
+					3B0C89053DE1181328D482F760710F4B = {
+						LastSwiftMigration = 1110;
+					};
+				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -381,8 +509,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C2F12CCE066A9F1CC7BF638A34E92F1 /* ReplaceMe.swift in Sources */,
 				E6BDD08DE5B49B601E29424AFCBA6890 /* SwiftOverpassAPI-dummy.m in Sources */,
+				5F888CD7235ADA4600B478C5 /* CLLocationCoordinate2D+Extensions.swift in Sources */,
+				5F888CC9235ADA4600B478C5 /* ElementType.swift in Sources */,
+				5F888CCF235ADA4600B478C5 /* OPMapKitVisualization.swift in Sources */,
+				5F888CD9235ADA4600B478C5 /* Errors.swift in Sources */,
+				5F888CD0235ADA4600B478C5 /* Way.swift in Sources */,
+				5F888CC6235ADA4600B478C5 /* Relation.swift in Sources */,
+				5F888CDC235AE4B100B478C5 /* Constants.swift in Sources */,
+				5F888CD5235ADA4600B478C5 /* OverpassQueryBuilder.swift in Sources */,
+				5F888CCE235ADA4600B478C5 /* ElementGeometry.swift in Sources */,
+				5F888CC7235ADA4600B478C5 /* ElementCenter.swift in Sources */,
+				5F888CC8235ADA4600B478C5 /* OverpassQueryOutputType.swift in Sources */,
+				5F888CD4235ADA4600B478C5 /* PolygonChecker.swift in Sources */,
+				5F888CCB235ADA4600B478C5 /* BoundingBox.swift in Sources */,
+				5F888CCC235ADA4600B478C5 /* ElementCodingKeys.swift in Sources */,
+				5F888CD8235ADA4600B478C5 /* Result.swift in Sources */,
+				5F888CD2235ADA4600B478C5 /* VisualizationGenerator.swift in Sources */,
+				5F888CDA235ADA4600B478C5 /* DecoderExtractor.swift in Sources */,
+				5F888CC3235ADA4600B478C5 /* ElementDecodingOperation.swift in Sources */,
+				5F888CD3235ADA4600B478C5 /* OverpassController.swift in Sources */,
+				5F888CD1235ADA4600B478C5 /* Node.swift in Sources */,
+				5F888CCD235ADA4600B478C5 /* ElementsCodingKeys.swift in Sources */,
+				5F888CD6235ADA4600B478C5 /* TagChecker.swift in Sources */,
+				5F888CC5235ADA4600B478C5 /* Element.swift in Sources */,
+				5F888CCA235ADA4600B478C5 /* NestedPolygonCoordinates.swift in Sources */,
+				5F888CC4235ADA4600B478C5 /* OverpassClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +594,7 @@
 			baseConfigurationReference = 7965AA5DD7B49D31806F2134D5D21485 /* Pods-SwiftOverpassAPI_Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -464,6 +617,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -476,6 +630,7 @@
 			baseConfigurationReference = 24D5529ACB381BC29228DE69FE4D27EB /* Pods-SwiftOverpassAPI_Example.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -498,6 +653,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -528,7 +685,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -588,8 +745,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
@@ -683,7 +839,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
