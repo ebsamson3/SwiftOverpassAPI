@@ -9,7 +9,7 @@
 import CoreLocation
 
 // Used to store the coordinates for a nested polygon structure. The outer ring contains the coordinates for a single outer polygon. The inner ring contains the coordinates for any number of interior polygons. 
-struct NestedPolygonCoordinates {
+public struct NestedPolygonCoordinates {
 	let outerRing: [CLLocationCoordinate2D]
 	let innerRings: [[CLLocationCoordinate2D]]
 }

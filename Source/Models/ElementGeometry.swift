@@ -16,7 +16,7 @@ import CoreLocation
 	Multipolygon: A collection of nested polygons. This can be used to create complicated clusters of polygons with internal voids. For example, a baseball statium.
 	Multipolyline: A collection of polylines. For example, a collection of roads that make up the routes of a city's public transportation system.
 */
-enum ElementGeometry {
+public enum ElementGeometry {
 	case center(CLLocationCoordinate2D)
 	case polyline([CLLocationCoordinate2D])
 	case polygon([CLLocationCoordinate2D])

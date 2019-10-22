@@ -11,7 +11,7 @@ import MapKit
 /*
 	Mapkit visualization types for overpass elements. Different returned elements require different visualization types.
 */
-enum OPMapKitVisualization {
+public enum OPMapKitVisualization {
 	case annotation(MKAnnotation)
 	case polygon(MKPolygon)
 	case polyline(MKPolyline)

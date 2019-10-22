@@ -7,10 +7,11 @@
 //
 
 import MapKit
+import SwiftOverpassAPI
 
 class DemoMapViewModel: NSObject, MapViewModel {
 	
-	var visualizations = [Int: AGResult]()
+	var visualizations = [Int: OPMapKitVisualization]()
 	var annotations = [MKAnnotation]()
 	var overlays = [MKOverlay]()
 	
@@ -36,7 +37,7 @@ class DemoMapViewModel: NSObject, MapViewModel {
 			forAnnotationViewWithReuseIdentifier: pinReuseIdentifier)
 	}
 	
-	func addVisualizations(_ visualizations: [Int: AGResult]) {
+	func addVisualizations(_ visualizations: [Int: OPMapKitVisualization]) {
 		
 		self.visualizations = visualizations
 		

@@ -9,7 +9,7 @@
 import Foundation
 
 // A protocol that defines all the properties shared by nodes, ways, and relations
-protocol Element {
+public protocol Element {
 	var id: Int { get } // The elements identifier
 	var tags: [String: String] { get } // Tags that add additional details
 	var isInteresting: Bool { get } // Does the element have one or more interesting tags?

@@ -14,7 +14,7 @@ import Foundation
 	Way: A collection of nodes that form a polylinear or polygonal geographic feature. Common examples include road ands buildings.
 	Relation: A collection of related overpass members. Members can be nodes, ways (paths made up of nodes), and other relations.
 */
-enum ElementType: String, Codable {
+public enum ElementType: String, Codable {
 	case node = "node"
 	case way = "way"
 	case relation = "relation"

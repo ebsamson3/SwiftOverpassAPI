@@ -9,7 +9,7 @@
 import Foundation
 
 // A generic class that either returns a successful result of the specified type or an error
-enum Result<T> {
+public enum Result<T> {
 	case success(T)
 	case failure(Error)
 }

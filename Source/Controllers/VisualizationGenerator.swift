@@ -9,11 +9,11 @@
 
 import MapKit
 
-struct VisualizationGenerator {
+public struct VisualizationGenerator {
 	
 	// Pass in an array of decoded overpass objects to get their respective mapkit visualizations (annotations and polygons, depending on object type).
 	
-	static func mapKitVisualizations(
+	public static func mapKitVisualizations(
 		forElements elements: [Int: Element]) -> [Int: OPMapKitVisualization]
 	{
 		
@@ -42,7 +42,7 @@ struct VisualizationGenerator {
 	}
 	
 	// Generates a mapkit visualization for a given decoded overpass element
-	static func mapKitVisualization(forElement element: Element) -> OPMapKitVisualization? {
+	public static func mapKitVisualization(forElement element: Element) -> OPMapKitVisualization? {
 		
 		// Different element geometries require different classes of mapkit visualizations
 		switch element.geometry {

@@ -9,7 +9,7 @@
 import MapKit
 
 // The 4 corner coordinates the define a search are of an Overpass API request.
-struct BoundingBox {
+public struct BoundingBox {
 	
 	let minLatitude: Double
 	let minLongitude: Double
@@ -34,7 +34,7 @@ struct BoundingBox {
 }
 
 // Convinience functions for creating a bounding box
-extension BoundingBox {
+public extension BoundingBox {
 	
 	init(
 		topLeftCoordinate: CLLocationCoordinate2D,

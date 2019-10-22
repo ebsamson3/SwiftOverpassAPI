@@ -9,13 +9,13 @@
 import Foundation
 
 // Errors that can result from Overpass requests
-enum OverpassRequestError: LocalizedError {
+public enum OverpassRequestError: LocalizedError {
 	case badResponse(HTTPURLResponse)
 	case nilData
 	case decodingFailed
 	case queryCancelled
 	
-	var errorDescription: String? {
+	public var errorDescription: String? {
 		switch self {
 		case .badResponse(let response):
 			return "Bad HTTP response: \(response)"
@@ -30,12 +30,12 @@ enum OverpassRequestError: LocalizedError {
 }
 
 // Erros that can result from decoding overpass elements
-enum ElementDecodingError: LocalizedError {
+public enum ElementDecodingError: LocalizedError {
 	case invalidWayLength(wayId: Int)
 	case unexpectedNil(elementId: Int)
 	case emptyRelation
 	
-	var errorDescription: String? {
+	public var errorDescription: String? {
 		switch self {
 		case .invalidWayLength(let id):
 			return "Unable to construct the full geometry for way with id: \(id)"
@@ -49,10 +49,10 @@ enum ElementDecodingError: LocalizedError {
 }
 
 // Errors that can result from attempting to build invalid Overpass API queries
-enum QueryBuilderError: LocalizedError {
+public enum QueryBuilderError: LocalizedError {
 	case noElementTypesSpecified
 	
-	var errorDescription: String? {
+	public var errorDescription: String? {
 		switch self {
 		case .noElementTypesSpecified:
 			return "Queries must contain at least one element type"

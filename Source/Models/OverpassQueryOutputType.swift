@@ -15,7 +15,7 @@ import Foundation
 	Geometry: Each returned element will contain a list of coorindates that define it's geometry.
 	Center: Each returned element will contain it's center point. Use this if you are only concerned with representing the element as a single point or marker on a map.
 */
-enum OverpassQueryOutputType: CaseIterable {
+public enum OverpassQueryOutputType: CaseIterable {
 	case standard, center, geometry, recurseDown, recurseUp
 	
 	// The Overpass API language syntax for each output type

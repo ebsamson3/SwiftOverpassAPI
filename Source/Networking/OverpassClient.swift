@@ -9,7 +9,7 @@
 import CoreLocation
 
 // A class for making requests to an Overpass API endpoint and decoding the subsequent response
-class OverpassClient {
+public class OverpassClient {
 	
 	/*
 		These are the endpoints listed at:
@@ -17,11 +17,11 @@ class OverpassClient {
 		
 		Users can also define a custom endpoint.
 	*/
-	enum Endpoint {
+	public enum Endpoint {
 		case main, main2, french, swiss, kumiSystems, taiwan
 		case custom(urlString: String)
 		
-		var urlString: String {
+		public var urlString: String {
 			switch self {
 			case .main:
 				return "https://lz4.overpass-api.de/api/interpreter"
@@ -50,10 +50,10 @@ class OverpassClient {
 	private var query: String? = nil
 	
 	// The selected endpoint for the overpass api post request
-	var endpoint: Endpoint
+	public var endpoint: Endpoint
 	
 	// Getting and setting the url string. Has the same effect as setting the endpoint.
-	var endpointUrlString: String {
+	public var endpointUrlString: String {
 		set {
 			self.endpoint = .custom(urlString: newValue)
 		}
@@ -71,7 +71,7 @@ class OverpassClient {
 	}()
 	
 	// Initializing the client with an endpoint and a url session. I've found the kumi systems endpoint to be the least restrictive in terms of usage.
-	init(
+	public init(
 		endpoint: Endpoint = .kumiSystems,
 		session: URLSession = URLSession.shared)
 	{
@@ -81,7 +81,7 @@ class OverpassClient {
 	}
 	
 	// Initialized a client with an endpoint url string and a url session
-	init(
+	public init(
 		endpointUrlString: String,
 		session: URLSession = URLSession.shared)
 	{
@@ -90,7 +90,7 @@ class OverpassClient {
 	}
 	
 	// A fetch request to the api. Requires a query that is written in the Overpass API language. For simple queries, the OverpassQueryBuilder class can be used to conviniently build queries.
-	func fetchElements(
+	public func fetchElements(
 		query: String,
 		completion: @escaping (Result<[Int: Element]>) -> Void)
 	{
@@ -169,7 +169,7 @@ class OverpassClient {
 	}
 	
 	// Cancel the current fetch/decoding operation
-	func cancelFetch() {
+	public func cancelFetch() {
 		task?.cancel()
 		elementDecodingQueue.cancelAllOperations()
 	}

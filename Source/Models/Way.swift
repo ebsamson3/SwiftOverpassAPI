@@ -9,11 +9,11 @@
 import MapKit
 
 // A collection of nodes that form a polylinear or polygonal geographic feature. Common examples include road ands buildings.
-struct Way: Element{
-	let id: Int
-	let tags: [String: String]
-	let isInteresting: Bool // Way has interesting tags in it's description
-	var isSkippable: Bool // Way is already rendered by a parent relation
-	let nodes: [Int]  // Nodes for each coordinate in a way's geometry
-	let geometry: ElementGeometry // For a way this will be either a polyline or a polygon
+public struct Way: Element{
+	public let id: Int
+	public let tags: [String: String]
+	public let isInteresting: Bool // Way has interesting tags in it's description
+	public var isSkippable: Bool // Way is already rendered by a parent relation
+	public let nodes: [Int]  // Nodes for each coordinate in a way's geometry
+	public let geometry: ElementGeometry // For a way this will be either a polyline or a polygon
 }

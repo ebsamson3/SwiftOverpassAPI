@@ -7,15 +7,16 @@
 //
 
 import MapKit
+import SwiftOverpassAPI
 
 class DemoViewModel {
 	
 	let demo: Demo
-	let elementsController: ElementsController
+	let overpassClient: OverpassClient
 	
 	let mapViewModel = DemoMapViewModel()
 	var loadingStatusDidChangeTo: ((_ isLoading: Bool) -> Void)?
-	//var regionThatFits: ((MKCoordinateRegion) -> MKCoordinateRegion)?
+	var elements = [Int: Element]()
 	
 	lazy var tableViewModel: DemoTableViewModel = {
 		let tableViewModel = DemoTableViewModel(demo: demo)
@@ -23,10 +24,9 @@ class DemoViewModel {
 		return tableViewModel
 	}()
 	
-	init(demo: Demo, elementsController: ElementsController) {
+	init(demo: Demo, overpassClient: OverpassClient) {
 		self.demo = demo
-		self.elementsController = elementsController
-	//	run()
+		self.overpassClient = overpassClient
 	}
 	
 	func run() {
@@ -34,10 +34,6 @@ class DemoViewModel {
 		loadingStatusDidChangeTo?(true)
 		
 		let region = demo.region
-		
-//		guard let queryRegion = regionThatFits?(region) else {
-//			return
-//		}
 		
 		let queryRect = region.toMKMapRect()
 		let visualRect = queryRect.insetBy(dx: queryRect.width * 0.25, dy: queryRect.height * 0.25)
@@ -47,13 +43,15 @@ class DemoViewModel {
 		
 		let query = demo.generateQuery(forRegion: region)
 		
-		elementsController.fetchElements(query: query) { result in
+		overpassClient.fetchElements(query: query) { result in
 			switch result {
 			case .failure(let error):
 				print(error.localizedDescription)
 			case .success(let elements):
+				self.elements = elements
 				self.tableViewModel.generateViewModels(forElements: elements)
-				let visualizations = self.elementsController.annotationsForElements()
+				let visualizations = VisualizationGenerator
+					.mapKitVisualizations(forElements: elements)
 				self.mapViewModel.addVisualizations(visualizations)
 				self.loadingStatusDidChangeTo?(false)
 			}
@@ -65,9 +63,7 @@ extension DemoViewModel: DemoTableViewModelDelegate {
 	func didSelectCell(forElementWithId id: Int) {
 		mapViewModel.centerMap(onVisualizationWithId: id)
 		
-		let element = elementsController.getElement(withId: id)
-		
-		if let tags = element?.tags {
+		if let tags = elements[id]?.tags {
 			print("Selected element with tags: \(tags)")
 		}
 	}

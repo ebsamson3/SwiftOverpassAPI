@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftOverpassAPI
 
 class OverpassDemoCoordinator {
 	
@@ -31,7 +32,8 @@ class OverpassDemoCoordinator {
 
 extension OverpassDemoCoordinator: SelectDemoTableViewModelDelegate {
 	func selecDemoTableViewModel(didSelect demo: Demo) {
-		let viewModel = DemoViewModel(demo: demo, elementsController: ElementsController())
+		
+		let viewModel = DemoViewModel(demo: demo, overpassClient: OverpassClient())
 		let viewController = DemoViewController(viewModel: viewModel)
 		viewController.title = demo.title
 		navigationController.pushViewController(viewController, animated: true)

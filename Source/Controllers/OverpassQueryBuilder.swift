@@ -14,7 +14,7 @@
 
 import Foundation
 
-class OverpassQueryBuilder {
+public class OverpassQueryBuilder {
 	
 	// Overpass API results have a dictionary of descriptive tag/value pairs. The query builder uses the tag filter struct to filter based on these values.
 	struct TagFilter {
@@ -42,8 +42,10 @@ class OverpassQueryBuilder {
 	private var timeOut: Int?
 	private var maxSize: Int?
 	
+	public init() {}
+	
 	// Add a new filter that checks for the presence of a particular tag key or tag key/value pair in an Overpass element's descriptive data
-	func addTagFilter(
+	public func addTagFilter(
 		key: String,
 		value: String? = nil,
 		exactMatchOnly: Bool = true) -> Self
@@ -59,7 +61,7 @@ class OverpassQueryBuilder {
 	}
 	
 	// Set search region for query. Defaults to a bounding box for the entire earch.
-	func setBoundingBox(_ boundingBox: BoundingBox) -> Self {
+	public func setBoundingBox(_ boundingBox: BoundingBox) -> Self {
 		
 		self.boundingBox = boundingBox
 		
@@ -67,31 +69,31 @@ class OverpassQueryBuilder {
 	}
 	
 	// Set the element types the query can return. Possible types: Node, Way, and Relation
-	func setElementTypes(_ elementTypes: Set<ElementType>) -> Self {
+	public func setElementTypes(_ elementTypes: Set<ElementType>) -> Self {
 		self.elementTypes = elementTypes
 		return self
 	}
 	
 	//Sets teh output type of a query. Can return center. See OverpassQueryOutputType.swift
-	func setOutputType(_ outputType: OverpassQueryOutputType) -> Self {
+	public func setOutputType(_ outputType: OverpassQueryOutputType) -> Self {
 		self.outputType = outputType
 		return self
 	}
 	
 	// Not sure if this works. The query will still run but it doesn't appear as if the timeout length was effected. It may be due to the endpoint I have used to test this API.
-	func setTimeOut(_ timeOut: Int) -> Self {
+	public func setTimeOut(_ timeOut: Int) -> Self {
 		self.timeOut = timeOut
 		return self
 	}
 	
 	// Set max size of results in bytes
-	func setMaxSize(_ maxSize: Int) -> Self {
+	public func setMaxSize(_ maxSize: Int) -> Self {
 		self.maxSize = maxSize
 		return self
 	}
 	
 	// Generate a string representation of the query in the Overpass API language.
-	func buildQueryString() throws -> String {
+	public func buildQueryString() throws -> String {
 		
 		let elementTypeCount = elementTypes.count
 		
