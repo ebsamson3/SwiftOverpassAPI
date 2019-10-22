@@ -136,13 +136,13 @@
 		5F58CF89235F7043002257B7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5F58CF8A235F7043002257B7 /* SelectDemoTableViewModel.swift */,
-				5F58CF8C235F7043002257B7 /* MapViewController.swift */,
 				5F58CF8D235F7043002257B7 /* DemoViewController.swift */,
+				5F58CF91235F7043002257B7 /* DemoViewModel.swift */,
 				5F58CF8E235F7043002257B7 /* TableViewController.swift */,
 				5F58CF8F235F7043002257B7 /* DemoTableViewModel.swift */,
+				5F58CF8A235F7043002257B7 /* SelectDemoTableViewModel.swift */,
+				5F58CF8C235F7043002257B7 /* MapViewController.swift */,
 				5F58CF90235F7043002257B7 /* DemoMapViewModel.swift */,
-				5F58CF91235F7043002257B7 /* DemoViewModel.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

@@ -319,6 +319,7 @@ class PullUpContainer: UIViewController {
 			guard let scrollView = subview as? UIScrollView else {
 				continue
 			}
+			scrollView.contentInsetAdjustmentBehavior = .never
 			addScrollViewGestureRecognizer(to: scrollView)
 		}
 	}

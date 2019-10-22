@@ -41,7 +41,9 @@ class TableViewController: UIViewController {
 	private func configure() {
 		view.addSubview(tableView)
 		tableView.translatesAutoresizingMaskIntoConstraints = false
-		tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+		tableView.topAnchor.constraint(
+			equalTo: view.topAnchor)
+			.isActive = true
 		tableView.trailingAnchor.constraint(
 			equalTo: view.trailingAnchor)
 			.withPriority(.defaultHigh)
@@ -50,7 +52,9 @@ class TableViewController: UIViewController {
 			equalTo: view.bottomAnchor)
 			.withPriority(.defaultHigh)
 			.isActive = true
-		tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+		tableView.leadingAnchor.constraint(
+			equalTo: view.leadingAnchor)
+			.isActive = true
 	}
 }
 

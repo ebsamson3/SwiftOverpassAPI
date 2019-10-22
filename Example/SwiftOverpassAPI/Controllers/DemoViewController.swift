@@ -112,10 +112,14 @@ extension DemoViewController: PullUpContainerDelegate {
 		switch status {
 		case .portrait(let height):
 			if height == maxPortraitHeight || height == minPortraitHeight  {
+				print(view.safeAreaLayoutGuide)
+				print(view.layoutMargins)
+				print(additionalSafeAreaInsets)
+				
 				let edgeInsets = UIEdgeInsets(
 					top: 0,
 					left: 0,
-					bottom: height,
+					bottom: height - view.safeAreaInsets.bottom,
 					right: 0)
 				mapViewController.setEdgeInsets(to: edgeInsets)
 			} 
@@ -123,7 +127,7 @@ extension DemoViewController: PullUpContainerDelegate {
 			let edgeInsets = UIEdgeInsets(
 				top: 0,
 				left: landscapeFrame.origin.x + landscapeFrame.width + view.layoutMargins.left,
-				bottom: 0,
+				bottom: -view.safeAreaInsets.bottom,
 				right: 0)
 			mapViewController.setEdgeInsets(to: edgeInsets)
 		}

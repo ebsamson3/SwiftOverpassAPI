@@ -70,7 +70,7 @@ class ElementDecodingOperation: Operation {
 			// Because the decoding process requires us to decodes nodes first, arrays second, and relations last, we need to step through our elements container 3 times in total to decode everything in the correct order. In each decoding pass through the elements array, the unkeyed container decodes the element at the current index and then automatically steps through to the next index until it reaches the end. Since there is no way to reset a container's index to zero and make another pass through the array after the container reaches the end index, we have to create a copy of the elements container for each individual decoding pass we make. Maybe it would be better to switch to decoding JSON the without using unkeyed containers, since it feels like I'm using them in a way that was differs from what Apple intended.
 			var elementsContainerCopy = elementsContainer
 			
-			while elementsContainerCopy.isAtEnd {
+			while !elementsContainerCopy.isAtEnd {
 				
 				if isCancelled {
 					return
