@@ -5,11 +5,17 @@
 [![License](https://img.shields.io/cocoapods/l/SwiftOverpassAPI.svg?style=flat)](https://cocoapods.org/pods/SwiftOverpassAPI)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftOverpassAPI.svg?style=flat)](https://cocoapods.org/pods/SwiftOverpassAPI)
 
+SwiftOverpassAPI is a module for querying, decoding, and visualizing Overpass API data. 
+
+### What is Overpass API?
+
+Overpass API is a read only database for querying open source mapping information provided by the OpenStreetMap project. For more information visit the [Overpass API Wiki](https://wiki.openstreetmap.org/wiki/Overpass_API) and the [OpenStreetMap Wiki](https://wiki.openstreetmap.org/wiki/Main_Page). 
+
 ## Example
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+![Rendering Polygons](/Screenshots/Buildings.png?raw=true "Rendering Polygons")
 
-## Requirements
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Installation
 
