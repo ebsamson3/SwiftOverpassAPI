@@ -7,26 +7,26 @@
 
 SwiftOverpassAPI is a module for querying, decoding, and visualizing Overpass API data. 
 
-## What is Overpass API?
+### What is Overpass API?
 
 Overpass API is a read only database for querying open source mapping information provided by the OpenStreetMap project. For more information visit the [Overpass API Wiki](https://wiki.openstreetmap.org/wiki/Overpass_API) and the [OpenStreetMap Wiki](https://wiki.openstreetmap.org/wiki/Main_Page). 
 
 ## Example
 
 <style>
-img[class="screenshot"] {
-    width: 250px; 
-    border: 1px solid #BFBFBF; 
-    margin-left: -3px; 
-    background-color: white; 
-    box-shadow: 6px 6px 3px #aaaaaa;"
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 </style>
 
 <p align="center">
-  <img src="Screenshots/Polygons.jpg?raw=true" alt="Rendering Polygons" class="screenshot" hspace="20">
-  <img src="Screenshots/Coordinates.jpg?raw=true" alt="Rendering Coordinates" class="screenshot" hspace="20">
+  <img src="Screenshots/Polygons.jpg?raw=true" alt="Rendering Polygons" width="288" height="512" style="width: 284px; border: 1px solid #BFBFBF; margin-left: -3px; background-color: white; box-shadow: 6px 6px 3px #aaaaaa;"  hspace="20"/>
+  <img src="Screenshots/Coordinates.jpg?raw=true" alt="Rendering Coordinates" width="288" height="512" style="width: 284px; border: 1px solid #BFBFBF; margin-left: -3px; background-color: white; box-shadow: 6px 6px 3px #aaaaaa;"  hspace="20"/>
 </p>
+
+![Rendering Polygons](Screenshots/Polygons.jpg?raw=true){.center}
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
