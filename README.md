@@ -13,20 +13,10 @@ Overpass API is a read only database for querying open source mapping informatio
 
 ## Example
 
-<style>
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-</style>
-
 <p align="center">
   <img src="Screenshots/Polygons.jpg?raw=true" alt="Rendering Polygons" width="288" height="512" style="width: 284px; border: 1px solid #BFBFBF; margin-left: -3px; background-color: white; box-shadow: 6px 6px 3px #aaaaaa;"  hspace="20"/>
   <img src="Screenshots/Coordinates.jpg?raw=true" alt="Rendering Coordinates" width="288" height="512" style="width: 284px; border: 1px solid #BFBFBF; margin-left: -3px; background-color: white; box-shadow: 6px 6px 3px #aaaaaa;"  hspace="20"/>
 </p>
-
-![Rendering Polygons](Screenshots/Polygons.jpg?raw=true){.center}
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
