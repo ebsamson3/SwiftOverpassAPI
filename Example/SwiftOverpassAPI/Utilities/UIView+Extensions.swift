@@ -9,6 +9,11 @@
 import UIKit
 
 extension UIView {
+	
+	/*
+		Creates an inner shadow on a UIView. Taken from:
+		https://stackoverflow.com/questions/37668965/adding-inner-shadow-to-top-of-uiview
+	*/
     func addInnerShadow(
 		to edges: [UIRectEdge],
 		radius: CGFloat = 3.0,

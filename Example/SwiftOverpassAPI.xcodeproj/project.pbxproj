@@ -22,7 +22,6 @@
 		5F58CFB2235F7044002257B7 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F58CF98235F7043002257B7 /* UIViewController+Extensions.swift */; };
 		5F58CFB3235F7044002257B7 /* MKCoordinateRegion+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F58CF99235F7043002257B7 /* MKCoordinateRegion+Extensions.swift */; };
 		5F58CFB4235F7044002257B7 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F58CF9A235F7043002257B7 /* UIView+Extensions.swift */; };
-		5F58CFB5235F7044002257B7 /* PullUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F58CF9B235F7043002257B7 /* PullUpViewController.swift */; };
 		5F58CFB6235F7044002257B7 /* PullUpContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F58CF9C235F7043002257B7 /* PullUpContainer.swift */; };
 		5F58CFB7235F7044002257B7 /* NSLayoutContstraint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F58CF9D235F7043002257B7 /* NSLayoutContstraint+Extensions.swift */; };
 		5F58CFB8235F7044002257B7 /* PullUpHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F58CF9F235F7043002257B7 /* PullUpHeaderView.swift */; };
@@ -68,7 +67,6 @@
 		5F58CF98235F7043002257B7 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		5F58CF99235F7043002257B7 /* MKCoordinateRegion+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKCoordinateRegion+Extensions.swift"; sourceTree = "<group>"; };
 		5F58CF9A235F7043002257B7 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
-		5F58CF9B235F7043002257B7 /* PullUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullUpViewController.swift; sourceTree = "<group>"; };
 		5F58CF9C235F7043002257B7 /* PullUpContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullUpContainer.swift; sourceTree = "<group>"; };
 		5F58CF9D235F7043002257B7 /* NSLayoutContstraint+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLayoutContstraint+Extensions.swift"; sourceTree = "<group>"; };
 		5F58CF9F235F7043002257B7 /* PullUpHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullUpHeaderView.swift; sourceTree = "<group>"; };
@@ -167,7 +165,6 @@
 				5F58CF98235F7043002257B7 /* UIViewController+Extensions.swift */,
 				5F58CF99235F7043002257B7 /* MKCoordinateRegion+Extensions.swift */,
 				5F58CF9A235F7043002257B7 /* UIView+Extensions.swift */,
-				5F58CF9B235F7043002257B7 /* PullUpViewController.swift */,
 				5F58CF9D235F7043002257B7 /* NSLayoutContstraint+Extensions.swift */,
 				5F488CD9235FE53D00622868 /* UIColor+Extensions.swift */,
 			);
@@ -456,7 +453,6 @@
 				5F58CFB9235F7044002257B7 /* DemoSelectCellViewModel.swift in Sources */,
 				5F58CFBC235F7044002257B7 /* OverpassDemoCoordinator.swift in Sources */,
 				5F58CFB3235F7044002257B7 /* MKCoordinateRegion+Extensions.swift in Sources */,
-				5F58CFB5235F7044002257B7 /* PullUpViewController.swift in Sources */,
 				5F58CFB4235F7044002257B7 /* UIView+Extensions.swift in Sources */,
 				5F488CDA235FE53D00622868 /* UIColor+Extensions.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,

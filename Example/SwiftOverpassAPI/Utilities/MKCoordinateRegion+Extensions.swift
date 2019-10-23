@@ -10,6 +10,12 @@ import MapKit
 
 extension MKCoordinateRegion {
 	
+	/*
+		Converting a map regin to a map rect.
+		Copy-Pasta'd from:
+		https://stackoverflow.com/questions/9270268/convert-mkcoordinateregion-to-mkmaprect
+	*/
+	
 	func toMKMapRect() -> MKMapRect {
 		let topLeft = CLLocationCoordinate2D(
 			latitude: self.center.latitude + (self.span.latitudeDelta/2.0),

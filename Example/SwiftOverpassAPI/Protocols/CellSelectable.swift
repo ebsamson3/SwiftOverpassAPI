@@ -8,6 +8,7 @@
 
 import Foundation
 
+// Protocol for a cell view model that can handle cell selection
 protocol CellSelectable {
 	func handleCellSelection()
 }

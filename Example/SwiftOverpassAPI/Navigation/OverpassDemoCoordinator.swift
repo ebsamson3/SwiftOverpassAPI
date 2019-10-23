@@ -9,6 +9,7 @@
 import UIKit
 import SwiftOverpassAPI
 
+// A basic coordinatator class that controls navigation and view controller instantiation
 class OverpassDemoCoordinator {
 	
 	let navigationController: UINavigationController
@@ -17,10 +18,12 @@ class OverpassDemoCoordinator {
 		self.navigationController = navigationController
 	}
 	
+	// Starting the coordinator
 	func start() {
 		showDemoSelect(animated: false)
 	}
 	
+	// On start show the demo select table view.
 	private func showDemoSelect(animated: Bool) {
 		let viewModel = SelectDemoTableViewModel()
 		viewModel.delegate = self
@@ -31,9 +34,10 @@ class OverpassDemoCoordinator {
 }
 
 extension OverpassDemoCoordinator: SelectDemoTableViewModelDelegate {
+	// Whenever a demo is selected, navigate to that demo
 	func selecDemoTableViewModel(didSelect demo: Demo) {
-		
-		let viewModel = DemoViewModel(demo: demo, overpassClient: OverpassClient())
+		let client = OverpassClient()
+		let viewModel = DemoViewModel(demo: demo, overpassClient: client)
 		let viewController = DemoViewController(viewModel: viewModel)
 		viewController.title = demo.title
 		navigationController.pushViewController(viewController, animated: true)

@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Protocol for a cell view model that can register that cell's class and instantiate it's own cell
 protocol CellRepresentable {
 	static func registerCell(tableView: UITableView)
 	func cellInstance(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell

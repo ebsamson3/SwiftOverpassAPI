@@ -8,6 +8,7 @@
 
 import MapKit
 
+// An API that provides information required to define a basic mapView's setup/behavior
 protocol MapViewModel: NSObject {
 	
 	var region: MKCoordinateRegion? { get }

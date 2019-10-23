@@ -8,6 +8,7 @@
 
 import UIKit
 
+// An API that provides information required to define a basic tableView's setup/behavior
 protocol TableViewModel: NSObject {
 	var numberOfSections: Int { get}
 	var reloadData: (() -> Void)? { get set }

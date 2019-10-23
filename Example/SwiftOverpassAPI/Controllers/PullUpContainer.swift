@@ -12,7 +12,11 @@ protocol PullUpContainerDelegate: class {
 	func pullUpContainer(statusDidChangeTo status: PullUpContainer.Status)
 }
 
-// A container view controller that enables it's child content view controller to be pulled up from the bottom of the screen. It works for this app but I haven't rigorously tested it in many different use cases.
+	/*
+		A container view controller that enables it's child content view controller to be pulled up from the bottom of the screen. It works for this app but I haven't rigorously tested it in many different use cases. Largely base on the following repo:
+		https://github.com/MarioIannotta/PullUpController
+	*/
+
 class PullUpContainer: UIViewController {
 	
 	// The pull up container has two distinct state for when it the device is in portrait and landscape. In portrait mode it is swiped up and down from the bottom of the screen while in landscape mode it is a static square frame.
@@ -107,33 +111,9 @@ class PullUpContainer: UIViewController {
 		configure()
 	}
 	
-	// Initial configuration of the pull up container
-	private func configure() {
-		
-		// Set up the appearence of the pull up container's border
-		view.clipsToBounds = true
-		view.layer.borderColor = UIColor(white: 0.7, alpha: 1).cgColor
-		view.layer.borderWidth = 1
-		
-		// Add a pan gesture to the pull up container
-		addMainPanGestureRecognizer()
-		
-		// Add containts for the header view and content view of the pull up container
-		configureSubviewConstraints()
-		
-		// Embedthe content view controller into the pull up container
-		add(childContentViewController: contentViewController)
-	}
-	
-	// Add a pan gesture to the pull up container that enabled the container to be swiped up and down
-	private func addMainPanGestureRecognizer() {
-		let panGestureRecognizer = UIPanGestureRecognizer(
-			target: self,
-			action: #selector(handlePan(_:)))
-		
-		panGestureRecognizer.minimumNumberOfTouches = 1
-		panGestureRecognizer.maximumNumberOfTouches = 1
-		view.addGestureRecognizer(panGestureRecognizer)
+	// Required boilerplate
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
 	}
 	
 	// Handle configuration changes that occur as a result of view size changes
@@ -187,9 +167,73 @@ class PullUpContainer: UIViewController {
 		view.layer.cornerRadius = cornerRadius
 	}
 	
-	// Required boilerplate
-	required init?(coder: NSCoder) {
-		fatalError("init(coder:) has not been implemented")
+	// Initial configuration of the pull up container
+	private func configure() {
+		
+		// Set up the appearence of the pull up container's border
+		view.clipsToBounds = true
+		view.layer.borderColor = UIColor(white: 0.7, alpha: 1).cgColor
+		view.layer.borderWidth = 1
+		
+		// Add a pan gesture to the pull up container
+		addMainPanGestureRecognizer()
+		
+		// Add containts for the header view and content view of the pull up container
+		configureSubviewConstraints()
+		
+		// Embedthe content view controller into the pull up container
+		add(childContentViewController: contentViewController)
+	}
+	
+	// Add a pan gesture to the pull up container that enabled the container to be swiped up and down
+	private func addMainPanGestureRecognizer() {
+		let panGestureRecognizer = UIPanGestureRecognizer(
+			target: self,
+			action: #selector(handlePan(_:)))
+		
+		panGestureRecognizer.minimumNumberOfTouches = 1
+		panGestureRecognizer.maximumNumberOfTouches = 1
+		view.addGestureRecognizer(panGestureRecognizer)
+	}
+	
+	// Embed the content view controller into the pull up container
+	private func add(childContentViewController contentViewController: UIViewController) {
+		addChild(contentViewController)
+		contentViewController.didMove(toParent: self)
+		
+		guard let viewToAdd = contentViewController.view else {
+			return
+		}
+		
+		// Add the content view controller's view as a subview to the content view
+		contentView.addSubview(viewToAdd)
+		
+		// Configure constraints such that the content view controller's view covers the whole extent of the content view.
+		viewToAdd.translatesAutoresizingMaskIntoConstraints = false
+		viewToAdd.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+		viewToAdd.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+		viewToAdd.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+		viewToAdd.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+		
+		// Configure any scroll view that are present in the content view controller
+		configureInternalScrollViews()
+	}
+	
+	private func configureInternalScrollViews() {
+		// Check the content view controller's subviews for any scroll views
+		for subview in contentViewController.view.subviews {
+			guard let scrollView = subview as? UIScrollView else {
+				continue
+			}
+			
+			// Make sure any scroll view does not adjust it's content below the top anchor of the content view controller's view.
+			scrollView.contentInsetAdjustmentBehavior = .never
+			
+			// Add pan gesture recognizers to each scroll view. This enabled the pull up/down action of the pull up container to work with scroll views.
+			scrollView.panGestureRecognizer.addTarget(
+			self,
+			action: #selector(handleScrollViewPan(sender:)))
+		}
 	}
 	
 	// Add the pull up container to a parent view controller
@@ -240,46 +284,6 @@ class PullUpContainer: UIViewController {
 				// Reset the alpha of the pull up container to 1.0
 				self.view.alpha = 1.0
 			}
-		}
-	}
-	
-	// Embed the content view controller into the pull up container
-	private func add(childContentViewController contentViewController: UIViewController) {
-		addChild(contentViewController)
-		contentViewController.didMove(toParent: self)
-		
-		guard let viewToAdd = contentViewController.view else {
-			return
-		}
-		
-		// Add the content view controller's view as a subview to the content view
-		contentView.addSubview(viewToAdd)
-		
-		// Configure constraints such that the content view controller's view covers the whole extent of the content view.
-		viewToAdd.translatesAutoresizingMaskIntoConstraints = false
-		viewToAdd.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-		viewToAdd.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-		viewToAdd.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-		viewToAdd.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-		
-		// Configure any scroll view that are present in the content view controller
-		configureInternalScrollViews()
-	}
-	
-	private func configureInternalScrollViews() {
-		// Check the content view controller's subviews for any scroll views
-		for subview in contentViewController.view.subviews {
-			guard let scrollView = subview as? UIScrollView else {
-				continue
-			}
-			
-			// Make sure any scroll view does not adjust it's content below the top anchor of the content view controller's view.
-			scrollView.contentInsetAdjustmentBehavior = .never
-			
-			// Add pan gesture recognizers to each scroll view. This enabled the pull up/down action of the pull up container to work with scroll views.
-			scrollView.panGestureRecognizer.addTarget(
-			self,
-			action: #selector(handleScrollViewPan(sender:)))
 		}
 	}
 	
@@ -459,18 +463,25 @@ class PullUpContainer: UIViewController {
 		}
 	}
 	
+	// Setting the height up of the pull up view
 	private func setTopOffset(
 		_ value: CGFloat,
 		animationDuration: TimeInterval? = nil,
 		allowBounce: Bool = false)
 	{
 		
+		// How far past the maximum and minimum height extents the pull up container is allowed to be dragged. Once released it will "bounce" back to the nearest extent.
 		let bounceOffset = allowBounce ? self.bounceOffset : 0
 		let minValue = -maxPortraitHeight - bounceOffset
 		let maxValue = -minPortraitHeight + bounceOffset
+		
+		// The value to set the top offset to
 		let targetValue = max(min(value, maxValue), minValue)
+		
+		// Changing the top contraint of the pull up container to the target value
 		portraitConstraints.top?.constant = targetValue
 		
+		// Animating the height change. One feature that would be nice to add would be being able to perform other animations alongside this height change.
 		UIView.animate(
 			withDuration: animationDuration ?? 0,
 			animations: {
@@ -480,6 +491,7 @@ class PullUpContainer: UIViewController {
 		}
 	}
 	
+	//Moving to the nearest sticky point
 	private func goToNearestStickyPoint(verticalVelocity: CGFloat) {
 		guard
 			isPortrait,
@@ -492,19 +504,24 @@ class PullUpContainer: UIViewController {
 		let expandedPosition = -maxPortraitHeight
 		let contractedPosition = -minPortraitHeight
 		
+		// Finding the nearest stickpoint
 		let targetPosition =
 		abs(currentPosition - expandedPosition) < abs(currentPosition - contractedPosition) ? expandedPosition : contractedPosition
 		
+		// Dividing distance to cover b animation duration to get the velocity of height change
 		let distanceToCover = currentPosition - targetPosition
 		let animationDuration = max(
 			0.08,
 			min(0.3, TimeInterval(abs(distanceToCover/verticalVelocity))))
 		
+		// Setting the height to the sticky point's value
 		setTopOffset(targetPosition, animationDuration: animationDuration)
 	}
 }
 
+
 extension PullUpContainer {
+	// Useful class for grouping portrait and landscape constraints.
 	private class ConstraintFamily {
 		var top: NSLayoutConstraint?
 		var trailing: NSLayoutConstraint?
@@ -521,6 +538,8 @@ extension PullUpContainer {
 			setActivationStatus(to: false)
 		}
 		
+		
+		// A function for activating and deactivating all constraints
 		private func setActivationStatus(to newStatus: Bool) {
 			
 			let constraints = [
@@ -539,6 +558,7 @@ extension PullUpContainer {
 			}
 		}
 		
+		// Deactivate constraints before deinitializing.
 		deinit {
 			deactivate()
 		}
@@ -546,17 +566,13 @@ extension PullUpContainer {
 }
 
 extension UIViewController {
+	// Convinience function for adding a pull up container to a parent view controller
 	func addPullUpContainer(_ pullUpContainer: PullUpContainer) {
 		pullUpContainer.add(toParent: self)
 	}
 	
+	// Convinience functions for removing a pull up container from a parent view controller
 	func removePullUpContainer(_ pullUpContainer: PullUpContainer) {
 		pullUpContainer.remove(fromParent: self, animated: true)
-	}
-	
-	func layoutIfNeededAndVisible() {
-		if self.viewIfLoaded?.window != nil {
-			view.layoutIfNeeded()
-		}
 	}
 }

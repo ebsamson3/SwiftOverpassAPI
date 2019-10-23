@@ -136,42 +136,12 @@ class MapViewController: UIViewController {
 		}
 		
 		// Otherwise, conver the region to a mapRect and pad the region with the edge insets.
-		let rect = mapRect(region: region)
+		let rect = region.toMKMapRect()
 		
 		mapView.setVisibleMapRect(
 			rect,
 			edgePadding: edgeInsets,
 			animated: true)
-	}
-	
-	/*
-		Converting a map regin to a map rect.
-		Copy-Pasta'd from:
-		https://stackoverflow.com/questions/9270268/convert-mkcoordinateregion-to-mkmaprect
-	*/
-	func mapRect(region: MKCoordinateRegion) -> MKMapRect {
-		let topLeft = CLLocationCoordinate2D(
-			latitude: region.center.latitude + (region.span.latitudeDelta/2.0),
-			longitude: region.center.longitude - (region.span.longitudeDelta/2.0)
-		)
-		
-		let bottomRight = CLLocationCoordinate2D(
-			latitude: region.center.latitude - (region.span.latitudeDelta/2.0),
-			longitude: region.center.longitude + (region.span.longitudeDelta/2.0)
-		)
-		
-		let topLeftMapPoint = MKMapPoint(topLeft)
-		let bottomRightMapPoint = MKMapPoint(bottomRight)
-		
-		let origin = MKMapPoint(
-			x: topLeftMapPoint.x,
-			y: topLeftMapPoint.y)
-		
-		let size = MKMapSize(
-			width: fabs(bottomRightMapPoint.x - topLeftMapPoint.x),
-			height: fabs(bottomRightMapPoint.y - topLeftMapPoint.y))
-		
-		return MKMapRect(origin: origin, size: size)
 	}
 	
 	// Whenever the user gestures on the mapView, notify the viewModel and pass the gesture recognizer.

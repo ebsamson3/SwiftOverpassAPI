@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Functions for adding and removing child view controllers from a parent view controller
 extension UIViewController {
 	
 	private func add(childViewController viewController: UIViewController) {

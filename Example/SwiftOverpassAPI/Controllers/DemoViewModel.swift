@@ -42,7 +42,7 @@ class DemoViewModel {
 		loadingStatusDidChangeTo?(true)
 		
 		// The square geographic region in which results will be requested
-		let region = demo.region
+		let region = demo.defaultRegion
 		
 		// Inset the query region to get the region that will be displayed on the mapView. This prevents query boundaries from being visible when the query results are first displayed.
 		let queryRect = region.toMKMapRect()

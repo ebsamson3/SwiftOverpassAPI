@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Custom UIColor that can be changed to modify the color of all mapView overlays and annotations
 extension UIColor {
 	static let theme = UIColor.blue
 }
