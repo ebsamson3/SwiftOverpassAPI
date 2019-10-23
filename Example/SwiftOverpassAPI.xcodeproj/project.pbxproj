@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F488CDA235FE53D00622868 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F488CD9235FE53D00622868 /* UIColor+Extensions.swift */; };
 		5F58CFA6235F7044002257B7 /* SelectDemoTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F58CF8A235F7043002257B7 /* SelectDemoTableViewModel.swift */; };
 		5F58CFA8235F7044002257B7 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F58CF8C235F7043002257B7 /* MapViewController.swift */; };
 		5F58CFA9235F7044002257B7 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F58CF8D235F7043002257B7 /* DemoViewController.swift */; };
@@ -52,6 +53,7 @@
 /* Begin PBXFileReference section */
 		25224E2C87257F074FF794BA /* Pods-SwiftOverpassAPI_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftOverpassAPI_Tests.debug.xcconfig"; path = "Target Support Files/Pods-SwiftOverpassAPI_Tests/Pods-SwiftOverpassAPI_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		43323504FE1060CB13F828EA /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		5F488CD9235FE53D00622868 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		5F58CF8A235F7043002257B7 /* SelectDemoTableViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDemoTableViewModel.swift; sourceTree = "<group>"; };
 		5F58CF8C235F7043002257B7 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		5F58CF8D235F7043002257B7 /* DemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				5F58CF8A235F7043002257B7 /* SelectDemoTableViewModel.swift */,
 				5F58CF8C235F7043002257B7 /* MapViewController.swift */,
 				5F58CF90235F7043002257B7 /* DemoMapViewModel.swift */,
+				5F58CF9C235F7043002257B7 /* PullUpContainer.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -151,8 +154,8 @@
 			isa = PBXGroup;
 			children = (
 				5F58CF93235F7043002257B7 /* CellSelectable.swift */,
-				5F58CF94235F7043002257B7 /* TableViewModel.swift */,
 				5F58CF95235F7043002257B7 /* CellRepresentable.swift */,
+				5F58CF94235F7043002257B7 /* TableViewModel.swift */,
 				5F58CF96235F7043002257B7 /* MapViewModel.swift */,
 			);
 			path = Protocols;
@@ -165,8 +168,8 @@
 				5F58CF99235F7043002257B7 /* MKCoordinateRegion+Extensions.swift */,
 				5F58CF9A235F7043002257B7 /* UIView+Extensions.swift */,
 				5F58CF9B235F7043002257B7 /* PullUpViewController.swift */,
-				5F58CF9C235F7043002257B7 /* PullUpContainer.swift */,
 				5F58CF9D235F7043002257B7 /* NSLayoutContstraint+Extensions.swift */,
+				5F488CD9235FE53D00622868 /* UIColor+Extensions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 				5F58CFB3235F7044002257B7 /* MKCoordinateRegion+Extensions.swift in Sources */,
 				5F58CFB5235F7044002257B7 /* PullUpViewController.swift in Sources */,
 				5F58CFB4235F7044002257B7 /* UIView+Extensions.swift in Sources */,
+				5F488CDA235FE53D00622868 /* UIColor+Extensions.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				5F58CFAE235F7044002257B7 /* CellSelectable.swift in Sources */,
 				5F58CFBA235F7044002257B7 /* SelectableCellViewModel.swift in Sources */,

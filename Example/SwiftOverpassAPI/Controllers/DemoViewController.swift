@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  DemoViewController.swift
 //  OverpassDemo
 //
 //  Created by Edward Samson on 10/8/19.
@@ -9,32 +9,45 @@
 import UIKit
 import MapKit
 
+// Main view controller for running various overpass API demos
 class DemoViewController: UIViewController {
 	
+	// Max and min heights above for the pull up container view while the device is in portrait orientation
 	let minPortraitHeight: CGFloat = 44
 	let maxPortraitHeight: CGFloat = 300
+	
+	// Frame of the pull up container while the device is in landscape orientation.
 	let landscapeFrame = CGRect(x: 16, y: 16, width: 250, height: 300)
 	
+
+	// DemoViewController has two main child view controllers, a MapViewController and a TableViewController. This is mirrored by the DemoViewController's view model, which has two child view models: a MapViewModel and a TableViewModel.
 	private lazy var mapViewController = MapViewController(
 		viewModel: viewModel.mapViewModel
 	)
-	
 	private lazy var tableViewController = TableViewController(
 		viewModel: viewModel.tableViewModel)
 	
+	// The table view controller is placed inside of a custom container view controller that enables the tableview to be pulled up from the bottom of the screen.
 	private lazy var pullUpContainer: PullUpContainer = {
 		
+		// Embed the tableViewController inside the pull up controller
 		let pullUpContainer = PullUpContainer(
 			contentViewController: tableViewController)
 		
+		// Configuring the pull up container's dimensions after initialization
 		pullUpContainer.headerViewHeight = minPortraitHeight
 		pullUpContainer.minPortraitHeight = minPortraitHeight
 		pullUpContainer.maxPortraitHeight = maxPortraitHeight
 		pullUpContainer.landscapeFrame = landscapeFrame
+		
+		// Setting the pull up container delegate to the DemoViewController
 		pullUpContainer.delegate = self
+		
+		// Return the pull up container after it has been configured
 		return pullUpContainer
 	}()
 	
+	// A spinner for indicating that an Overpass query is in progress
 	private let spinner: UIActivityIndicatorView = {
 		let spinner = UIActivityIndicatorView()
 		spinner.hidesWhenStopped = true
@@ -42,18 +55,22 @@ class DemoViewController: UIViewController {
 		return spinner
 	}()
 	
+	// While loading, change the navigation bar title to "Fetching results..."
 	private let loadingLabel: UILabel = {
 		let label = UILabel()
 		label.text = "Fetching results..."
 		return label
 	}()
 	
+	// The DemoViewController's main view model
 	let viewModel: DemoViewModel
 	
+	// Initialize the view controller with a demo view model
 	init(viewModel: DemoViewModel) {
 		self.viewModel = viewModel
 		super.init(nibName: nil, bundle: nil)
 		
+		// Connecting the navigation bar title and activity spinner animation to the loading status of the view model
 		viewModel.loadingStatusDidChangeTo = { [weak self] isLoading in
 			if isLoading {
 				self?.navigationItem.titleView = self?.loadingLabel
@@ -65,18 +82,22 @@ class DemoViewController: UIViewController {
 			}
 		}
 		
+		// After configuring the view model we run it.
 		viewModel.run()
 	}
 	
+	// Required boilerplate
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
+	// Configure the view constraints on view did load
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		configure()
 	}
 	
+	// Once the view has appeared, run pullUpContainer(statudDidChange:) to adjust the map view content so that it isn't covered by the pull up container.
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		
@@ -87,10 +108,14 @@ class DemoViewController: UIViewController {
 	}
 	
 	private func configure() {
+		// Add the mapViewController as a child view controller to demoViewController
 		addChild(mapViewController)
 		mapViewController.didMove(toParent: self)
 
+		// Calls the viewDidLoad() method of the mapViewController
 		_ = mapViewController.view
+		
+		// Add the view of the mapViewControlelr as a subview to the demoViewController's view and configure it's constraints.
 		let mapView = mapViewController.mapView
 		view.addSubview(mapView)
 		mapViewController.view.translatesAutoresizingMaskIntoConstraints = false
@@ -98,8 +123,11 @@ class DemoViewController: UIViewController {
 		mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
 		mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 		mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+		
+		// Add the pull up container as a child view controller to the demoViewController
 		addPullUpContainer(pullUpContainer)
 		
+		// Lastly, add the spinner as a subview to the demoViewController's view and setup it's constraints
 		view.addSubview(spinner)
 		spinner.translatesAutoresizingMaskIntoConstraints = false
 		spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -108,14 +136,12 @@ class DemoViewController: UIViewController {
 }
 
 extension DemoViewController: PullUpContainerDelegate {
+	
+	// Called whenever the pullUpContainer's frame changes. Adjusts the mapView's content so that it is centered on the portion of the mapVeiw that isn't covered by the pullUpContainer.
 	func pullUpContainer(statusDidChangeTo status: PullUpContainer.Status) {
 		switch status {
 		case .portrait(let height):
 			if height == maxPortraitHeight || height == minPortraitHeight  {
-				print(view.safeAreaLayoutGuide)
-				print(view.layoutMargins)
-				print(additionalSafeAreaInsets)
-				
 				let edgeInsets = UIEdgeInsets(
 					top: 0,
 					left: 0,

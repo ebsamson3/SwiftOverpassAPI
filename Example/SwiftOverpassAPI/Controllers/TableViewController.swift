@@ -8,6 +8,7 @@
 
 import UIKit
 
+// A basic MVVM TableViewController 
 class TableViewController: UIViewController {
 	
 	let viewModel: TableViewModel
@@ -38,6 +39,7 @@ class TableViewController: UIViewController {
 		viewModel.registerCells(tableView: tableView)
 	}
 	
+	// Configure the tableView's constaints
 	private func configure() {
 		view.addSubview(tableView)
 		tableView.translatesAutoresizingMaskIntoConstraints = false

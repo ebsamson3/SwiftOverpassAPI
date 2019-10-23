@@ -30,7 +30,7 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'SwiftOverpassAPI/Source/**/*.swift'
+  s.source_files = 'Source/**/*.swift'
   
   # s.resource_bundles = {
   #   'SwiftOverpassAPI' => ['SwiftOverpassAPI/Assets/*.png']
