@@ -13,8 +13,12 @@ import MapKit
 class DemoViewController: UIViewController {
 	
 	// Max and min heights above for the pull up container view while the device is in portrait orientation
-	let minPortraitHeight: CGFloat = 44
-	let maxPortraitHeight: CGFloat = 300
+	lazy var minPortraitHeight: CGFloat = 44
+	lazy var maxPortraitHeight: CGFloat = {
+		let bounds = UIScreen.main.bounds
+		let maxDimension = max(bounds.width, bounds.height)
+		return maxDimension * 0.4
+	}()
 	
 	// Frame of the pull up container while the device is in landscape orientation.
 	let landscapeFrame = CGRect(x: 16, y: 16, width: 250, height: 300)
@@ -153,7 +157,7 @@ extension DemoViewController: PullUpContainerDelegate {
 			let edgeInsets = UIEdgeInsets(
 				top: 0,
 				left: landscapeFrame.origin.x + landscapeFrame.width + view.layoutMargins.left,
-				bottom: -view.safeAreaInsets.bottom,
+				bottom: 0,
 				right: 0)
 			mapViewController.setEdgeInsets(to: edgeInsets)
 		}
