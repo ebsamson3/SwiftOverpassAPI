@@ -30,7 +30,7 @@
 		5F888CD5235ADA4600B478C5 /* OPQueryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CBC235ADA4600B478C5 /* OPQueryBuilder.swift */; };
 		5F888CD6235ADA4600B478C5 /* TagChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CBE235ADA4600B478C5 /* TagChecker.swift */; };
 		5F888CD7235ADA4600B478C5 /* CLLocationCoordinate2D+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CBF235ADA4600B478C5 /* CLLocationCoordinate2D+Extensions.swift */; };
-		5F888CD8235ADA4600B478C5 /* OPQueryResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CC0235ADA4600B478C5 /* OPQueryResult.swift */; };
+		5F888CD8235ADA4600B478C5 /* OPClientResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CC0235ADA4600B478C5 /* OPClientResult.swift */; };
 		5F888CD9235ADA4600B478C5 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CC1235ADA4600B478C5 /* Errors.swift */; };
 		5F888CDA235ADA4600B478C5 /* DecoderExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CC2235ADA4600B478C5 /* DecoderExtractor.swift */; };
 		5F888CDC235AE4B100B478C5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CDB235AE4B100B478C5 /* Constants.swift */; };
@@ -94,7 +94,7 @@
 		5F888CBC235ADA4600B478C5 /* OPQueryBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPQueryBuilder.swift; sourceTree = "<group>"; };
 		5F888CBE235ADA4600B478C5 /* TagChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagChecker.swift; sourceTree = "<group>"; };
 		5F888CBF235ADA4600B478C5 /* CLLocationCoordinate2D+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Extensions.swift"; sourceTree = "<group>"; };
-		5F888CC0235ADA4600B478C5 /* OPQueryResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPQueryResult.swift; sourceTree = "<group>"; };
+		5F888CC0235ADA4600B478C5 /* OPClientResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPClientResult.swift; sourceTree = "<group>"; };
 		5F888CC1235ADA4600B478C5 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		5F888CC2235ADA4600B478C5 /* DecoderExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecoderExtractor.swift; sourceTree = "<group>"; };
 		5F888CDB235AE4B100B478C5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -196,6 +196,7 @@
 				5F888CB1235ADA4600B478C5 /* OPBoundingBox.swift */,
 				5F888CB4235ADA4600B478C5 /* OPGeometry.swift */,
 				5F888CB5235ADA4600B478C5 /* OPMapKitVisualization.swift */,
+				5F888CC0235ADA4600B478C5 /* OPClientResult.swift */,
 				5F888CB0235ADA4600B478C5 /* NestedPolygonCoordinates.swift */,
 				5F888CB2235ADA4600B478C5 /* ElementCodingKeys.swift */,
 				5F888CB3235ADA4600B478C5 /* ElementsCodingKeys.swift */,
@@ -218,7 +219,6 @@
 			isa = PBXGroup;
 			children = (
 				5F888CBF235ADA4600B478C5 /* CLLocationCoordinate2D+Extensions.swift */,
-				5F888CC0235ADA4600B478C5 /* OPQueryResult.swift */,
 				5F888CC1235ADA4600B478C5 /* Errors.swift */,
 				5F888CC2235ADA4600B478C5 /* DecoderExtractor.swift */,
 				5F888CDB235AE4B100B478C5 /* Constants.swift */,
@@ -521,7 +521,7 @@
 				5F888CD4235ADA4600B478C5 /* PolygonChecker.swift in Sources */,
 				5F888CCB235ADA4600B478C5 /* OPBoundingBox.swift in Sources */,
 				5F888CCC235ADA4600B478C5 /* ElementCodingKeys.swift in Sources */,
-				5F888CD8235ADA4600B478C5 /* OPQueryResult.swift in Sources */,
+				5F888CD8235ADA4600B478C5 /* OPClientResult.swift in Sources */,
 				5F888CD2235ADA4600B478C5 /* OPVisualizationGenerator.swift in Sources */,
 				5F888CDA235ADA4600B478C5 /* DecoderExtractor.swift in Sources */,
 				5F888CC3235ADA4600B478C5 /* OPDecodingOperation.swift in Sources */,

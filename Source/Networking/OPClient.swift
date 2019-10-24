@@ -92,7 +92,7 @@ public class OPClient {
 	// A fetch request to the api. Requires a query that is written in the Overpass API language. For simple queries, the OverpassQueryBuilder class can be used to conviniently build queries.
 	public func fetchElements(
 		query: String,
-		completion: @escaping (OPQueryResult<[Int: OPElement]>) -> Void)
+		completion: @escaping (OPClientResult) -> Void)
 	{
 		// Store the current query and cancel any ongoing fetches by the client
 		self.query = query
