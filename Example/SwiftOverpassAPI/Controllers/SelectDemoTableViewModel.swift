@@ -18,7 +18,9 @@ class SelectDemoTableViewModel: NSObject, TableViewModel {
 	// An array of demo objects
 	let demos = [
 		Demo.makeHotelQuery(),
-		Demo.makeChicagoBuildingsQuery()
+		Demo.makeChicagoBuildingsQuery(),
+		Demo.makeChicagoTourismQuery(),
+		Demo.makeSanFranciscoRoutesQuery()
 	]
 	
 	// Initializing a simple selectable cellViewModel for each demo. The title is the corresponding demo's title.

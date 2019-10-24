@@ -158,7 +158,6 @@ class ElementDecodingOperation: Operation {
 			
 			geometry = .center(coordinate)
 			
-			
 		} else {
 			// If center was not specified, we will attempt to create the way's full geometry.
 			
@@ -187,7 +186,7 @@ class ElementDecodingOperation: Operation {
 				// If full geometry was not specified, we will attempt to get the coordinates for each of the way's points from previously decoded nodes. This is why I've chosen to decode all of the nodes prior to decoding the ways. I've tried decoding all of the element types in one step and then constructing the geometries later, but this felt slightly cleaner to me.
 				coordinates = nodes.compactMap {
 					// If the element's geometry is a single coordinate, add it too the way's geometry array. Otherwise, return nil
-					guard case .center(let coordinate) = elements[$0]?.geometry else {
+					guard case .center(let coordinate) = _elements[$0]?.geometry else {
 						return nil
 					}
 					return coordinate

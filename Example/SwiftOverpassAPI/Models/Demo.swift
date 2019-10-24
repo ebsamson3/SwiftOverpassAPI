@@ -65,12 +65,12 @@ extension Demo {
 		let title = "Chicago buildings"
 		let resultUnit = "Building"
 
-		let stLouisCoordinate = CLLocationCoordinate2D(
+		let chicagoCoordinate = CLLocationCoordinate2D(
 			latitude: 41.8781,
 			longitude: -87.6298)
 
 		let region = MKCoordinateRegion(
-			center: stLouisCoordinate,
+			center: chicagoCoordinate,
 			latitudinalMeters: 5000,
 			longitudinalMeters: 5000)
 
@@ -83,6 +83,75 @@ extension Demo {
 				.setElementTypes([.way, .relation])
 				.addTagFilter(key: "building")
 				.addTagFilter(key: "name")
+				.setBoundingBox(boundingBox)
+				.setOutputType(.geometry)
+				.buildQueryString()
+		}
+
+		return Demo(
+			title: title,
+			resultUnit: resultUnit,
+			defaultRegion: region,
+			queryGenerator: queryGenerator)
+	}
+	
+	static func makeChicagoTourismQuery() -> Demo {
+
+		let title = "Chicago tourist attractions"
+		let resultUnit = "Attraction"
+
+		let chicagoCoordinate = CLLocationCoordinate2D(
+			latitude: 41.8781,
+			longitude: -87.6298)
+
+		let region = MKCoordinateRegion(
+			center: chicagoCoordinate,
+			latitudinalMeters: 10000,
+			longitudinalMeters: 10000)
+
+		let queryGenerator: (MKCoordinateRegion) -> String = { region in
+
+			let boundingBox = BoundingBox.init(region: region)
+
+			return try! OverpassQueryBuilder()
+				.setTimeOut(180)
+				.setElementTypes([.node, .way, .relation])
+				.addTagFilter(key: "tourism")
+				.setBoundingBox(boundingBox)
+				.setOutputType(.center)
+				.buildQueryString()
+		}
+
+		return Demo(
+			title: title,
+			resultUnit: resultUnit,
+			defaultRegion: region,
+			queryGenerator: queryGenerator)
+	}
+	
+	static func makeSanFranciscoRoutesQuery() -> Demo {
+
+		let title = "BART subway lines"
+		let resultUnit = "Route"
+
+		let sanFranciscoCoordinate = CLLocationCoordinate2D(
+			latitude: 37.7749,
+			longitude: -122.4194)
+
+		let region = MKCoordinateRegion(
+			center: sanFranciscoCoordinate,
+			latitudinalMeters: 50000,
+			longitudinalMeters: 50000)
+
+		let queryGenerator: (MKCoordinateRegion) -> String = { region in
+
+			let boundingBox = BoundingBox.init(region: region)
+
+			return try! OverpassQueryBuilder()
+				.setTimeOut(180)
+				.setElementTypes([.relation])
+				.addTagFilter(key: "network", value: "BART")
+				.addTagFilter(key: "type", value: "route")
 				.setBoundingBox(boundingBox)
 				.setOutputType(.geometry)
 				.buildQueryString()
