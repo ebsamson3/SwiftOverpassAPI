@@ -1,6 +1,6 @@
 //
-//  OverpassQueryOutputType.swift
-//  OverpassApiVisualizer
+//  OPQueryOutputType.swift
+//  SwiftOverpassAPI
 //
 //  Created by Edward Samson on 10/11/19.
 //  Copyright © 2019 Edward Samson. All rights reserved.
@@ -15,7 +15,7 @@ import Foundation
 	Geometry: Each returned element will contain a list of coorindates that define it's geometry.
 	Center: Each returned element will contain it's center point. Use this if you are only concerned with representing the element as a single point or marker on a map.
 */
-public enum OverpassQueryOutputType: CaseIterable {
+public enum OPQueryOutputType: CaseIterable {
 	case standard, center, geometry, recurseDown, recurseUp
 	
 	// The Overpass API language syntax for each output type

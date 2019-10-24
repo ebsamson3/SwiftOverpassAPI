@@ -1,6 +1,6 @@
 //
 //  DemoMapViewModel.swift
-//  OverpassDemo
+//  SwiftOverpassAPI_Example
 //
 //  Created by Edward Samson on 10/11/19.
 //  Copyright © 2019 Edward Samson. All rights reserved.

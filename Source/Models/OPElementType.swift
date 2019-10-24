@@ -1,6 +1,6 @@
 //
-//  ElementType.swift
-//  OverpassApiVisualizer
+//  OPElementType.swift
+//  SwiftOverpassAPI
 //
 //  Created by Edward Samson on 10/5/19.
 //  Copyright © 2019 Edward Samson. All rights reserved.
@@ -14,7 +14,7 @@ import Foundation
 	Way: A collection of nodes that form a polylinear or polygonal geographic feature. Common examples include road ands buildings.
 	Relation: A collection of related overpass members. Members can be nodes, ways (paths made up of nodes), and other relations.
 */
-public enum ElementType: String, Codable {
+public enum OPElementType: String, Codable {
 	case node = "node"
 	case way = "way"
 	case relation = "relation"

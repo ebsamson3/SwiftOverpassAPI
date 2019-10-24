@@ -1,6 +1,6 @@
 //
-//  ElementsAnnotationGenerator.swift
-//  OverpassApiVisualizer
+//  OPVisualizationGenerator.swift
+//  SwiftOverpassAPI
 //
 //  Created by Edward Samson on 10/5/19.
 //  Copyright © 2019 Edward Samson. All rights reserved.
@@ -9,12 +9,12 @@
 
 import MapKit
 
-public struct VisualizationGenerator {
+public struct OPVisualizationGenerator {
 	
 	// Pass in an array of decoded overpass objects to get their respective mapkit visualizations (annotations and polygons, depending on object type).
 	
 	public static func mapKitVisualizations(
-		forElements elements: [Int: Element]) -> [Int: OPMapKitVisualization]
+		forElements elements: [Int: OPElement]) -> [Int: OPMapKitVisualization]
 	{
 		
 		// For each key: Overpass ID and value: Decodeded Overpass Element
@@ -42,7 +42,7 @@ public struct VisualizationGenerator {
 	}
 	
 	// Generates a mapkit visualization for a given decoded overpass element
-	public static func mapKitVisualization(forElement element: Element) -> OPMapKitVisualization? {
+	public static func mapKitVisualization(forElement element: OPElement) -> OPMapKitVisualization? {
 		
 		// Different element geometries require different classes of mapkit visualizations
 		switch element.geometry {

@@ -1,6 +1,6 @@
 //
-//  ElementCenter.swift
-//  OverpassApiVisualizer
+//  OPElementCenter.swift
+//  SwiftOverpassAPI
 //
 //  Created by Edward Samson on 10/7/19.
 //  Copyright © 2019 Edward Samson. All rights reserved.
@@ -9,13 +9,13 @@
 import CoreLocation
 
 // Used to decode an element's center coordinate from an element's JSON dicitonary
-struct ElementCenter {
+struct OPElementCenter {
 	
 	let latitude: Double
 	let longitude: Double
 }
 
-extension ElementCenter: Decodable {
+extension OPElementCenter: Decodable {
 	enum CodingKeys: String, CodingKey {
 		case laitude = "lat"
 		case longitude = "lon"
@@ -28,7 +28,7 @@ extension ElementCenter: Decodable {
 	}
 }
 
-extension ElementCenter {
+extension OPElementCenter {
 	func toCoordinate() -> CLLocationCoordinate2D {
 		return CLLocationCoordinate2D(
 			latitude: latitude,

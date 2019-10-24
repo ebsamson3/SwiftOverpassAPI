@@ -1,6 +1,6 @@
 //
 //  DemoTableViewModel.swift
-//  OverpassDemo
+//  SwiftOverpassAPI_Example
 //
 //  Created by Edward Samson on 10/15/19.
 //  Copyright © 2019 Edward Samson. All rights reserved.
@@ -59,7 +59,7 @@ class DemoTableViewModel: NSObject, TableViewModel {
 	}
 	
 	// Generate cellViewModels for each element
-	func generateCellViewModels(forElements elements: [Int: Element]) {
+	func generateCellViewModels(forElements elements: [Int: OPElement]) {
 		
 		// Perform cellViewModel generation off the main thread to keep UI responsive
 		DispatchQueue.global(qos: .userInitiated).async { [weak self] in

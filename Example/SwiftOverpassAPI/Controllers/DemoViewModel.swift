@@ -1,6 +1,6 @@
 //
 //  DemoViewModel.swift
-//  OverpassDemo
+//  SwiftOverpassAPI_Example
 //
 //  Created by Edward Samson on 10/8/19.
 //  Copyright © 2019 Edward Samson. All rights reserved.
@@ -12,12 +12,12 @@ import SwiftOverpassAPI
 class DemoViewModel {
 	
 	let demo: Demo // Contains Overpass query details
-	let overpassClient: OverpassClient // The client for requesting/decoding Overpass data
+	let overpassClient: OPClient // The client for requesting/decoding Overpass data
 	
 	// Overpass request did start/finish
 	var loadingStatusDidChangeTo: ((_ isLoading: Bool) -> Void)?
 	
-	var elements = [Int: Element]() // Elements returned by an Overpass request
+	var elements = [Int: OPElement]() // Elements returned by an Overpass request
 	
 	// Configures Overpass visualizations for mapKit display
 	let mapViewModel = DemoMapViewModel()
@@ -30,7 +30,7 @@ class DemoViewModel {
 	}()
 	
 	// DemoViewModel is initialized with an overpass client and a demo that contains specific Overpass query details.
-	init(demo: Demo, overpassClient: OverpassClient) {
+	init(demo: Demo, overpassClient: OPClient) {
 		self.demo = demo
 		self.overpassClient = overpassClient
 	}
@@ -65,7 +65,7 @@ class DemoViewModel {
 				self.tableViewModel.generateCellViewModels(forElements: elements)
 				
 				// Generate mapKit visualizations for the returned elements using a static visualization generator
-				let visualizations = VisualizationGenerator
+				let visualizations = OPVisualizationGenerator
 					.mapKitVisualizations(forElements: elements)
 				
 				// Add the generated visualizations to the mapView via the mapViewModel

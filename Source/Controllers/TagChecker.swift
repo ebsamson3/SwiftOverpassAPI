@@ -1,6 +1,6 @@
 //
 //  TagChecker.swift
-//  OverpassApiVisualizer
+//  SwiftOverpassAPI
 //
 //  Created by Edward Samson on 10/5/19.
 //  Copyright © 2019 Edward Samson. All rights reserved.

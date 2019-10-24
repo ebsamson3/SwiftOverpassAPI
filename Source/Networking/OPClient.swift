@@ -1,6 +1,6 @@
 //
-//  OverpassClient.swift
-//  OverpassApiVisualizer
+//  OPClient.swift
+//  SwiftOverpassAPI
 //
 //  Created by Edward Samson on 10/5/19.
 //  Copyright © 2019 Edward Samson. All rights reserved.
@@ -9,7 +9,7 @@
 import CoreLocation
 
 // A class for making requests to an Overpass API endpoint and decoding the subsequent response
-public class OverpassClient {
+public class OPClient {
 	
 	/*
 		These are the endpoints listed at:
@@ -92,7 +92,7 @@ public class OverpassClient {
 	// A fetch request to the api. Requires a query that is written in the Overpass API language. For simple queries, the OverpassQueryBuilder class can be used to conviniently build queries.
 	public func fetchElements(
 		query: String,
-		completion: @escaping (Result<[Int: Element]>) -> Void)
+		completion: @escaping (OPQueryResult<[Int: OPElement]>) -> Void)
 	{
 		// Store the current query and cancel any ongoing fetches by the client
 		self.query = query
@@ -133,17 +133,17 @@ public class OverpassClient {
 				let httpResponse = response as? HTTPURLResponse,
 				httpResponse.statusCode != 200
 			{
-				completion(.failure(OverpassRequestError.badResponse(httpResponse)))
+				completion(.failure(OPRequestError.badResponse(httpResponse)))
 			}
 			
 			// If the request returned nil data, abort
 			guard let data = data else {
-				completion(.failure(OverpassRequestError.nilData))
+				completion(.failure(OPRequestError.nilData))
 				return
 			}
 			
 			// initialize an operation to return the decoded data
-			let operation = ElementDecodingOperation(data: data)
+			let operation = OPDecodingOperation(data: data)
 			
 			// On completion of the operation, if no errors are thrown and the oepration wasn't cancelled, pass the decoded elements to the completion handler.
 			operation.completionBlock = {

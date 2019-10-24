@@ -1,6 +1,6 @@
 //
 //  Demo.swift
-//  OverpassDemo
+//  SwiftOverpassAPI_Example
 //
 //  Created by Edward Samson on 10/8/19.
 //  Copyright © 2019 Edward Samson. All rights reserved.
@@ -43,9 +43,9 @@ extension Demo {
 
 		let queryGenerator: (MKCoordinateRegion) -> String = { region in
 
-			let boundingBox = BoundingBox.init(region: region)
+			let boundingBox = OPBoundingBox.init(region: region)
 
-			return try! OverpassQueryBuilder()
+			return try! OPQueryBuilder()
 				.setElementTypes([.node, .way, .relation])
 				.addTagFilter(key: "tourism", value: "hotel")
 				.setBoundingBox(boundingBox)
@@ -76,9 +76,9 @@ extension Demo {
 
 		let queryGenerator: (MKCoordinateRegion) -> String = { region in
 
-			let boundingBox = BoundingBox.init(region: region)
+			let boundingBox = OPBoundingBox.init(region: region)
 
-			return try! OverpassQueryBuilder()
+			return try! OPQueryBuilder()
 				.setTimeOut(180)
 				.setElementTypes([.way, .relation])
 				.addTagFilter(key: "building")
@@ -111,9 +111,9 @@ extension Demo {
 
 		let queryGenerator: (MKCoordinateRegion) -> String = { region in
 
-			let boundingBox = BoundingBox.init(region: region)
+			let boundingBox = OPBoundingBox.init(region: region)
 
-			return try! OverpassQueryBuilder()
+			return try! OPQueryBuilder()
 				.setTimeOut(180)
 				.setElementTypes([.node, .way, .relation])
 				.addTagFilter(key: "tourism")
@@ -145,9 +145,44 @@ extension Demo {
 
 		let queryGenerator: (MKCoordinateRegion) -> String = { region in
 
-			let boundingBox = BoundingBox.init(region: region)
+			let boundingBox = OPBoundingBox.init(region: region)
 
-			return try! OverpassQueryBuilder()
+			return try! OPQueryBuilder()
+				.setTimeOut(180)
+				.setElementTypes([.relation])
+				.addTagFilter(key: "network", value: "BART")
+				.addTagFilter(key: "type", value: "route")
+				.setBoundingBox(boundingBox)
+				.setOutputType(.geometry)
+				.buildQueryString()
+		}
+
+		return Demo(
+			title: title,
+			resultUnit: resultUnit,
+			defaultRegion: region,
+			queryGenerator: queryGenerator)
+	}
+	
+	static func theatresNearBARTStopsQuery() -> Demo {
+
+		let title = "Theatres near BART stops"
+		let resultUnit = "Theatre"
+
+		let sanFranciscoCoordinate = CLLocationCoordinate2D(
+			latitude: 37.7749,
+			longitude: -122.4194)
+
+		let region = MKCoordinateRegion(
+			center: sanFranciscoCoordinate,
+			latitudinalMeters: 50000,
+			longitudinalMeters: 50000)
+
+		let queryGenerator: (MKCoordinateRegion) -> String = { region in
+
+			let boundingBox = OPBoundingBox.init(region: region)
+
+			return try! OPQueryBuilder()
 				.setTimeOut(180)
 				.setElementTypes([.relation])
 				.addTagFilter(key: "network", value: "BART")

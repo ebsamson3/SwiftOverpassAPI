@@ -1,6 +1,6 @@
 //
-//  OverpassQueryBuilder.swift
-//  OverpassApiVisualizer
+//  OPQueryBuilder.swift
+//  SwiftOverpassAPI
 //
 //  Created by Edward Samson on 10/11/19.
 //  Copyright © 2019 Edward Samson. All rights reserved.
@@ -14,7 +14,7 @@
 
 import Foundation
 
-public class OverpassQueryBuilder {
+public class OPQueryBuilder {
 	
 	// Overpass API results have a dictionary of descriptive tag/value pairs. The query builder uses the tag filter struct to filter based on these values.
 	struct TagFilter {
@@ -36,9 +36,9 @@ public class OverpassQueryBuilder {
 	}
 	
 	private var tagFilters = [TagFilter]()
-	private var boundingBox: BoundingBox?
-	private var elementTypes = Set<ElementType>()
-	private var outputType: OverpassQueryOutputType = .standard
+	private var boundingBox: OPBoundingBox?
+	private var elementTypes = Set<OPElementType>()
+	private var outputType: OPQueryOutputType = .standard
 	private var timeOut: Int?
 	private var maxSize: Int?
 	
@@ -61,7 +61,7 @@ public class OverpassQueryBuilder {
 	}
 	
 	// Set search region for query. Defaults to a bounding box for the entire earch.
-	public func setBoundingBox(_ boundingBox: BoundingBox) -> Self {
+	public func setBoundingBox(_ boundingBox: OPBoundingBox) -> Self {
 		
 		self.boundingBox = boundingBox
 		
@@ -69,13 +69,13 @@ public class OverpassQueryBuilder {
 	}
 	
 	// Set the element types the query can return. Possible types: Node, Way, and Relation
-	public func setElementTypes(_ elementTypes: Set<ElementType>) -> Self {
+	public func setElementTypes(_ elementTypes: Set<OPElementType>) -> Self {
 		self.elementTypes = elementTypes
 		return self
 	}
 	
 	//Sets teh output type of a query. Can return center. See OverpassQueryOutputType.swift
-	public func setOutputType(_ outputType: OverpassQueryOutputType) -> Self {
+	public func setOutputType(_ outputType: OPQueryOutputType) -> Self {
 		self.outputType = outputType
 		return self
 	}
@@ -99,7 +99,7 @@ public class OverpassQueryBuilder {
 		
 		// Query will throw if you do not set a least one returned element type.
 		guard elementTypeCount > 0 else {
-			throw QueryBuilderError.noElementTypesSpecified
+			throw OPQueryBuilderError.noElementTypesSpecified
 		}
 		
 		// Header specifying a JSON response from the Overpass endpoint

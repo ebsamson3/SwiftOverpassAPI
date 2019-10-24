@@ -1,6 +1,6 @@
 //
-//  Relation.swift
-//  OverpassApiVisualizer
+//  OPRelation.swift
+//  SwiftOverpassAPI
 //
 //  Created by Edward Samson on 10/2/19.
 //  Copyright © 2019 Edward Samson. All rights reserved.
@@ -9,11 +9,11 @@
 import MapKit
 
 // A collection of related overpass members. Members can be nodes, ways (paths made up of nodes), and other relations.
-public struct Relation: Element {
+public struct OPRelation: OPElement {
 
 	public struct Member {
 		
-		public let type: ElementType // The member's type
+		public let type: OPElementType // The member's type
 		public let id: Int // The member's unique identifier
 		public let role: String // The role a member playes in the relation
 		public let coordinates: [CLLocationCoordinate2D] // The coordinates of the member
@@ -30,10 +30,10 @@ public struct Relation: Element {
 	public let isInteresting: Bool // Relatin contains an interesting descriptive tag
 	public var isSkippable: Bool // Relation is already rendered by a parent element
 	public let members: [Int] // Members that form the relation
-	public let geometry: ElementGeometry // The relation's geometry type
+	public let geometry: OPGeometry // The relation's geometry type
 }
 
-extension Relation {
+extension OPRelation {
 	// Many relations are just collections of related objects, but these relation types require specific renderings
 	static let displayableTypes: Set<String> = [
 		Overpass.Values.multipolygon,

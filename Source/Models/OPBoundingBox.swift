@@ -1,6 +1,6 @@
 //
-//  BoundingBox.swift
-//  OverpassApiVisualizer
+//  OPBoundingBox.swift
+//  SwiftOverpassAPI
 //
 //  Created by Edward Samson on 10/5/19.
 //  Copyright © 2019 Edward Samson. All rights reserved.
@@ -9,7 +9,7 @@
 import MapKit
 
 // The 4 corner coordinates the define a search are of an Overpass API request.
-public struct BoundingBox {
+public struct OPBoundingBox {
 	
 	let minLatitude: Double
 	let minLongitude: Double
@@ -34,7 +34,7 @@ public struct BoundingBox {
 }
 
 // Convinience functions for creating a bounding box
-public extension BoundingBox {
+public extension OPBoundingBox {
 	
 	init(
 		topLeftCoordinate: CLLocationCoordinate2D,

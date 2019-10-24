@@ -1,6 +1,6 @@
 //
-//  OverlayResult.swift
-//  OverpassApiVisualizer
+//  OPMapKitVisualization.swift
+//  SwiftOverpassAPI
 //
 //  Created by Edward Samson on 10/7/19.
 //  Copyright © 2019 Edward Samson. All rights reserved.

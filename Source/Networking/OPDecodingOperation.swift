@@ -1,6 +1,6 @@
 //
-//  ElementDecodingOperation.swift
-//  OverpassApiVisualizer
+//  OPDecodingOperation.swift
+//  SwiftOverpassAPI
 //
 //  Created by Edward Samson on 10/13/19.
 //  Copyright © 2019 Edward Samson. All rights reserved.
@@ -12,14 +12,14 @@ import CoreLocation
 	An operation that decodes the JSON response from an Overpass API request in a dictionary of elements (nodes, ways, and relations). I chose to make decoding an operation so that if a client makes a newer query it can cancel decoding the old query and the new query's decoding process won't start until the cancelled decoding process has been removed.
 */
 
-class ElementDecodingOperation: Operation {
+class OPDecodingOperation: Operation {
 	
-	private var _elements = [Int: Element]() // Decoded Overpass elements from JSON data
+	private var _elements = [Int: OPElement]() // Decoded Overpass elements from JSON data
 	private var _error: Error?
 	private let data: Data // Data to be decoded
 	
 	// Decoded elements can only be read after the operation is finished. Not sure if this is neccesary for safety, but it prevents the elements dictionary from being read from a different thread while writes are occuring on the operation's thread.
-	var elements: [Int: Element] {
+	var elements: [Int: OPElement] {
 		guard isFinished else {
 			return [:]
 		}
@@ -63,7 +63,7 @@ class ElementDecodingOperation: Operation {
 		let elementsContainer = try container.nestedUnkeyedContainer(
 		forKey: .elements)
 		
-		let elementTypes: [ElementType] = [.node, .way, .relation]
+		let elementTypes: [OPElementType] = [.node, .way, .relation]
 		
 		for elementType in elementTypes {
 			
@@ -82,11 +82,11 @@ class ElementDecodingOperation: Operation {
 						keyedBy: ElementCodingKeys.self)
 					
 					// Find the element's type using the nested container. Skip the decoding process if the element's type should not be decoded for this step.
-					let type = try elementContainer.decode(ElementType.self, forKey: .type)
+					let type = try elementContainer.decode(OPElementType.self, forKey: .type)
 					guard elementType == type else { continue }
 					
 					// Decode the element
-					let element: Element
+					let element: OPElement
 					
 					switch elementType {
 					case .node:
@@ -108,7 +108,7 @@ class ElementDecodingOperation: Operation {
 	}
 	
 	// A function for decoding a node inside of a keyed container. This could be done by adding an init(from: Decoder) to our nodes class, but since we can't do the same for Ways and Relations (they require information outside of the decoder to be constructed) I opted for to do it in a separate function to keep things consstent.
-	private func decodeNode(within container: KeyedDecodingContainer<ElementCodingKeys>) throws -> Node {
+	private func decodeNode(within container: KeyedDecodingContainer<ElementCodingKeys>) throws -> OPNode {
 		
 		// Decode the node's id number
 		let id = try container.decode(Int.self, forKey: .id)
@@ -123,7 +123,7 @@ class ElementDecodingOperation: Operation {
 		let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
 		
 		// Return the decoded node
-		return Node(
+		return OPNode(
 			id: id,
 			tags: tags,
 			isInteresting: isInteresting,
@@ -132,7 +132,7 @@ class ElementDecodingOperation: Operation {
 	}
 	
 	// A function for decoding a way inside of a keyed container.
-	private func decodeWay(within container: KeyedDecodingContainer<ElementCodingKeys>) throws -> Way {
+	private func decodeWay(within container: KeyedDecodingContainer<ElementCodingKeys>) throws -> OPWay {
 		
 		// Decode the way's id number
 		let id = try container.decode(Int.self, forKey: .id)
@@ -145,11 +145,11 @@ class ElementDecodingOperation: Operation {
 		let nodes = try container.decode([Int].self, forKey: .nodes)
 		
 		// A coordinate or collection of coordinates that describes the way's geometry. Varies depending on the output format of the query.
-		let geometry: ElementGeometry
+		let geometry: OPGeometry
 		
 		// If center was specified as the output format, the center key will be present in the way's JSON dictionary. If present, decode the way's center and make the geometry a single coordinate.
 		if let center = try container.decodeIfPresent(
-			ElementCenter.self,
+			OPElementCenter.self,
 			forKey: .center)
 		{
 			let coordinate = CLLocationCoordinate2D(
@@ -195,7 +195,7 @@ class ElementDecodingOperation: Operation {
 			
 			// If there was an error generating any of the way's child coordinates, throw an error
 			guard coordinates.count == nodes.count else {
-				throw ElementDecodingError.invalidWayLength(wayId: id)
+				throw OPElementDecoderError.invalidWayLength(wayId: id)
 			}
 			
 			// Check whether or not the way is a polygon, set the geometry enum accordingly.
@@ -211,7 +211,7 @@ class ElementDecodingOperation: Operation {
 		}
 		
 		// Return the decoded way
-		return Way(
+		return OPWay(
 			id: id,
 			tags: tags,
 			isInteresting: isInteresting,
@@ -222,7 +222,7 @@ class ElementDecodingOperation: Operation {
 	
 	// A function for decoding a relation inside of a keyed container.
 	private func decodeRelation(
-		within container: KeyedDecodingContainer<ElementCodingKeys>) throws -> Relation
+		within container: KeyedDecodingContainer<ElementCodingKeys>) throws -> OPRelation
 	{
 		// Decode the way's id number
 		let id = try container.decode(Int.self, forKey: .id)
@@ -235,20 +235,20 @@ class ElementDecodingOperation: Operation {
 		let relationType = tags[Overpass.Keys.type]
 		
 		// If center was specified as the output format, the center key will be present in the relation's JSON dictionary. If present, decode the relation's center.
-		let center = try container.decodeIfPresent(ElementCenter.self, forKey: .center)
+		let center = try container.decodeIfPresent(OPElementCenter.self, forKey: .center)
 		let centerIsPresent = center != nil
 		
 		let isDisplayable: Bool
 		
 		// If the relation has a displayable type, set isDisplayable to true. This will be determine whether the relation should have an associated geometery.
 		if let relationType = relationType {
-			isDisplayable = Relation.displayableTypes.contains(relationType)
+			isDisplayable = OPRelation.displayableTypes.contains(relationType)
 		} else {
 			isDisplayable = false
 		}
 		
 		// A relation is a collection of members. Members can be nodes, ways, or relations.
-		var members: [Relation.Member]
+		var members: [OPRelation.Member]
 		
 		// A container that will be used to decode the relation's member array.
 		var membersContainer = try container.nestedUnkeyedContainer(forKey: .members)
@@ -265,7 +265,7 @@ class ElementDecodingOperation: Operation {
 		let memberIds = members.map { $0.id }
 		
 		// Initializing the geometry variable for the relation.
-		let geometry: ElementGeometry
+		let geometry: OPGeometry
 		
 		// A relation's geometry is a multipolygon if it has one of the following types:
 		let isMultiPolygon =
@@ -277,7 +277,7 @@ class ElementDecodingOperation: Operation {
 				// If the output type is center and the relation type is multipolygon
 				
 				guard let center = center else {
-					throw ElementDecodingError.unexpectedNil(elementId: id)
+					throw OPElementDecoderError.unexpectedNil(elementId: id)
 				}
 				
 				// Denote that each member is skippable, otherwise multiple annotations would correspond to the same object
@@ -309,7 +309,7 @@ class ElementDecodingOperation: Operation {
 		}
 		
 		// Return the decoded relation
-		return Relation(
+		return OPRelation(
 			id: id,
 			tags: tags,
 			isInteresting: isInteresting,
@@ -319,20 +319,20 @@ class ElementDecodingOperation: Operation {
 	}
 	
 	// Decode relation members w/o setting their geometries
-	private func decodeRelationMembers(within container: inout UnkeyedDecodingContainer) throws -> [Relation.Member] {
+	private func decodeRelationMembers(within container: inout UnkeyedDecodingContainer) throws -> [OPRelation.Member] {
 		
-		var members = [Relation.Member]()
+		var members = [OPRelation.Member]()
 		
 		while !container.isAtEnd {
 			
 			// Use a keyed container to decode the id, type, and role of each relation member
-			let memberContainer = try container.nestedContainer(keyedBy: Relation.Member.CodingKeys.self)
+			let memberContainer = try container.nestedContainer(keyedBy: OPRelation.Member.CodingKeys.self)
 			let id = try memberContainer.decode(Int.self, forKey: .id)
-			let type = try memberContainer.decode(ElementType.self, forKey: .type)
+			let type = try memberContainer.decode(OPElementType.self, forKey: .type)
 			let role = try memberContainer.decode(String.self, forKey: .role)
 			
 			// Generate the member object w/ an empty coordinate array
-			let member = Relation.Member(
+			let member = OPRelation.Member(
 				type: type,
 				id: id,
 				role: role,
@@ -345,16 +345,16 @@ class ElementDecodingOperation: Operation {
 	}
 	
 	// Decode relations and set the geometry
-	private func decodeDisplayableRelationMembers(within container: inout UnkeyedDecodingContainer) throws -> [Relation.Member] {
+	private func decodeDisplayableRelationMembers(within container: inout UnkeyedDecodingContainer) throws -> [OPRelation.Member] {
 		
-		var members = [Relation.Member]()
+		var members = [OPRelation.Member]()
 		
 		while !container.isAtEnd {
 			
 			// Use a keyed container to decode the id, type, and role of each relation member
-			let memberContainer = try container.nestedContainer(keyedBy: Relation.Member.CodingKeys.self)
+			let memberContainer = try container.nestedContainer(keyedBy: OPRelation.Member.CodingKeys.self)
 			let id = try memberContainer.decode(Int.self, forKey: .id)
-			let type = try memberContainer.decode(ElementType.self, forKey: .type)
+			let type = try memberContainer.decode(OPElementType.self, forKey: .type)
 			let role = try memberContainer.decode(String.self, forKey: .role)
 			
 			// Generate the geometries for each member
@@ -398,7 +398,7 @@ class ElementDecodingOperation: Operation {
 				}
 			
 			// Generate a new member object with a full geometry if it is a way
-			let member = Relation.Member(
+			let member = OPRelation.Member(
 				type: type,
 				id: id,
 				role: role,
@@ -413,7 +413,7 @@ class ElementDecodingOperation: Operation {
 	
 	// Generate the geometry for multipolygons
 	private func generateMultiPolygonGeometry(
-		fromMembers members: [Relation.Member]) throws -> ElementGeometry
+		fromMembers members: [OPRelation.Member]) throws -> OPGeometry
 	{
 		
 		// Get the inner and out member ways
@@ -436,7 +436,7 @@ class ElementDecodingOperation: Operation {
 		
 		// If a multipolygon contains to ways, than it has no geometry
 		guard !geometries.isEmpty else {
-			throw ElementDecodingError.emptyRelation
+			throw OPElementDecoderError.emptyRelation
 		}
 		
 		// Denote that the outer and inner ways of the multipolygon are skippable so they are not rendered individually in addition to being rendered as a multipolygon.
@@ -454,7 +454,7 @@ class ElementDecodingOperation: Operation {
 	
 	// Generate the geometry for multipolylines
 	private func generateMultiPolylineGeometry(
-		fromMembers members: [Relation.Member]) throws -> ElementGeometry
+		fromMembers members: [OPRelation.Member]) throws -> OPGeometry
 	{
 		// Filter out members for ways only and assemble an array where each element is a member way's coordinates
 		let memberWays = members.filter { $0.type == .way }
@@ -464,7 +464,7 @@ class ElementDecodingOperation: Operation {
 		let mergedWayGeometries = merge(coordinateArrays: wayGeometries)
 		
 		guard !mergedWayGeometries.isEmpty else {
-			throw ElementDecodingError.emptyRelation
+			throw OPElementDecoderError.emptyRelation
 		}
 		
 		// Interesting ways can be rendered individually. Uninteresting ways are skippable if already rendered by the mulipolyline

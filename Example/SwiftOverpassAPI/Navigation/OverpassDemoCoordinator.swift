@@ -1,6 +1,6 @@
 //
-//  OverpassDemoNavigationCoordinator.swift
-//  OverpassDemo
+//  OverpassDemoCoordinator.swift
+//  SwiftOverpassAPI_Example
 //
 //  Created by Edward Samson on 10/11/19.
 //  Copyright © 2019 Edward Samson. All rights reserved.
@@ -36,7 +36,7 @@ class OverpassDemoCoordinator {
 extension OverpassDemoCoordinator: SelectDemoTableViewModelDelegate {
 	// Whenever a demo is selected, navigate to that demo
 	func selecDemoTableViewModel(didSelect demo: Demo) {
-		let client = OverpassClient()
+		let client = OPClient()
 		let viewModel = DemoViewModel(demo: demo, overpassClient: client)
 		let viewController = DemoViewController(viewModel: viewModel)
 		viewController.title = demo.title

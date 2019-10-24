@@ -10,28 +10,27 @@
 		0277F7BBC7AD5E02D4397FF2D35EC86B /* Pods-SwiftOverpassAPI_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A990AB085F81DB8C783671ABC8E46173 /* Pods-SwiftOverpassAPI_Example-dummy.m */; };
 		0B7A263767832E310C542DE9FB1F8D42 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		4CA82598E1F2B94E52AE841223C6D2A5 /* Pods-SwiftOverpassAPI_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F855FFCA50135A9FA6DD1C2C26AC35 /* Pods-SwiftOverpassAPI_Tests-dummy.m */; };
-		5F888CC3235ADA4600B478C5 /* ElementDecodingOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CA7235ADA4600B478C5 /* ElementDecodingOperation.swift */; };
-		5F888CC4235ADA4600B478C5 /* OverpassClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CA8235ADA4600B478C5 /* OverpassClient.swift */; };
-		5F888CC5235ADA4600B478C5 /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CAA235ADA4600B478C5 /* Element.swift */; };
-		5F888CC6235ADA4600B478C5 /* Relation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CAC235ADA4600B478C5 /* Relation.swift */; };
-		5F888CC7235ADA4600B478C5 /* ElementCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CAD235ADA4600B478C5 /* ElementCenter.swift */; };
-		5F888CC8235ADA4600B478C5 /* OverpassQueryOutputType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CAE235ADA4600B478C5 /* OverpassQueryOutputType.swift */; };
-		5F888CC9235ADA4600B478C5 /* ElementType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CAF235ADA4600B478C5 /* ElementType.swift */; };
+		5F888CC3235ADA4600B478C5 /* OPDecodingOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CA7235ADA4600B478C5 /* OPDecodingOperation.swift */; };
+		5F888CC4235ADA4600B478C5 /* OPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CA8235ADA4600B478C5 /* OPClient.swift */; };
+		5F888CC5235ADA4600B478C5 /* OPElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CAA235ADA4600B478C5 /* OPElement.swift */; };
+		5F888CC6235ADA4600B478C5 /* OPRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CAC235ADA4600B478C5 /* OPRelation.swift */; };
+		5F888CC7235ADA4600B478C5 /* OPElementCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CAD235ADA4600B478C5 /* OPElementCenter.swift */; };
+		5F888CC8235ADA4600B478C5 /* OPQueryOutputType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CAE235ADA4600B478C5 /* OPQueryOutputType.swift */; };
+		5F888CC9235ADA4600B478C5 /* OPElementType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CAF235ADA4600B478C5 /* OPElementType.swift */; };
 		5F888CCA235ADA4600B478C5 /* NestedPolygonCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CB0235ADA4600B478C5 /* NestedPolygonCoordinates.swift */; };
-		5F888CCB235ADA4600B478C5 /* BoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CB1235ADA4600B478C5 /* BoundingBox.swift */; };
+		5F888CCB235ADA4600B478C5 /* OPBoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CB1235ADA4600B478C5 /* OPBoundingBox.swift */; };
 		5F888CCC235ADA4600B478C5 /* ElementCodingKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CB2235ADA4600B478C5 /* ElementCodingKeys.swift */; };
 		5F888CCD235ADA4600B478C5 /* ElementsCodingKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CB3235ADA4600B478C5 /* ElementsCodingKeys.swift */; };
-		5F888CCE235ADA4600B478C5 /* ElementGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CB4235ADA4600B478C5 /* ElementGeometry.swift */; };
+		5F888CCE235ADA4600B478C5 /* OPGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CB4235ADA4600B478C5 /* OPGeometry.swift */; };
 		5F888CCF235ADA4600B478C5 /* OPMapKitVisualization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CB5235ADA4600B478C5 /* OPMapKitVisualization.swift */; };
-		5F888CD0235ADA4600B478C5 /* Way.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CB6235ADA4600B478C5 /* Way.swift */; };
-		5F888CD1235ADA4600B478C5 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CB7235ADA4600B478C5 /* Node.swift */; };
-		5F888CD2235ADA4600B478C5 /* VisualizationGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CB9235ADA4600B478C5 /* VisualizationGenerator.swift */; };
-		5F888CD3235ADA4600B478C5 /* OverpassController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CBA235ADA4600B478C5 /* OverpassController.swift */; };
+		5F888CD0235ADA4600B478C5 /* OPWay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CB6235ADA4600B478C5 /* OPWay.swift */; };
+		5F888CD1235ADA4600B478C5 /* OPNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CB7235ADA4600B478C5 /* OPNode.swift */; };
+		5F888CD2235ADA4600B478C5 /* OPVisualizationGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CB9235ADA4600B478C5 /* OPVisualizationGenerator.swift */; };
 		5F888CD4235ADA4600B478C5 /* PolygonChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CBB235ADA4600B478C5 /* PolygonChecker.swift */; };
-		5F888CD5235ADA4600B478C5 /* OverpassQueryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CBC235ADA4600B478C5 /* OverpassQueryBuilder.swift */; };
+		5F888CD5235ADA4600B478C5 /* OPQueryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CBC235ADA4600B478C5 /* OPQueryBuilder.swift */; };
 		5F888CD6235ADA4600B478C5 /* TagChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CBE235ADA4600B478C5 /* TagChecker.swift */; };
 		5F888CD7235ADA4600B478C5 /* CLLocationCoordinate2D+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CBF235ADA4600B478C5 /* CLLocationCoordinate2D+Extensions.swift */; };
-		5F888CD8235ADA4600B478C5 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CC0235ADA4600B478C5 /* Result.swift */; };
+		5F888CD8235ADA4600B478C5 /* OPQueryResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CC0235ADA4600B478C5 /* OPQueryResult.swift */; };
 		5F888CD9235ADA4600B478C5 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CC1235ADA4600B478C5 /* Errors.swift */; };
 		5F888CDA235ADA4600B478C5 /* DecoderExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CC2235ADA4600B478C5 /* DecoderExtractor.swift */; };
 		5F888CDC235AE4B100B478C5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CDB235AE4B100B478C5 /* Constants.swift */; };
@@ -75,28 +74,27 @@
 		438487E358F7CC22418905B1D91E4618 /* Pods_SwiftOverpassAPI_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftOverpassAPI_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		46061E5392411378E3CC1D8449814E0E /* Pods-SwiftOverpassAPI_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftOverpassAPI_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		4C929E87D86C497CDCB42AACC24CB65D /* Pods_SwiftOverpassAPI_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftOverpassAPI_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5F888CA7235ADA4600B478C5 /* ElementDecodingOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementDecodingOperation.swift; sourceTree = "<group>"; };
-		5F888CA8235ADA4600B478C5 /* OverpassClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverpassClient.swift; sourceTree = "<group>"; };
-		5F888CAA235ADA4600B478C5 /* Element.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
-		5F888CAC235ADA4600B478C5 /* Relation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Relation.swift; sourceTree = "<group>"; };
-		5F888CAD235ADA4600B478C5 /* ElementCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementCenter.swift; sourceTree = "<group>"; };
-		5F888CAE235ADA4600B478C5 /* OverpassQueryOutputType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverpassQueryOutputType.swift; sourceTree = "<group>"; };
-		5F888CAF235ADA4600B478C5 /* ElementType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementType.swift; sourceTree = "<group>"; };
+		5F888CA7235ADA4600B478C5 /* OPDecodingOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPDecodingOperation.swift; sourceTree = "<group>"; };
+		5F888CA8235ADA4600B478C5 /* OPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPClient.swift; sourceTree = "<group>"; };
+		5F888CAA235ADA4600B478C5 /* OPElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPElement.swift; sourceTree = "<group>"; };
+		5F888CAC235ADA4600B478C5 /* OPRelation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPRelation.swift; sourceTree = "<group>"; };
+		5F888CAD235ADA4600B478C5 /* OPElementCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPElementCenter.swift; sourceTree = "<group>"; };
+		5F888CAE235ADA4600B478C5 /* OPQueryOutputType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPQueryOutputType.swift; sourceTree = "<group>"; };
+		5F888CAF235ADA4600B478C5 /* OPElementType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPElementType.swift; sourceTree = "<group>"; };
 		5F888CB0235ADA4600B478C5 /* NestedPolygonCoordinates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NestedPolygonCoordinates.swift; sourceTree = "<group>"; };
-		5F888CB1235ADA4600B478C5 /* BoundingBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoundingBox.swift; sourceTree = "<group>"; };
+		5F888CB1235ADA4600B478C5 /* OPBoundingBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPBoundingBox.swift; sourceTree = "<group>"; };
 		5F888CB2235ADA4600B478C5 /* ElementCodingKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementCodingKeys.swift; sourceTree = "<group>"; };
 		5F888CB3235ADA4600B478C5 /* ElementsCodingKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementsCodingKeys.swift; sourceTree = "<group>"; };
-		5F888CB4235ADA4600B478C5 /* ElementGeometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementGeometry.swift; sourceTree = "<group>"; };
+		5F888CB4235ADA4600B478C5 /* OPGeometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPGeometry.swift; sourceTree = "<group>"; };
 		5F888CB5235ADA4600B478C5 /* OPMapKitVisualization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPMapKitVisualization.swift; sourceTree = "<group>"; };
-		5F888CB6235ADA4600B478C5 /* Way.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Way.swift; sourceTree = "<group>"; };
-		5F888CB7235ADA4600B478C5 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
-		5F888CB9235ADA4600B478C5 /* VisualizationGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualizationGenerator.swift; sourceTree = "<group>"; };
-		5F888CBA235ADA4600B478C5 /* OverpassController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverpassController.swift; sourceTree = "<group>"; };
+		5F888CB6235ADA4600B478C5 /* OPWay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPWay.swift; sourceTree = "<group>"; };
+		5F888CB7235ADA4600B478C5 /* OPNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPNode.swift; sourceTree = "<group>"; };
+		5F888CB9235ADA4600B478C5 /* OPVisualizationGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPVisualizationGenerator.swift; sourceTree = "<group>"; };
 		5F888CBB235ADA4600B478C5 /* PolygonChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolygonChecker.swift; sourceTree = "<group>"; };
-		5F888CBC235ADA4600B478C5 /* OverpassQueryBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverpassQueryBuilder.swift; sourceTree = "<group>"; };
+		5F888CBC235ADA4600B478C5 /* OPQueryBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPQueryBuilder.swift; sourceTree = "<group>"; };
 		5F888CBE235ADA4600B478C5 /* TagChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagChecker.swift; sourceTree = "<group>"; };
 		5F888CBF235ADA4600B478C5 /* CLLocationCoordinate2D+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Extensions.swift"; sourceTree = "<group>"; };
-		5F888CC0235ADA4600B478C5 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		5F888CC0235ADA4600B478C5 /* OPQueryResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPQueryResult.swift; sourceTree = "<group>"; };
 		5F888CC1235ADA4600B478C5 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		5F888CC2235ADA4600B478C5 /* DecoderExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecoderExtractor.swift; sourceTree = "<group>"; };
 		5F888CDB235AE4B100B478C5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -172,8 +170,8 @@
 		5F888CA6235ADA4600B478C5 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				5F888CA7235ADA4600B478C5 /* ElementDecodingOperation.swift */,
-				5F888CA8235ADA4600B478C5 /* OverpassClient.swift */,
+				5F888CA7235ADA4600B478C5 /* OPDecodingOperation.swift */,
+				5F888CA8235ADA4600B478C5 /* OPClient.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -181,7 +179,7 @@
 		5F888CA9235ADA4600B478C5 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				5F888CAA235ADA4600B478C5 /* Element.swift */,
+				5F888CAA235ADA4600B478C5 /* OPElement.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -189,18 +187,18 @@
 		5F888CAB235ADA4600B478C5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5F888CB7235ADA4600B478C5 /* Node.swift */,
-				5F888CB6235ADA4600B478C5 /* Way.swift */,
-				5F888CAC235ADA4600B478C5 /* Relation.swift */,
-				5F888CAD235ADA4600B478C5 /* ElementCenter.swift */,
-				5F888CAE235ADA4600B478C5 /* OverpassQueryOutputType.swift */,
-				5F888CAF235ADA4600B478C5 /* ElementType.swift */,
+				5F888CB7235ADA4600B478C5 /* OPNode.swift */,
+				5F888CB6235ADA4600B478C5 /* OPWay.swift */,
+				5F888CAC235ADA4600B478C5 /* OPRelation.swift */,
+				5F888CAD235ADA4600B478C5 /* OPElementCenter.swift */,
+				5F888CAE235ADA4600B478C5 /* OPQueryOutputType.swift */,
+				5F888CAF235ADA4600B478C5 /* OPElementType.swift */,
+				5F888CB1235ADA4600B478C5 /* OPBoundingBox.swift */,
+				5F888CB4235ADA4600B478C5 /* OPGeometry.swift */,
+				5F888CB5235ADA4600B478C5 /* OPMapKitVisualization.swift */,
 				5F888CB0235ADA4600B478C5 /* NestedPolygonCoordinates.swift */,
-				5F888CB1235ADA4600B478C5 /* BoundingBox.swift */,
 				5F888CB2235ADA4600B478C5 /* ElementCodingKeys.swift */,
 				5F888CB3235ADA4600B478C5 /* ElementsCodingKeys.swift */,
-				5F888CB4235ADA4600B478C5 /* ElementGeometry.swift */,
-				5F888CB5235ADA4600B478C5 /* OPMapKitVisualization.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -208,10 +206,10 @@
 		5F888CB8235ADA4600B478C5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5F888CB9235ADA4600B478C5 /* VisualizationGenerator.swift */,
-				5F888CBA235ADA4600B478C5 /* OverpassController.swift */,
+				5F888CB9235ADA4600B478C5 /* OPVisualizationGenerator.swift */,
+				5F888CBC235ADA4600B478C5 /* OPQueryBuilder.swift */,
 				5F888CBB235ADA4600B478C5 /* PolygonChecker.swift */,
-				5F888CBC235ADA4600B478C5 /* OverpassQueryBuilder.swift */,
+				5F888CBE235ADA4600B478C5 /* TagChecker.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -219,9 +217,8 @@
 		5F888CBD235ADA4600B478C5 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				5F888CBE235ADA4600B478C5 /* TagChecker.swift */,
 				5F888CBF235ADA4600B478C5 /* CLLocationCoordinate2D+Extensions.swift */,
-				5F888CC0235ADA4600B478C5 /* Result.swift */,
+				5F888CC0235ADA4600B478C5 /* OPQueryResult.swift */,
 				5F888CC1235ADA4600B478C5 /* Errors.swift */,
 				5F888CC2235ADA4600B478C5 /* DecoderExtractor.swift */,
 				5F888CDB235AE4B100B478C5 /* Constants.swift */,
@@ -511,30 +508,29 @@
 			files = (
 				E6BDD08DE5B49B601E29424AFCBA6890 /* SwiftOverpassAPI-dummy.m in Sources */,
 				5F888CD7235ADA4600B478C5 /* CLLocationCoordinate2D+Extensions.swift in Sources */,
-				5F888CC9235ADA4600B478C5 /* ElementType.swift in Sources */,
+				5F888CC9235ADA4600B478C5 /* OPElementType.swift in Sources */,
 				5F888CCF235ADA4600B478C5 /* OPMapKitVisualization.swift in Sources */,
 				5F888CD9235ADA4600B478C5 /* Errors.swift in Sources */,
-				5F888CD0235ADA4600B478C5 /* Way.swift in Sources */,
-				5F888CC6235ADA4600B478C5 /* Relation.swift in Sources */,
+				5F888CD0235ADA4600B478C5 /* OPWay.swift in Sources */,
+				5F888CC6235ADA4600B478C5 /* OPRelation.swift in Sources */,
 				5F888CDC235AE4B100B478C5 /* Constants.swift in Sources */,
-				5F888CD5235ADA4600B478C5 /* OverpassQueryBuilder.swift in Sources */,
-				5F888CCE235ADA4600B478C5 /* ElementGeometry.swift in Sources */,
-				5F888CC7235ADA4600B478C5 /* ElementCenter.swift in Sources */,
-				5F888CC8235ADA4600B478C5 /* OverpassQueryOutputType.swift in Sources */,
+				5F888CD5235ADA4600B478C5 /* OPQueryBuilder.swift in Sources */,
+				5F888CCE235ADA4600B478C5 /* OPGeometry.swift in Sources */,
+				5F888CC7235ADA4600B478C5 /* OPElementCenter.swift in Sources */,
+				5F888CC8235ADA4600B478C5 /* OPQueryOutputType.swift in Sources */,
 				5F888CD4235ADA4600B478C5 /* PolygonChecker.swift in Sources */,
-				5F888CCB235ADA4600B478C5 /* BoundingBox.swift in Sources */,
+				5F888CCB235ADA4600B478C5 /* OPBoundingBox.swift in Sources */,
 				5F888CCC235ADA4600B478C5 /* ElementCodingKeys.swift in Sources */,
-				5F888CD8235ADA4600B478C5 /* Result.swift in Sources */,
-				5F888CD2235ADA4600B478C5 /* VisualizationGenerator.swift in Sources */,
+				5F888CD8235ADA4600B478C5 /* OPQueryResult.swift in Sources */,
+				5F888CD2235ADA4600B478C5 /* OPVisualizationGenerator.swift in Sources */,
 				5F888CDA235ADA4600B478C5 /* DecoderExtractor.swift in Sources */,
-				5F888CC3235ADA4600B478C5 /* ElementDecodingOperation.swift in Sources */,
-				5F888CD3235ADA4600B478C5 /* OverpassController.swift in Sources */,
-				5F888CD1235ADA4600B478C5 /* Node.swift in Sources */,
+				5F888CC3235ADA4600B478C5 /* OPDecodingOperation.swift in Sources */,
+				5F888CD1235ADA4600B478C5 /* OPNode.swift in Sources */,
 				5F888CCD235ADA4600B478C5 /* ElementsCodingKeys.swift in Sources */,
 				5F888CD6235ADA4600B478C5 /* TagChecker.swift in Sources */,
-				5F888CC5235ADA4600B478C5 /* Element.swift in Sources */,
+				5F888CC5235ADA4600B478C5 /* OPElement.swift in Sources */,
 				5F888CCA235ADA4600B478C5 /* NestedPolygonCoordinates.swift in Sources */,
-				5F888CC4235ADA4600B478C5 /* OverpassClient.swift in Sources */,
+				5F888CC4235ADA4600B478C5 /* OPClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
