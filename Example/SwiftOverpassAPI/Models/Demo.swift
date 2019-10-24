@@ -59,6 +59,39 @@ extension Demo {
 			defaultRegion: region,
 			queryGenerator: queryGenerator)
 	}
+	
+	static func makeMultipolygonQuery() -> Demo {
+
+		let title = "St. Louis multipolygons"
+		let resultUnit = "Multipolygon"
+
+		let stLouisCoordinate = CLLocationCoordinate2D(
+			latitude: 38.6270,
+			longitude: -90.1994)
+
+		let region = MKCoordinateRegion(
+			center: stLouisCoordinate,
+			latitudinalMeters: 10000,
+			longitudinalMeters: 10000)
+
+		let queryGenerator: (MKCoordinateRegion) -> String = { region in
+
+			let boundingBox = OPBoundingBox.init(region: region)
+
+			return try! OPQueryBuilder()
+				.setElementTypes([.relation])
+				.addTagFilter(key: "type", value: "multipolygon")
+				.setBoundingBox(boundingBox)
+				.setOutputType(.recurseDown)
+				.buildQueryString()
+		}
+
+		return Demo(
+			title: title,
+			resultUnit: resultUnit,
+			defaultRegion: region,
+			queryGenerator: queryGenerator)
+	}
 
 	static func makeChicagoBuildingsQuery() -> Demo {
 
@@ -150,11 +183,37 @@ extension Demo {
 			return try! OPQueryBuilder()
 				.setTimeOut(180)
 				.setElementTypes([.relation])
-				.addTagFilter(key: "network", value: "BART")
+				.addTagFilter(key: "network", value: "BART", exactMatchOnly: false)
 				.addTagFilter(key: "type", value: "route")
+				.addTagFilter(key: "name")
 				.setBoundingBox(boundingBox)
 				.setOutputType(.geometry)
 				.buildQueryString()
+		}
+		
+		let sanFranciscoCoordinate = CLLocationCoordinate2D(
+			latitude: 37.7749,
+			longitude: -122.4194)
+		
+		let queryRegion = MKCoordinateRegion(
+			center: sanFranciscoCoordinate,
+			latitudinalMeters: 50000,
+			longitudinalMeters: 50000)
+		
+		let boundingBox = OPBoundingBox(region: region)
+		
+		do {
+			let query = try OPQueryBuilder()
+				.setTimeOut(180)
+				.setElementTypes([.relation])
+				.addTagFilter(key: "network", value: "BART")
+				.addTagFilter(key: "type", value: "route")
+				.addTagFilter(key: "name")
+				.setBoundingBox(boundingBox)
+				.setOutputType(.geometry)
+				.buildQueryString()
+		} catch {
+			print(error.localizedDescription)
 		}
 
 		return Demo(

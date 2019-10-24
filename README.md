@@ -13,7 +13,7 @@ Overpass API is a read only database for querying open source mapping informatio
 
 ## Example
 
-<img src="Screenshots/screenshots.png?raw=true" alt="Rendering Coordinates"> |
+<img src="Screenshots/tourism_screenshot_no_shadow.png?raw=true" alt="Chicago Tourism"> 
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
