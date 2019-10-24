@@ -66,6 +66,12 @@ class DemoViewController: UIViewController {
 		return label
 	}()
 	
+	// Button for resetting the mapView's region
+	private lazy var resetMapViewButton = UIBarButtonItem(
+			title: "Reset",
+			style: UIBarButtonItem.Style.plain,
+			target: self, action: #selector(resetMapViewRegion(sender:)))
+	
 	// The DemoViewController's main view model
 	let viewModel: DemoViewModel
 	
@@ -128,6 +134,9 @@ class DemoViewController: UIViewController {
 		mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 		mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
 		
+		// Add button for reseting mapView to region to default query region
+		navigationItem.rightBarButtonItem = resetMapViewButton
+		
 		// Add the pull up container as a child view controller to the demoViewController
 		addPullUpContainer(pullUpContainer)
 		
@@ -136,6 +145,11 @@ class DemoViewController: UIViewController {
 		spinner.translatesAutoresizingMaskIntoConstraints = false
 		spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 		spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+	}
+	
+	// Handle resetting the mapView region
+	@objc private func resetMapViewRegion(sender: UIButton) {
+		viewModel.resetMapViewRegion()
 	}
 }
 

@@ -44,11 +44,8 @@ class DemoViewModel {
 		// The square geographic region in which results will be requested
 		let region = demo.defaultRegion
 		
-		// Inset the query region to get the region that will be displayed on the mapView. This prevents query boundaries from being visible when the query results are first displayed.
-		let queryRect = region.toMKMapRect()
-		let visualRect = queryRect.insetBy(dx: queryRect.width * 0.25, dy: queryRect.height * 0.25)
-		let visualRegion = MKCoordinateRegion(visualRect)
-		mapViewModel.region = visualRegion
+		// Set the mapView to the correct region for displaying the query
+		setVisualRegion(forQueryRegion: region)
 		
 		// Generate the overpass query from the demo
 		let query = demo.generateQuery(forRegion: region)
@@ -78,6 +75,18 @@ class DemoViewModel {
 				self.loadingStatusDidChangeTo?(false)
 			}
 		}
+	}
+	
+	// Inset the query region to get the region that will be displayed on the mapView. This prevents query boundaries from being visible when the query results are first displayed.
+	private func setVisualRegion(forQueryRegion region: MKCoordinateRegion) {
+		let queryRect = region.toMKMapRect()
+		let visualRect = queryRect.insetBy(dx: queryRect.width * 0.25, dy: queryRect.height * 0.25)
+		let visualRegion = MKCoordinateRegion(visualRect)
+		mapViewModel.region = visualRegion
+	}
+	
+	func resetMapViewRegion() {
+		setVisualRegion(forQueryRegion: demo.defaultRegion)
 	}
 }
 

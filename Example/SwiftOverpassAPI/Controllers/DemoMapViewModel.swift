@@ -188,6 +188,7 @@ class DemoMapViewModel: NSObject, MapViewModel {
 		return view
 	}
 	
+	// If the user changes the region through a gesture, set the stored region to nil. This will stop the mapView from recentering itself when the edge insets change.
 	func userDidGestureOnMapView(sender: UIGestureRecognizer) {
 		
 		if
