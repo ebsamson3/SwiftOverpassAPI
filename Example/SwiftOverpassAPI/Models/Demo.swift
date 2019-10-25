@@ -168,8 +168,8 @@ extension Demo {
 		let resultUnit = "Route"
 
 		let sanFranciscoCoordinate = CLLocationCoordinate2D(
-			latitude: 37.7749,
-			longitude: -122.4194)
+			latitude: 37.8044,
+			longitude: -122.2712)
 
 		let region = MKCoordinateRegion(
 			center: sanFranciscoCoordinate,
@@ -184,8 +184,9 @@ extension Demo {
 				.setTimeOut(180)
 				.setElementTypes([.relation])
 				.addTagFilter(key: "network", value: "BART")
+				.addTagFilter(key: "type", value: "route")
 				.setBoundingBox(boundingBox)
-				.setOutputType(.recurseDown)
+				.setOutputType(.geometry)
 				.buildQueryString()
 		}
 
@@ -226,7 +227,6 @@ extension Demo {
 							way(around.bartStops:200)["amenity"="cinema"];
 							node(around.bartStops:200)["amenity"="cinema"];
 						);
-						(._;>;);
 						out center;
 						"""
 
@@ -240,20 +240,4 @@ extension Demo {
 			queryGenerator: queryGenerator)
 	}
 }
-
-let boundingBox = OPBoundingBox(region: region)
-
-let query = """
-			data=[out:json];
-			node["network"="BART"]
-				["railway"="stop"]
-				\(boundingBox.toString())
-				->.bartStops;
-			(
-				way(around.bartStops:200)["amenity"="cinema"];
-				node(around.bartStops:200)["amenity"="cinema"];
-			);
-			(._;>;);
-			out center;
-			"""
 

@@ -10,6 +10,7 @@
 		0277F7BBC7AD5E02D4397FF2D35EC86B /* Pods-SwiftOverpassAPI_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A990AB085F81DB8C783671ABC8E46173 /* Pods-SwiftOverpassAPI_Example-dummy.m */; };
 		0B7A263767832E310C542DE9FB1F8D42 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		4CA82598E1F2B94E52AE841223C6D2A5 /* Pods-SwiftOverpassAPI_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F855FFCA50135A9FA6DD1C2C26AC35 /* Pods-SwiftOverpassAPI_Tests-dummy.m */; };
+		5F2F986523637B070085968C /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2F98632363783B0085968C /* LinkedList.swift */; };
 		5F888CC3235ADA4600B478C5 /* OPDecodingOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CA7235ADA4600B478C5 /* OPDecodingOperation.swift */; };
 		5F888CC4235ADA4600B478C5 /* OPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CA8235ADA4600B478C5 /* OPClient.swift */; };
 		5F888CC5235ADA4600B478C5 /* OPElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F888CAA235ADA4600B478C5 /* OPElement.swift */; };
@@ -74,6 +75,7 @@
 		438487E358F7CC22418905B1D91E4618 /* Pods_SwiftOverpassAPI_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftOverpassAPI_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		46061E5392411378E3CC1D8449814E0E /* Pods-SwiftOverpassAPI_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftOverpassAPI_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		4C929E87D86C497CDCB42AACC24CB65D /* Pods_SwiftOverpassAPI_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftOverpassAPI_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F2F98632363783B0085968C /* LinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
 		5F888CA7235ADA4600B478C5 /* OPDecodingOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPDecodingOperation.swift; sourceTree = "<group>"; };
 		5F888CA8235ADA4600B478C5 /* OPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPClient.swift; sourceTree = "<group>"; };
 		5F888CAA235ADA4600B478C5 /* OPElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPElement.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				5F888CC1235ADA4600B478C5 /* Errors.swift */,
 				5F888CC2235ADA4600B478C5 /* DecoderExtractor.swift */,
 				5F888CDB235AE4B100B478C5 /* Constants.swift */,
+				5F2F98632363783B0085968C /* LinkedList.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -530,6 +533,7 @@
 				5F888CD6235ADA4600B478C5 /* TagChecker.swift in Sources */,
 				5F888CC5235ADA4600B478C5 /* OPElement.swift in Sources */,
 				5F888CCA235ADA4600B478C5 /* NestedPolygonCoordinates.swift in Sources */,
+				5F2F986523637B070085968C /* LinkedList.swift in Sources */,
 				5F888CC4235ADA4600B478C5 /* OPClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

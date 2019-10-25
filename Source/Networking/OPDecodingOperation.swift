@@ -484,17 +484,22 @@ class OPDecodingOperation: Operation {
 		var geometries = coordinateArrays // Initial unmerged way geometries
 		var mergedGeometries = [[CLLocationCoordinate2D]]() // Array for storing merged geometries
 		
+		// A linked list for storing geometries to merge.
+		let geometriesToMerge = LinkedList<[CLLocationCoordinate2D]>()
+		
 		while true {
 			
 			// Pop the last unmerged geometry from the geometries array. We will attempt to merge additional geometries to it
-			guard var mergedGeometry = geometries.popLast() else {
+			guard let geometry = geometries.popLast() else {
 				break
 			}
 			
+			geometriesToMerge.append(value: geometry)
+			
 			// Get the first and last coordinate of the base geometry that we are merging onto
 			guard
-				let mergedFirst = mergedGeometry.first,
-				let mergedLast = mergedGeometry.last
+				let mergedFirst = geometriesToMerge.first?.value.first, // First element of first node in linked list
+				let mergedLast = geometriesToMerge.last?.value.last // Last element of last node in linked list
 			else {
 				continue
 			}
@@ -503,7 +508,7 @@ class OPDecodingOperation: Operation {
 			while !geometries.isEmpty || mergedFirst.isEqual(to: mergedLast) {
 				
 				// Get the length prior to merging
-				let mergedLength = mergedGeometry.count
+				let mergedLength = geometriesToMerge.count
 				
 				// Check unmerged arrays to see if any have matching ends with out base geometry
 				for (index, currentGeometry) in geometries.enumerated() {
@@ -518,38 +523,41 @@ class OPDecodingOperation: Operation {
 					
 					if mergedLast.isEqual(to: currentFirst) {
 						// If the last coordinate of the first geometry matches the the first coordinate of second geometry, merge the two arrays without doing any preprocessing
-						mergedGeometry.removeLast()
-						mergedGeometry.append(contentsOf: geometries.remove(at: index))
+						geometriesToMerge.last?.value.removeLast()
+						geometriesToMerge.append(value: geometries.remove(at: index))
 						break
 					} else if mergedLast.isEqual(to: currentLast) {
 						// If the the last coordinate of the first geometry matches the last coordinate of the second geometry, reverse the second geometry and merge the coordinate arrays.
-						mergedGeometry.removeLast()
-						mergedGeometry.append(contentsOf: geometries.remove(at: index).reversed())
+						geometriesToMerge.last?.value.removeLast()
+						geometriesToMerge.append(value: geometries.remove(at: index).reversed())
 						break
 					} else if mergedFirst.isEqual(to: currentLast) {
 						// If the first element of the first geometry matches the last element of the second geometry, append the second geometry to the start of the first geometry.
-						var arrayToAdd = geometries.remove(at: index)
-						arrayToAdd.removeLast()
-						mergedGeometry.insert(contentsOf: arrayToAdd, at: 0)
+						var geometryToAdd = geometries.remove(at: index)
+						geometryToAdd.removeLast()
+						geometriesToMerge.insert(value: geometryToAdd, atIndex: 0)
 						break
 					} else if mergedFirst.isEqual(to: currentFirst) {
 						// If the first element of the first geometry matches the first element of the second geometry, reverse the second geometry and appent it to the front of the first geometry.
-						var arrayToAdd = geometries.remove(at: index)
-						arrayToAdd.reverse()
-						arrayToAdd.removeLast()
-						mergedGeometry.insert(contentsOf: arrayToAdd, at: 0)
+						var geometryToAdd = geometries.remove(at: index)
+						geometryToAdd.reverse()
+						geometryToAdd.removeLast()
+						geometriesToMerge.insert(value: geometryToAdd, atIndex: 0)
 						break
 					}
 				}
 				
 				// If no geometries were able to be merged to our base geometry, break and start over with another base geometry. If we were able to grow our base geometry to a meger, attempt to merge additional geometries onto our base geometry until no matches can be found or the base geometry forms a closed loop.
-				if mergedLength == mergedGeometry.count {
+				if mergedLength == geometriesToMerge.count {
 					break
 				}
 			}
 			
 			// Append a geometry to the merged geometries output array once no more mergers can be made to it.
-			mergedGeometries.append(mergedGeometry)
+			mergedGeometries.append(geometriesToMerge.mergedCoordinateList())
+			
+			// Remove all geometries from geometries to merge list
+			geometriesToMerge.removeAll()
 		}
 		
 		//output the merged geometries
@@ -655,4 +663,19 @@ class OPDecodingOperation: Operation {
 	}
 }
 
-
+fileprivate extension LinkedList where T == Array<CLLocationCoordinate2D> {
+	
+	func mergedCoordinateList() -> [T.Element] {
+		guard var node = first else {
+			return []
+		}
+		
+		var merged: T = node.value
+		
+		while let next = node.next {
+			merged.append(contentsOf: next.value)
+			node = next
+		}
+		return merged
+	}
+}

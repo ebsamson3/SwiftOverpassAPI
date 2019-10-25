@@ -74,19 +74,18 @@ do {
 The Overpass Query language enables diverse and powerful queries. This makes building a catch-all query builder quite difficult. For more complicated queries, you may need to create the query string yourself:
 
 ```swift
-let boundingBox = OPBoundingBox(region: region)
+let boundingBoxString = OPBoundingBox(region: region).toString()
 
 let query = """
 	    data=[out:json];
 	    node["network"="BART"]
-	    	["railway"="stop"]
-	    	\(boundingBox.toString())
+		["railway"="stop"]
+		\(boundingBoxString)
 		->.bartStops;
 	    (
 		way(around.bartStops:200)["amenity"="cinema"];
 		node(around.bartStops:200)["amenity"="cinema"];
 	    );
-	    (._;>;);
 	    out center;
 	    """
 ```
