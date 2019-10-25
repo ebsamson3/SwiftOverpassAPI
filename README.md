@@ -77,18 +77,18 @@ The Overpass Query language enables diverse and powerful queries. This makes bui
 let boundingBox = OPBoundingBox(region: region)
 
 let query = """
-			data=[out:json];
-			node["network"="BART"]
-				["railway"="stop"]
-				\(boundingBox.toString())
-				->.bartStops;
-			(
-				way(around.bartStops:200)["amenity"="cinema"];
-				node(around.bartStops:200)["amenity"="cinema"];
-			);
-			(._;>;);
-			out center;
-			"""
+data=[out:json];
+node["network"="BART"]
+	["railway"="stop"]
+	\(boundingBox.toString())
+	->.bartStops;
+(
+	way(around.bartStops:200)["amenity"="cinema"];
+	node(around.bartStops:200)["amenity"="cinema"];
+);
+(._;>;);
+out center;
+"""
 ```
 
 This query finds all theatres within 200 meters of a BART (Bay Area Rapid Transit) stop. You can see just how flexible queries can be. Unfortunately, you can also see how complex the query language is. I recommend checking out out the [Overpass Language Guide](https://wiki.openstreetmap.org/wiki/Overpass_API/Language_Guide#Recursing_up_and_down:_Completed_ways_and_relations), the [Overpass Query Language Wiki](https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL), and [Overpass API by Example](https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_API_by_Example).
