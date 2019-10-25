@@ -40,12 +40,19 @@ class OPDecodingOperation: Operation {
 	
 	// Main function of the operation
 	override func main() {
+	
+		let start = DispatchTime.now()
 		do {
 			try decodeElements(from: data)
 		} catch {
 			self._error = error
 		}
+		let end = DispatchTime.now()
+		let nanoTime = end.uptimeNanoseconds - start.uptimeNanoseconds
+		let timeInterval = Double(nanoTime) / 1_000_000_000
+		print("decoding time: \(timeInterval) seconds")
 	}
+	
 	
 	private func decodeElements(from data: Data) throws {
 		
@@ -67,7 +74,7 @@ class OPDecodingOperation: Operation {
 		
 		for elementType in elementTypes {
 			
-			// Because the decoding process requires us to decodes nodes first, arrays second, and relations last, we need to step through our elements container 3 times in total to decode everything in the correct order. In each decoding pass through the elements array, the unkeyed container decodes the element at the current index and then automatically steps through to the next index until it reaches the end. Since there is no way to reset a container's index to zero and make another pass through the array after the container reaches the end index, we have to create a copy of the elements container for each individual decoding pass we make. Maybe it would be better to switch to decoding JSON the without using unkeyed containers, since it feels like I'm using them in a way that was differs from what Apple intended.
+			// Because the geometry construction process requires the decoding of nodes first, arrays second, and relations last, we need to step through our elements container 3 times in total to decode everything in the correct order. In each decoding pass through the elements array, the unkeyed container decodes the element at the current index and then automatically steps through to the next index until it reaches the end. Since there is no way to reset a container's index to zero and make another pass through the array after the container reaches the end index, we have to create a copy of the elements container for each individual decoding pass we make. At some point I'll explore alternatives to the multiple containers/decoding passes approach I am using now. It may be better to decode everything first and then construct the geometries afterwards.
 			var elementsContainerCopy = elementsContainer
 			
 			while !elementsContainerCopy.isAtEnd {

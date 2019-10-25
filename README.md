@@ -21,20 +21,22 @@ Overpass API is a read only database for querying open source mapping informatio
 
 Create a boxed region that will confine your query
 
+Option 1:
 ```swift
-// Option 1: Initialize with an MKCoordinateRegion
-let sanFranciscoCoordinate = CLLocationCoordinate2D(
+let center = CLLocationCoordinate2D(
 	latitude: 37.7749,
 	longitude: -122.4194)
 
 let queryRegion = MKCoordinateRegion(
-	center: sanFranciscoCoordinate,
+	center: center,
 	latitudinalMeters: 50000,
 	longitudinalMeters: 50000)
 
 let boundingBox = OPBoundingBox(region: region)
+```
 
-//Option 2: Initialize with latitudes and longitudes
+Option 2: 
+```swift
 let boundingBox = OPBoundingBox(
 	minLatitude: 38.62661651293796,
 	minLongitude: -90.1998908782745,
@@ -71,7 +73,7 @@ do {
 7) Specify the output type of the query (See output types section)
 8) Build a query string that you pass to the overpass client when making requests to an Overpass API endpoint
 
-The Overpass Query language enables diverse and powerful queries. This makes building a catch-all query builder quite difficult. For more complicated queries, you may need to create the query string yourself:
+The Overpass Query language enables diverse and powerful queries. This makes building a catch-all query builder quite difficult. For more complicated queries, you may need to create the query string directly:
 
 ```swift
 let boundingBoxString = OPBoundingBox(region: region).toString()
@@ -90,9 +92,56 @@ let query = """
 	    """
 ```
 
-This query finds all theatres within 200 meters of a BART (Bay Area Rapid Transit) stop. You can see just how flexible queries can be. Unfortunately, you can also see how complex the query language is. I recommend checking out out the [Overpass Language Guide](https://wiki.openstreetmap.org/wiki/Overpass_API/Language_Guide#Recursing_up_and_down:_Completed_ways_and_relations), the [Overpass Query Language Wiki](https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL), and [Overpass API by Example](https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_API_by_Example).
+This query finds all theatres less than 200 meters from any BART (Bay Area Rapid Transit) stop. To learn more about the Overpass Query Language, I recommend checking out out the [Overpass Language Guide](https://wiki.openstreetmap.org/wiki/Overpass_API/Language_Guide#Recursing_up_and_down:_Completed_ways_and_relations), the [Overpass Query Language Wiki](https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL), and [Overpass API by Example](https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_API_by_Example).
+
+### **Choosing a query output type**
+
+When using `OPQueryBuiler` you can choose from the following output types:
+
+```swift
+public enum OPQueryOutputType {
+	case standard, center, geometry, recurseDown, recurseUp, recurseUpAndDown
+	
+	// The Overpass API language syntax for each output type
+	func toString() -> String {
+		switch self {
+		case .standard:
+			return "out;"
+		case .recurseDown:
+			return "(._;>;);out;"
+		case .recurseUp:
+			return "(._;<;);out;"
+		case .recurseUpAndDown:
+			return "((._;<;);>;);out;"
+		case .geometry:
+			return "out geom;"
+		case .center:
+			return "out center;"
+		}
+	}
+}
+```
+- **Standard:** Basic output. Does not fetch additional elements or geometry information
+- **Recurse Down:** Enables full geometry reconstruction of queries elements. Returns the queried elements plus:
+	- all nodes that are part of a way which appears in the input set; plus
+	- all nodes and ways that are members of a relation which appears in the input set; plus
+	- all nodes that are part of a way which appears in the result set
+- **Recurse Up:** Returns the queried elements plus:
+	- all ways that have a node which appears in the initial query results
+	- all relations that have a node or way which appears in the initial query results
+	- all relations that have a way which appears in the result initial query results
+- **Recurse Up and Down:** Recurse Up. Then recurse down on the results of the upwards recursion.
+- **Geometry:** Returned elements contain information about their full geometry.
+- **Center:** Returned elements contain their center coordinate. Best/most efficient option when you don't want to visualize full element geometries. 
 
 ### **Making an Overpass request**
+
+Step 1: Create an Overpass Client
+
+```swift
+let client = OPClient()
+client.endpoint = .kumiSystems // Can also set custom endpoint if you have your own host of the overpass database
+```
 
 ## **Example App**
 <p align="center">

@@ -38,7 +38,7 @@ class DemoMapViewModel: NSObject, MapViewModel {
 	// Function to register all reusable annotation views to the mapView
 	func registerAnnotationViews(to mapView: MKMapView) {
 		mapView.register(
-			MKPinAnnotationView.self,
+			MKMarkerAnnotationView.self,
 			forAnnotationViewWithReuseIdentifier: markerReuseIdentifier)
 	}
 	

@@ -18,7 +18,6 @@ class SelectDemoTableViewModel: NSObject, TableViewModel {
 	// An array of demo objects
 	let demos = [
 		Demo.makeHotelQuery(),
-		Demo.makeMultipolygonQuery(),
 		Demo.makeChicagoBuildingsQuery(),
 		Demo.makeChicagoTourismQuery(),
 		Demo.makeBARTStopsQuery(),

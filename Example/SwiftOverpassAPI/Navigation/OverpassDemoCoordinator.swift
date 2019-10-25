@@ -37,6 +37,7 @@ extension OverpassDemoCoordinator: SelectDemoTableViewModelDelegate {
 	// Whenever a demo is selected, navigate to that demo
 	func selecDemoTableViewModel(didSelect demo: Demo) {
 		let client = OPClient()
+		client.endpoint = .kumiSystems
 		let viewModel = DemoViewModel(demo: demo, overpassClient: client)
 		let viewController = DemoViewController(viewModel: viewModel)
 		viewController.title = demo.title
