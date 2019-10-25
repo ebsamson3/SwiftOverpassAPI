@@ -136,11 +136,159 @@ public enum OPQueryOutputType {
 
 ### **Making an Overpass request**
 
-Step 1: Create an Overpass Client
+```swift
+let client = OPClient() //1
+client.endpoint = .kumiSystems //2
+
+//3
+client.fetchElements(query: query) { result in
+	switch result {
+	case .failure(let error):
+		print(error.localizedDescription)
+	case .success(let elements):
+		print(elements) // Do something with returned elements 
+	}
+```
+
+1) Instantiate a client
+2) Specify an endpoint. The enpoints provided will typically be slower and may limit your usage. For better performance you can specify your own custom endpoint. 
+3) Fetch elements. The decoded response will be in the form of a dictionary of overpass elements keyed by their database id.
+
+### **Generating MapKit Visualizations**
+
+Generate visualizations for all elements the returned element dictionary
+
+```swift 
+// Creates a dictionary of mapkit visualizations keyed by the corresponding element's id
+let visualizations = OPVisualizationGenerator
+	.mapKitVisualizations(forElements: elements)
+```
+
+Generate a visualization for an individual element
 
 ```swift
-let client = OPClient()
-client.endpoint = .kumiSystems // Can also set custom endpoint if you have your own host of the overpass database
+if let visualzation = OPVisualizationGenerator.mapKitVisualization(forElement: elementt) {
+	// Do something
+} else {
+	print("Element doesn't have a geometry to visualize")
+}
+```
+
+### **Displaying Visualizations via MKMapView**
+
+**Step 1:** Add overlays and annotations to mapView using the included visualization generator
+
+```swift
+func addVisualizations(_ visualizations: [Int: OPMapKitVisualization]) {
+		
+	var annotations = [MKAnnotation]()
+	var polylines = [MKPolyline]()
+	var polygons = [MKPolygon]()
+		
+	for visualization in visualizations.values {
+		switch visualization {
+		case .annotation(let annotation):
+			newAnnotations.append(annotation)
+		case .polyline(let polyline):
+			polylines.append(polyline)
+		case .polylines(let newPolylines):
+			polylines.append(contentsOf: newPolylines)
+		case .polygon(let polygon):
+			polygons.append(polygon)
+		case .polygons(let newPolygons):
+			polygons.append(contentsOf: newPolygons)
+		}
+	}
+
+	if #available(iOS 13, *) {
+		// MKMultipolyline and MKMultipolygon generate a single renderer for all of their elements. If available, it can be quite a bit more efficient. 
+    	let multiPolyline = MKMultiPolyline(polylines)
+		let multiPolygon = MKMultiPolygon(polygons)
+		mapView.addOverlay(multiPolygon)
+		mapView.addOverlay(multiPolyline)
+	} else {
+		mapView.addOverlays(polygons)
+		mapView.addOverlays(polylines)
+	}
+
+	mapView.addAnnotations(annotations)
+}
+```
+
+Depending on its case, a visualization can have one of the following associated values types:
+1) `MKAnnotation`: For single coordinates. The title of the annotation is the value of the element's name tag.
+2) `Polyline`: Commonly used for roads
+3) `Polygon`: Commonly used for simplete structures like buildings
+4) `[Polyline]`: An array of related polylines in a collection such as a route or a waterway
+5) `[Polygon]`: An array of related polygons that make up a more complicated structures. 
+
+**Step 2:** Display views for the overlays and annotations
+
+```swift
+extension MapViewController: MKMapViewDelegate {
+	// Delegate method for rendering overlays
+	func mapView(
+		_ mapView: MKMapView,
+		rendererFor overlay: MKOverlay) -> MKOverlayRenderer
+	{
+		let strokeWidth: CGFloat = 2
+		let strokeColor = UIColor.theme
+		let fillColor = UIColor.theme.withAlphaComponent(0.5)
+		
+		if let polyline = overlay as? MKPolyline {
+			let renderer = MKPolylineRenderer(polyline: polyline)
+			renderer.strokeColor = strokeColor
+			renderer.lineWidth = strokeWidth
+			return renderer
+		} else if let polygon = overlay as? MKPolygon {
+			let renderer = MKPolygonRenderer(polygon: polygon)
+			renderer.fillColor = fillColor
+			renderer.strokeColor = strokeColor
+			renderer.lineWidth = strokeWidth
+			return renderer
+		}	else if let multiPolyline = overlay as? MKMultiPolyline {
+			let renderer = MKMultiPolylineRenderer(multiPolyline: multiPolyline)
+			renderer.strokeColor = strokeColor
+			renderer.lineWidth = strokeWidth
+			return renderer
+		} else if let multiPolygon = overlay as? MKMultiPolygon {
+			let renderer = MKMultiPolygonRenderer(multiPolygon: multiPolygon)
+			renderer.fillColor = fillColor
+			renderer.strokeColor = strokeColor
+			renderer.lineWidth = strokeWidth
+			return renderer
+		} else {
+			return MKOverlayRenderer()
+		}
+	}
+	
+	// Delegate method for setting annotation views.
+	func mapView(
+		_ mapView: MKMapView,
+		viewFor annotation: MKAnnotation) -> MKAnnotationView?
+	{
+		guard let pointAnnotation = annotation as? MKPointAnnotation else {
+			return nil
+		}
+		
+		/*
+			// Make sure to add the following when configure your mapView:
+		
+			let markerReuseIdentifier = "MarkerAnnotationView"
+		
+			mapView.register(
+				MKMarkerAnnotationView.self,
+				forAnnotationViewWithReuseIdentifier: markerReuseIdentifier)
+		*/
+		
+		let view = MKMarkerAnnotationView(
+			annotation: pointAnnotation,
+			reuseIdentifier: markerReuseIdentifier)
+		
+		view.markerTintColor = UIColor.theme
+		return view
+	}
+}
 ```
 
 ## **Example App**
