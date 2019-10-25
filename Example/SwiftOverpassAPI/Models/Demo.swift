@@ -109,7 +109,7 @@ extension Demo {
 
 		let queryGenerator: (MKCoordinateRegion) -> String = { region in
 
-			let boundingBox = OPBoundingBox.init(region: region)
+			let boundingBox = OPBoundingBox(region: region)
 
 			return try! OPQueryBuilder()
 				.setTimeOut(180)
@@ -144,7 +144,7 @@ extension Demo {
 
 		let queryGenerator: (MKCoordinateRegion) -> String = { region in
 
-			let boundingBox = OPBoundingBox.init(region: region)
+			let boundingBox = OPBoundingBox(region: region)
 
 			return try! OPQueryBuilder()
 				.setTimeOut(180)
@@ -162,7 +162,7 @@ extension Demo {
 			queryGenerator: queryGenerator)
 	}
 	
-	static func makeSanFranciscoRoutesQuery() -> Demo {
+	static func makeBARTStopsQuery() -> Demo {
 
 		let title = "BART subway lines"
 		let resultUnit = "Route"
@@ -173,47 +173,20 @@ extension Demo {
 
 		let region = MKCoordinateRegion(
 			center: sanFranciscoCoordinate,
-			latitudinalMeters: 50000,
-			longitudinalMeters: 50000)
+			latitudinalMeters: 100000,
+			longitudinalMeters: 100000)
 
 		let queryGenerator: (MKCoordinateRegion) -> String = { region in
 
-			let boundingBox = OPBoundingBox.init(region: region)
+			let boundingBox = OPBoundingBox(region: region)
 
 			return try! OPQueryBuilder()
 				.setTimeOut(180)
 				.setElementTypes([.relation])
-				.addTagFilter(key: "network", value: "BART", exactMatchOnly: false)
-				.addTagFilter(key: "type", value: "route")
-				.addTagFilter(key: "name")
-				.setBoundingBox(boundingBox)
-				.setOutputType(.geometry)
-				.buildQueryString()
-		}
-		
-		let sanFranciscoCoordinate = CLLocationCoordinate2D(
-			latitude: 37.7749,
-			longitude: -122.4194)
-		
-		let queryRegion = MKCoordinateRegion(
-			center: sanFranciscoCoordinate,
-			latitudinalMeters: 50000,
-			longitudinalMeters: 50000)
-		
-		let boundingBox = OPBoundingBox(region: region)
-		
-		do {
-			let query = try OPQueryBuilder()
-				.setTimeOut(180)
-				.setElementTypes([.relation])
 				.addTagFilter(key: "network", value: "BART")
-				.addTagFilter(key: "type", value: "route")
-				.addTagFilter(key: "name")
 				.setBoundingBox(boundingBox)
-				.setOutputType(.geometry)
+				.setOutputType(.recurseDown)
 				.buildQueryString()
-		} catch {
-			print(error.localizedDescription)
 		}
 
 		return Demo(
@@ -234,21 +207,30 @@ extension Demo {
 
 		let region = MKCoordinateRegion(
 			center: sanFranciscoCoordinate,
-			latitudinalMeters: 50000,
-			longitudinalMeters: 50000)
+			latitudinalMeters: 100000,
+			longitudinalMeters: 100000)
 
 		let queryGenerator: (MKCoordinateRegion) -> String = { region in
 
-			let boundingBox = OPBoundingBox.init(region: region)
+			let boundingBox = OPBoundingBox(region: region)
+			
+//			let query = "data=[out:json];node[\"network\"=\"BART\"][\"public_transport\": \"stop_area\"]\(boundingBox.toString())->.bartStops;(way(around.bartStops:500)[\"amenity\"=\"cinema\"];node(around.bartStops:500)[\"amenity\"=\"cinema\"];);(._;>;);out;"
+			
+			let query = """
+						data=[out:json];
+						node["network"="BART"]
+							["railway"="stop"]
+							\(boundingBox.toString())
+							->.bartStops;
+						(
+							way(around.bartStops:200)["amenity"="cinema"];
+							node(around.bartStops:200)["amenity"="cinema"];
+						);
+						(._;>;);
+						out center;
+						"""
 
-			return try! OPQueryBuilder()
-				.setTimeOut(180)
-				.setElementTypes([.relation])
-				.addTagFilter(key: "network", value: "BART")
-				.addTagFilter(key: "type", value: "route")
-				.setBoundingBox(boundingBox)
-				.setOutputType(.geometry)
-				.buildQueryString()
+			return query
 		}
 
 		return Demo(
@@ -258,3 +240,20 @@ extension Demo {
 			queryGenerator: queryGenerator)
 	}
 }
+
+let boundingBox = OPBoundingBox(region: region)
+
+let query = """
+			data=[out:json];
+			node["network"="BART"]
+				["railway"="stop"]
+				\(boundingBox.toString())
+				->.bartStops;
+			(
+				way(around.bartStops:200)["amenity"="cinema"];
+				node(around.bartStops:200)["amenity"="cinema"];
+			);
+			(._;>;);
+			out center;
+			"""
+

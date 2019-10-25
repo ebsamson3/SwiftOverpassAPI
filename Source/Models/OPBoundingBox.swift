@@ -11,12 +11,25 @@ import MapKit
 // The 4 corner coordinates the define a search are of an Overpass API request.
 public struct OPBoundingBox {
 	
-	let minLatitude: Double
-	let minLongitude: Double
-	let maxLatitude: Double
-	let maxLongitude: Double
+	public let minLatitude: Double
+	public let minLongitude: Double
+	public let maxLatitude: Double
+	public let maxLongitude: Double
 	
-	func toString() -> String {
+	public init(
+		minLatitude: Double,
+		minLongitude: Double,
+		maxLatitude: Double,
+		maxLongitude: Double
+	)
+	{
+		self.minLatitude = minLatitude
+		self.minLongitude = minLongitude
+		self.maxLatitude = maxLatitude
+		self.maxLongitude = maxLongitude
+	}
+	
+	public func toString() -> String {
 		
 		let commaSeparatedValues = [
 			minLatitude,
@@ -35,16 +48,6 @@ public struct OPBoundingBox {
 
 // Convinience functions for creating a bounding box
 public extension OPBoundingBox {
-	
-	init(
-		topLeftCoordinate: CLLocationCoordinate2D,
-		bottomeRightCoordinate: CLLocationCoordinate2D)
-	{
-		minLatitude = bottomeRightCoordinate.latitude
-		minLongitude = topLeftCoordinate.longitude
-		maxLatitude = topLeftCoordinate.latitude
-		maxLongitude = bottomeRightCoordinate.longitude
-	}
 	
 	// Creating from a mapkit region
 	init(region: MKCoordinateRegion) {

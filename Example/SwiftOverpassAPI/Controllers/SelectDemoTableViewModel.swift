@@ -21,7 +21,8 @@ class SelectDemoTableViewModel: NSObject, TableViewModel {
 		Demo.makeMultipolygonQuery(),
 		Demo.makeChicagoBuildingsQuery(),
 		Demo.makeChicagoTourismQuery(),
-		Demo.makeSanFranciscoRoutesQuery()
+		Demo.makeBARTStopsQuery(),
+		Demo.theatresNearBARTStopsQuery()
 	]
 	
 	// Initializing a simple selectable cellViewModel for each demo. The title is the corresponding demo's title.

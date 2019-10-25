@@ -70,10 +70,9 @@ class DemoViewModel {
 				
 				// Add the generated visualizations to the mapView via the mapViewModel
 				self.mapViewModel.addVisualizations(visualizations)
-				
-				// Set the loading status to false
-				self.loadingStatusDidChangeTo?(false)
 			}
+			// Set the loading status to false
+			self.loadingStatusDidChangeTo?(false)
 		}
 	}
 	

@@ -114,6 +114,13 @@ public class OPClient {
 		// Sending the URL request
 		task = URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
 			
+			// Peform the completion handler on the main thread
+			let completionOnMain: (OPClientResult) -> Void = { result in
+				DispatchQueue.main.async {
+					completion(result)
+				}
+			}
+			
 			// Remove the stored reference to the task
 			self?.task = nil
 			
@@ -124,7 +131,7 @@ public class OPClient {
 			
 			// If the response returned an error, abort
 			if let error = error {
-				completion(.failure(error))
+				completionOnMain(.failure(error))
 				return
 			}
 			
@@ -133,12 +140,13 @@ public class OPClient {
 				let httpResponse = response as? HTTPURLResponse,
 				httpResponse.statusCode != 200
 			{
-				completion(.failure(OPRequestError.badResponse(httpResponse)))
+				completionOnMain(.failure(OPRequestError.badResponse(httpResponse)))
+				return
 			}
 			
 			// If the request returned nil data, abort
 			guard let data = data else {
-				completion(.failure(OPRequestError.nilData))
+				completionOnMain(.failure(OPRequestError.nilData))
 				return
 			}
 			
