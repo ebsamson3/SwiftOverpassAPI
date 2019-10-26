@@ -20,7 +20,7 @@ public class OPQueryBuilder {
 	struct TagFilter {
 		let key: String
 		let value: String?
-		let exactMatchOnly: Bool // True: Filter passes any value that matches the Tag Filter value property, False: Filters passes any value that contains the tag filter value property (case insensitive).
+		let exactMatch: Bool // True: Filter passes any value that matches the Tag Filter value property, False: Filters passes any value that contains the tag filter value property (case insensitive).
 		
 		func toString() -> String {
 			//If the value property of the Tag Filter is nil, Filter for any result that contains the Tag Filters key, regardless of the key's corresponding value.
@@ -29,7 +29,7 @@ public class OPQueryBuilder {
 			}
 			
 			// exactMatchOnly == true: Filter passes any value that matches the Tag Filter value property. exactMatchOnly == false: Filters passes any value that contains the tag filter value property (case insensitive).
-			return exactMatchOnly ?
+			return exactMatch ?
 				"[\"\(key)\"=\"\(value)\"]" :
 				"[\"\(key)\"~\"\(value)\",i]"
 		}
@@ -48,12 +48,12 @@ public class OPQueryBuilder {
 	public func addTagFilter(
 		key: String,
 		value: String? = nil,
-		exactMatchOnly: Bool = true) -> Self
+		exactMatch: Bool = true) -> Self
 	{
 		let tagFilter = TagFilter(
 			key: key,
 			value: value,
-			exactMatchOnly: exactMatchOnly)
+			exactMatch: exactMatch)
 		
 		tagFilters.append(tagFilter)
 		

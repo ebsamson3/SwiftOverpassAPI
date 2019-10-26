@@ -503,7 +503,7 @@ class OPDecodingOperation: Operation {
 			
 			geometriesToMerge.append(value: geometry)
 			
-			// Get the first and last coordinate of the base geometry that we are merging onto
+			// Get the first and last coordinate of the soon to be merged geometries
 			guard
 				let mergedFirst = geometriesToMerge.first?.value.first, // First element of first node in linked list
 				let mergedLast = geometriesToMerge.last?.value.last // Last element of last node in linked list
@@ -511,10 +511,10 @@ class OPDecodingOperation: Operation {
 				continue
 			}
 			
-			// If there are geometries available to merge to our base geometry and if our base geometry is not already a close loop of coordinates...
+			// If there are geometries available to merge and if current geometries pending merger dont' form a closed loop, attempt to add another geometry to the geometries to merge list
 			while !geometries.isEmpty || mergedFirst.isEqual(to: mergedLast) {
 				
-				// Get the length prior to merging
+				// Get the number of to be merged geometries prior to merging
 				let mergedLength = geometriesToMerge.count
 				
 				// Check unmerged arrays to see if any have matching ends with out base geometry

@@ -14,7 +14,6 @@ protocol SelectDemoTableViewModelDelegate: class {
 
 // A view model for a simple demo selection tableView
 class SelectDemoTableViewModel: NSObject, TableViewModel {
-	
 	// An array of demo objects
 	let demos = [
 		Demo.makeHotelQuery(),

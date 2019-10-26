@@ -19,9 +19,9 @@ Overpass API is a read only database for querying open source mapping informatio
 
 ### **Creating a bounding box**
 
-Create a boxed region that will confine your query
+Create a boxed region that will confine your query:
 
-Option 1:
+Option 1: Initialize with a MKCoordinateRegion
 ```swift
 let center = CLLocationCoordinate2D(
 	latitude: 37.7749,
@@ -35,7 +35,7 @@ let queryRegion = MKCoordinateRegion(
 let boundingBox = OPBoundingBox(region: region)
 ```
 
-Option 2: 
+Option 2: Initialize with latitudes and longitudes
 ```swift
 let boundingBox = OPBoundingBox(
 	minLatitude: 38.62661651293796,
@@ -46,14 +46,14 @@ let boundingBox = OPBoundingBox(
 
 ### **Building a Query**
 
-For simple queries generation, you can use `OPQueryBuilder` class:
+For simple query generation, you can use `OPQueryBuilder` class:
 
 ```swift
 do {
 	let query = try OPQueryBuilder()
 		.setTimeOut(180) //1
 		.setElementTypes([.relation]) //2
-		.addTagFilter(key: "network", value: "BART", exactMatchOnly: false) //3
+		.addTagFilter(key: "network", value: "BART", exactMatch: false) //3
 		.addTagFilter(key: "type", value: "route") //4
 		.addTagFilter(key: "name") //5
 		.setBoundingBox(boundingBox) //6
@@ -67,7 +67,7 @@ do {
 1) Set a timeout for the server request
 2) Set one or more element types that you wish to query (Any combination of `.node`, `.way` and/or `.relation`)
 3) Filter for elements whose "network" tag's value contains "BART" (case insensitive)
-4) Filter for elements whose "type" tag's value is exacly "route"
+4) Filter for elements whose "type" tag's value is exactly "route"
 5) Filter for all elements with a "name" tag. Can have any assocaited value.
 6) Query within the specified bounding box
 7) Specify the output type of the query (See output types section)
@@ -92,7 +92,7 @@ let query = """
 	    """
 ```
 
-This query finds all theatres less than 200 meters from any BART (Bay Area Rapid Transit) stop. To learn more about the Overpass Query Language, I recommend checking out out the [Overpass Language Guide](https://wiki.openstreetmap.org/wiki/Overpass_API/Language_Guide#Recursing_up_and_down:_Completed_ways_and_relations), the [Overpass Query Language Wiki](https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL), and [Overpass API by Example](https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_API_by_Example).
+This query finds all theaters less than 200 meters from any BART (Bay Area Rapid Transit) stop. To learn more about the Overpass Query Language, I recommend checking out out the [Overpass Language Guide](https://wiki.openstreetmap.org/wiki/Overpass_API/Language_Guide#Recursing_up_and_down:_Completed_ways_and_relations), the [Overpass Query Language Wiki](https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL), and [Overpass API by Example](https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_API_by_Example).
 
 ### **Choosing a query output type**
 
@@ -122,14 +122,14 @@ public enum OPQueryOutputType {
 }
 ```
 - **Standard:** Basic output. Does not fetch additional elements or geometry information
-- **Recurse Down:** Enables full geometry reconstruction of queries elements. Returns the queried elements plus:
-	- all nodes that are part of a way which appears in the input set; plus
-	- all nodes and ways that are members of a relation which appears in the input set; plus
-	- all nodes that are part of a way which appears in the result set
+- **Recurse Down:** Enables full geometry reconstruction of query elements. Returns the queried elements plus:
+	- all nodes that are part of a way which appears in the initial result set; plus
+	- all nodes and ways that are members of a relation which appears in the initial result set; plus
+	- all nodes that are part of a way which appears in the initial result set
 - **Recurse Up:** Returns the queried elements plus:
-	- all ways that have a node which appears in the initial query results
-	- all relations that have a node or way which appears in the initial query results
-	- all relations that have a way which appears in the result initial query results
+	- all ways that have a node which appears in the initial result set
+	- all relations that have a node or way which appears in the initial result set
+	- all relations that have a way which appears in the result initial result set
 - **Recurse Up and Down:** Recurse Up. Then recurse down on the results of the upwards recursion.
 - **Geometry:** Returned elements contain information about their full geometry.
 - **Center:** Returned elements contain their center coordinate. Best/most efficient option when you don't want to visualize full element geometries. 
@@ -146,17 +146,18 @@ client.fetchElements(query: query) { result in
 	case .failure(let error):
 		print(error.localizedDescription)
 	case .success(let elements):
-		print(elements) // Do something with returned elements 
+		print(elements) // Do something with returned the elements 
 	}
+}
 ```
 
 1) Instantiate a client
 2) Specify an endpoint. The enpoints provided will typically be slower and may limit your usage. For better performance you can specify your own custom endpoint. 
-3) Fetch elements. The decoded response will be in the form of a dictionary of overpass elements keyed by their database id.
+3) Fetch elements. The decoded response will be in the form of a dictionary of Overpass elements keyed by their database id.
 
 ### **Generating MapKit Visualizations**
 
-Generate visualizations for all elements the returned element dictionary
+Generate visualizations for all elements the returned element dictionary:
 
 ```swift 
 // Creates a dictionary of mapkit visualizations keyed by the corresponding element's id
@@ -164,10 +165,10 @@ let visualizations = OPVisualizationGenerator
 	.mapKitVisualizations(forElements: elements)
 ```
 
-Generate a visualization for an individual element
+Generate a visualization for an individual element:
 
 ```swift
-if let visualzation = OPVisualizationGenerator.mapKitVisualization(forElement: elementt) {
+if let visualization = OPVisualizationGenerator.mapKitVisualization(forElement: element) {
 	// Do something
 } else {
 	print("Element doesn't have a geometry to visualize")

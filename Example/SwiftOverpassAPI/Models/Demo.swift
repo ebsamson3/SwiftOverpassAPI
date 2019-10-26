@@ -199,8 +199,8 @@ extension Demo {
 	
 	static func theatresNearBARTStopsQuery() -> Demo {
 
-		let title = "Theatres near BART stops"
-		let resultUnit = "Theatre"
+		let title = "Theaters near BART stops"
+		let resultUnit = "Theater"
 
 		let sanFranciscoCoordinate = CLLocationCoordinate2D(
 			latitude: 37.7749,
@@ -213,15 +213,13 @@ extension Demo {
 
 		let queryGenerator: (MKCoordinateRegion) -> String = { region in
 
-			let boundingBox = OPBoundingBox(region: region)
-			
-//			let query = "data=[out:json];node[\"network\"=\"BART\"][\"public_transport\": \"stop_area\"]\(boundingBox.toString())->.bartStops;(way(around.bartStops:500)[\"amenity\"=\"cinema\"];node(around.bartStops:500)[\"amenity\"=\"cinema\"];);(._;>;);out;"
+			let boundingBoxString = OPBoundingBox(region: region).toString()
 			
 			let query = """
 						data=[out:json];
 						node["network"="BART"]
 							["railway"="stop"]
-							\(boundingBox.toString())
+							\(boundingBoxString)
 							->.bartStops;
 						(
 							way(around.bartStops:200)["amenity"="cinema"];
