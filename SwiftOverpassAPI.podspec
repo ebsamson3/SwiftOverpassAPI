@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'SwiftOverpassAPI'
   s.version          = '0.1.0'
-  s.summary          = 'Query, parse, and visualize Overpass API data.'
+  s.summary          = 'Query, process, and visualize Overpass API data.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+'SwiftOverpassAPI is an interface for writing queries to Overpass API, a read only API for OpenStreetMap data. The returned results will be processed and ready for visualization. A simple MapKit visualization struct has been included for those who want to get started quickly'
                        DESC
 
   s.homepage         = 'https://github.com/ebsamson3/SwiftOverpassAPI'
@@ -29,6 +29,7 @@ TODO: Add long description of the pod here.
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
+	s.swift_version = '5.0'
 
   s.source_files = 'Source/**/*.swift'
   
