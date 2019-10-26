@@ -41,16 +41,11 @@ class OPDecodingOperation: Operation {
 	// Main function of the operation
 	override func main() {
 	
-		let start = DispatchTime.now()
 		do {
 			try decodeElements(from: data)
 		} catch {
 			self._error = error
 		}
-		let end = DispatchTime.now()
-		let nanoTime = end.uptimeNanoseconds - start.uptimeNanoseconds
-		let timeInterval = Double(nanoTime) / 1_000_000_000
-		print("decoding time: \(timeInterval) seconds")
 	}
 	
 	
