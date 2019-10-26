@@ -15,13 +15,22 @@ A Swift module for querying, decoding, and visualizing Overpass API data.
 
 Overpass API is a read only database for querying open source mapping information provided by the OpenStreetMap project. For more information visit the [Overpass API Wiki](https://wiki.openstreetmap.org/wiki/Overpass_API) and the [OpenStreetMap Wiki](https://wiki.openstreetmap.org/wiki/Main_Page). 
 
+## **Installation**
+
+SwiftOverpassAPI is available through [CocoaPods](https://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod 'SwiftOverpassAPI'
+```
+
 ## **Usage**
 
 ### **Creating a bounding box**
 
 Create a boxed region that will confine your query:
 
-Option 1: Initialize with a MKCoordinateRegion
+**Option 1:** Initialize with a MKCoordinateRegion:
 ```swift
 let center = CLLocationCoordinate2D(
 	latitude: 37.7749,
@@ -35,7 +44,7 @@ let queryRegion = MKCoordinateRegion(
 let boundingBox = OPBoundingBox(region: region)
 ```
 
-Option 2: Initialize with latitudes and longitudes
+**Option 2:** Initialize with latitudes and longitudes:
 ```swift
 let boundingBox = OPBoundingBox(
 	minLatitude: 38.62661651293796,
@@ -202,7 +211,7 @@ func addVisualizations(_ visualizations: [Int: OPMapKitVisualization]) {
 	}
 
 	if #available(iOS 13, *) {
-		// MKMultipolyline and MKMultipolygon generate a single renderer for all of their elements. If available, it can be quite a bit more efficient. 
+		// MKMultipolyline and MKMultipolygon generate a single renderer for all of their elements. If available, it is more efficient than creating a renderer for each overlay. 
     	let multiPolyline = MKMultiPolyline(polylines)
 		let multiPolygon = MKMultiPolygon(polygons)
 		mapView.addOverlay(multiPolygon)
@@ -218,10 +227,10 @@ func addVisualizations(_ visualizations: [Int: OPMapKitVisualization]) {
 
 Depending on its case, a visualization can have one of the following associated values types:
 1) `MKAnnotation`: For single coordinates. The title of the annotation is the value of the element's name tag.
-2) `Polyline`: Commonly used for roads
-3) `Polygon`: Commonly used for simplete structures like buildings
-4) `[Polyline]`: An array of related polylines in a collection such as a route or a waterway
-5) `[Polygon]`: An array of related polygons that make up a more complicated structures. 
+2) `MKPolyline`: Commonly used for roads
+3) `MKPolygon`: Commonly used for simple structures like buildings
+4) `[MKPolyline]`: An array of related polylines in a collection such as a route or a waterway
+5) `[MKPolygon]`: An array of related polygons that make up a more complicated structures. 
 
 **Step 2:** Display views for the overlays and annotations
 
@@ -237,23 +246,27 @@ extension MapViewController: MKMapViewDelegate {
 		let fillColor = UIColor.theme.withAlphaComponent(0.5)
 		
 		if let polyline = overlay as? MKPolyline {
-			let renderer = MKPolylineRenderer(polyline: polyline)
+			let renderer = MKPolylineRenderer(
+				polyline: polyline)
 			renderer.strokeColor = strokeColor
 			renderer.lineWidth = strokeWidth
 			return renderer
 		} else if let polygon = overlay as? MKPolygon {
-			let renderer = MKPolygonRenderer(polygon: polygon)
+			let renderer = MKPolygonRenderer(
+				polygon: polygon)
 			renderer.fillColor = fillColor
 			renderer.strokeColor = strokeColor
 			renderer.lineWidth = strokeWidth
 			return renderer
 		}	else if let multiPolyline = overlay as? MKMultiPolyline {
-			let renderer = MKMultiPolylineRenderer(multiPolyline: multiPolyline)
+			let renderer = MKMultiPolylineRenderer(
+				multiPolyline: multiPolyline)
 			renderer.strokeColor = strokeColor
 			renderer.lineWidth = strokeWidth
 			return renderer
 		} else if let multiPolygon = overlay as? MKMultiPolygon {
-			let renderer = MKMultiPolygonRenderer(multiPolygon: multiPolygon)
+			let renderer = MKMultiPolygonRenderer(
+				multiPolygon: multiPolygon)
 			renderer.fillColor = fillColor
 			renderer.strokeColor = strokeColor
 			renderer.lineWidth = strokeWidth
@@ -262,25 +275,27 @@ extension MapViewController: MKMapViewDelegate {
 			return MKOverlayRenderer()
 		}
 	}
+
+	/*
+		// Make sure to add the following when configure your mapView:
+		
+		let markerReuseIdentifier = "MarkerAnnotationView"
+		
+		mapView.register(
+			MKMarkerAnnotationView.self,
+			forAnnotationViewWithReuseIdentifier: markerReuseIdentifier)
+	*/
 	
 	// Delegate method for setting annotation views.
 	func mapView(
 		_ mapView: MKMapView,
 		viewFor annotation: MKAnnotation) -> MKAnnotationView?
 	{
-		guard let pointAnnotation = annotation as? MKPointAnnotation else {
+		guard 
+			let pointAnnotation = annotation as? MKPointAnnotation 
+		else {
 			return nil
 		}
-		
-		/*
-			// Make sure to add the following when configure your mapView:
-		
-			let markerReuseIdentifier = "MarkerAnnotationView"
-		
-			mapView.register(
-				MKMarkerAnnotationView.self,
-				forAnnotationViewWithReuseIdentifier: markerReuseIdentifier)
-		*/
 		
 		let view = MKMarkerAnnotationView(
 			annotation: pointAnnotation,
@@ -300,15 +315,6 @@ extension MapViewController: MKMapViewDelegate {
 </p>
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
-## **Installation**
-
-SwiftOverpassAPI is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
-```ruby
-pod 'SwiftOverpassAPI'
-```
 
 ## **Author**
 
