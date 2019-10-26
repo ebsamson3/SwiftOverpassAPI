@@ -77,10 +77,10 @@ do {
 2) Set one or more element types that you wish to query (Any combination of `.node`, `.way` and/or `.relation`)
 3) Filter for elements whose "network" tag's value contains "BART" (case insensitive)
 4) Filter for elements whose "type" tag's value is exactly "route"
-5) Filter for all elements with a "name" tag. Can have any assocaited value.
+5) Filter for all elements with a "name" tag. Can have any associated value.
 6) Query within the specified bounding box
-7) Specify the output type of the query (See output types section)
-8) Build a query string that you pass to the overpass client when making requests to an Overpass API endpoint
+7) Specify the output type of the query (See "Choosing a query output type" below)
+8) Build a query string that you pass to the overpass client that makes requests to an Overpass API endpoint
 
 The Overpass Query language enables diverse and powerful queries. This makes building a catch-all query builder quite difficult. For more complicated queries, you may need to create the query string directly:
 
@@ -101,7 +101,7 @@ let query = """
 	    """
 ```
 
-This query finds all theaters less than 200 meters from any BART (Bay Area Rapid Transit) stop. To learn more about the Overpass Query Language, I recommend checking out out the [Overpass Language Guide](https://wiki.openstreetmap.org/wiki/Overpass_API/Language_Guide#Recursing_up_and_down:_Completed_ways_and_relations), the [Overpass Query Language Wiki](https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL), and [Overpass API by Example](https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_API_by_Example).
+This query finds all theaters less than 200 meters from any BART (Bay Area Rapid Transit) stop. To learn more about the Overpass Query Language, I recommend checking out out the [Overpass Language Guide](https://wiki.openstreetmap.org/wiki/Overpass_API/Language_Guide#Recursing_up_and_down:_Completed_ways_and_relations), the [Overpass Query Language Wiki](https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL), and [Overpass API by Example](https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_API_by_Example). You can test overpass queries in your browser using [Overpass Turbo](https://overpass-turbo.eu/).
 
 ### **Choosing a query output type**
 
@@ -130,7 +130,7 @@ public enum OPQueryOutputType {
 	}
 }
 ```
-- **Standard:** Basic output. Does not fetch additional elements or geometry information
+- **Standard:** Basic output that does not fetch additional elements or geometry information
 - **Recurse Down:** Enables full geometry reconstruction of query elements. Returns the queried elements plus:
 	- all nodes that are part of a way which appears in the initial result set; plus
 	- all nodes and ways that are members of a relation which appears in the initial result set; plus
@@ -139,8 +139,8 @@ public enum OPQueryOutputType {
 	- all ways that have a node which appears in the initial result set
 	- all relations that have a node or way which appears in the initial result set
 	- all relations that have a way which appears in the result initial result set
-- **Recurse Up and Down:** Recurse Up. Then recurse down on the results of the upwards recursion.
-- **Geometry:** Returned elements contain information about their full geometry.
+- **Recurse Up and Down:** Recurse up then recurse down on the results of the upwards recursion
+- **Geometry:** Returned elements full geometry information that is sufficient for visualization
 - **Center:** Returned elements contain their center coordinate. Best/most efficient option when you don't want to visualize full element geometries. 
 
 ### **Making an Overpass request**
@@ -161,8 +161,8 @@ client.fetchElements(query: query) { result in
 ```
 
 1) Instantiate a client
-2) Specify an endpoint. The enpoints provided will typically be slower and may limit your usage. For better performance you can specify your own custom endpoint. 
-3) Fetch elements. The decoded response will be in the form of a dictionary of Overpass elements keyed by their database id.
+2) Specify an endpoint: The free-to-use endpoints provided will typically be slower and may limit your usage. For better performance you can specify your own custom endpoint. 
+3) Fetch elements: The decoded response will be in the form of a dictionary of Overpass elements keyed by their database id.
 
 ### **Generating MapKit Visualizations**
 
@@ -319,6 +319,10 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ## **Author**
 
 ebsamson3, ebsamson3@gmail.com
+
+## Aknowledgements
+
+Thanks to all those who contribute to Overpass API and OpenStreetMap. Thank you to [Martin Raifer](https://github.com/tyrasd), whose [osmtogeojson](https://github.com/tyrasd/osmtogeojson) code saved me a lot of time helped me understand out how to process Overpass API elements. 
 
 ## **License**
 
