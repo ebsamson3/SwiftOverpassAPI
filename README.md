@@ -320,7 +320,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ebsamson3, ebsamson3@gmail.com
 
-## Aknowledgements
+## **Aknowledgements**
 
 Thanks to all those who contribute to Overpass API and OpenStreetMap. Thank you to [Martin Raifer](https://github.com/tyrasd), whose [osmtogeojson](https://github.com/tyrasd/osmtogeojson) code saved me a lot of time helped me understand out how to process Overpass API elements. 
 
