@@ -16,4 +16,5 @@ public struct OPWay: OPElement{
 	public var isSkippable: Bool // Way is already rendered by a parent relation
 	public let nodes: [Int]  // Nodes for each coordinate in a way's geometry
 	public let geometry: OPGeometry // For a way this will be either a polyline or a polygon
+    public let meta: OPMeta?
 }
