@@ -412,6 +412,21 @@ class OPDecodingOperation: Operation {
 		// Return all members
 		return members
 	}
+    
+    // A function for decoding optional meta information inside of a keyed container.
+    private func decodeMeta(within container: KeyedDecodingContainer<ElementCodingKeys>) throws -> OPMeta {
+        let version = try container.decode(Int.self, forKey: .version)
+        let timestamp = try container.decode(String.self, forKey: .timestamp)
+        let changeset = try container.decode(Int.self, forKey: .changeset)
+        let userId = try container.decode(Int.self, forKey: .userId)
+        let username = try container.decode(String.self, forKey: .username)
+        
+        return OPMeta(version: version,
+                      timestamp: timestamp,
+                      changeset: changeset,
+                      userId: userId,
+                      username: username)
+    }
 	
 	// Generate the geometry for multipolygons
 	private func generateMultiPolygonGeometry(
