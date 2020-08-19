@@ -99,8 +99,8 @@ extension DemoViewModel: DemoTableViewModelDelegate {
 			print("Selected element with tags: \(tags)")
 		}
         
-        if let meta = elements[id]?.meta {
-            print("Meta data: \(meta)")
-        }
+        	if let meta = elements[id]?.meta {
+            		print("Meta data: \(meta)")
+        	}
 	}
 }
