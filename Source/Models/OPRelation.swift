@@ -31,6 +31,7 @@ public struct OPRelation: OPElement {
 	public var isSkippable: Bool // Relation is already rendered by a parent element
 	public let members: [Int] // Members that form the relation
 	public let geometry: OPGeometry // The relation's geometry type
+    public let meta: OPMeta?
 }
 
 extension OPRelation {

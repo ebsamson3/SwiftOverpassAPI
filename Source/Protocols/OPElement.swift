@@ -18,4 +18,6 @@ public protocol OPElement {
 	var isSkippable: Bool { get set }
 	
 	var geometry: OPGeometry { get } // The element's geometry can take various forms.
+    
+    var meta: OPMeta? { get }
 }

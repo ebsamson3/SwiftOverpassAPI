@@ -123,6 +123,9 @@ class OPDecodingOperation: Operation {
 		let latitude = try container.decode(Double.self, forKey: .latitude)
 		let longitude = try container.decode(Double.self, forKey: .longitude)
 		let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        
+        // Decode the optional meta information of the node
+        let meta = try? decodeMeta(within: container)
 		
 		// Return the decoded node
 		return OPNode(
@@ -130,7 +133,8 @@ class OPDecodingOperation: Operation {
 			tags: tags,
 			isInteresting: isInteresting,
 			isSkippable: false,
-			geometry: .center(coordinate))
+            geometry: .center(coordinate),
+            meta: meta)
 	}
 	
 	// A function for decoding a way inside of a keyed container.
@@ -211,6 +215,9 @@ class OPDecodingOperation: Operation {
 				geometry = .polyline(coordinates)
 			}
 		}
+        
+        // Decode the optional meta information of the way
+        let meta = try? decodeMeta(within: container)
 		
 		// Return the decoded way
 		return OPWay(
@@ -219,7 +226,8 @@ class OPDecodingOperation: Operation {
 			isInteresting: isInteresting,
 			isSkippable: false,
 			nodes: nodes,
-			geometry: geometry)
+            geometry: geometry,
+            meta: meta)
 	}
 	
 	// A function for decoding a relation inside of a keyed container.
@@ -309,6 +317,9 @@ class OPDecodingOperation: Operation {
 			// Otherwise, the relation should not have any geometry.
 			geometry = .none
 		}
+        
+        // Decode the optional meta information of the relation
+        let meta = try? decodeMeta(within: container)
 		
 		// Return the decoded relation
 		return OPRelation(
@@ -317,7 +328,8 @@ class OPDecodingOperation: Operation {
 			isInteresting: isInteresting,
 			isSkippable: false,
 			members: memberIds,
-			geometry: geometry)
+            geometry: geometry,
+            meta: meta)
 	}
 	
 	// Decode relation members w/o setting their geometries
@@ -412,6 +424,21 @@ class OPDecodingOperation: Operation {
 		// Return all members
 		return members
 	}
+    
+    // A function for decoding optional meta information inside of a keyed container.
+    private func decodeMeta(within container: KeyedDecodingContainer<ElementCodingKeys>) throws -> OPMeta {
+        let version = try container.decode(Int.self, forKey: .version)
+        let timestamp = try container.decode(String.self, forKey: .timestamp)
+        let changeset = try container.decode(Int.self, forKey: .changeset)
+        let userId = try container.decode(Int.self, forKey: .userId)
+        let username = try container.decode(String.self, forKey: .username)
+        
+        return OPMeta(version: version,
+                      timestamp: timestamp,
+                      changeset: changeset,
+                      userId: userId,
+                      username: username)
+    }
 	
 	// Generate the geometry for multipolygons
 	private func generateMultiPolygonGeometry(

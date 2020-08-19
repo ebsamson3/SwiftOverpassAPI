@@ -16,4 +16,5 @@ public struct OPNode: OPElement {
 	public let isInteresting: Bool // Node contains an interesting tag it's description
 	public var isSkippable: Bool // Node is already rendered by a parent way or relation
 	public let geometry: OPGeometry // For nodes this will always be a single coordinate
+    public let meta: OPMeta?
 }
