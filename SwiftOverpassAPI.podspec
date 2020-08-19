@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SwiftOverpassAPI'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'Query, process, and visualize Overpass API data.'
 
 # This description is used to generate tags and improve search results.
