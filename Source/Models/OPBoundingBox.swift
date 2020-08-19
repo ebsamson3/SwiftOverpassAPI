@@ -47,10 +47,10 @@ public struct OPBoundingBox {
 }
 
 // Convinience functions for creating a bounding box
-public extension OPBoundingBox {
+extension OPBoundingBox {
 	
 	// Creating from a mapkit region
-	init(region: MKCoordinateRegion) {
+	public init(region: MKCoordinateRegion) {
 		let center = region.center
 		let latitude = center.latitude
 		let longitude = center.longitude

@@ -20,7 +20,7 @@ public enum OPElementType: String, Codable {
 	case relation = "relation"
 	
 	// The Overpass API language syntax for each element type.
-	var shortString: String {
+	public var shortString: String {
 		switch self {
 		case .node:
 			return "node"

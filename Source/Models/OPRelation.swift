@@ -11,18 +11,30 @@ import MapKit
 // A collection of related overpass members. Members can be nodes, ways (paths made up of nodes), and other relations.
 public struct OPRelation: OPElement {
 
-	public struct Member {
+    public struct Member {
+
+        // Used to decode the member from an Overpass API JSON response.
+        enum CodingKeys: String, CodingKey {
+            case type, role, geometry, nodes
+            case id = "ref"
+        }
 		
 		public let type: OPElementType // The member's type
 		public let id: Int // The member's unique identifier
 		public let role: String // The role a member playes in the relation
 		public let coordinates: [CLLocationCoordinate2D] // The coordinates of the member
-		
-		// Used to decode the member from an Overpass API JSON response.
-		enum CodingKeys: String, CodingKey {
-			case type, role, geometry, nodes
-			case id = "ref"
-		}
+
+        public init(
+            type: OPElementType,
+            id: Int,
+            role: String,
+            coordinates: [CLLocationCoordinate2D]
+        ) {
+            self.type = type
+            self.id = id
+            self.role = role
+            self.coordinates = coordinates
+        }
 	}
 	
 	public let id: Int
@@ -32,6 +44,23 @@ public struct OPRelation: OPElement {
 	public let members: [Int] // Members that form the relation
 	public let geometry: OPGeometry // The relation's geometry type
     public let meta: OPMeta?
+
+    public init(
+        id: Int,
+        tags: [String : String],
+        isInteresting: Bool,
+        isSkippable: Bool, members: [Int],
+        geometry: OPGeometry,
+        meta: OPMeta?
+    ) {
+        self.id = id
+        self.tags = tags
+        self.isInteresting = isInteresting
+        self.isSkippable = isSkippable
+        self.members = members
+        self.geometry = geometry
+        self.meta = meta
+    }
 }
 
 extension OPRelation {

@@ -10,6 +10,7 @@ import Foundation
 
 /// Meta information about elements
 public struct OPMeta {
+
     /// OSM object's version number
     public let version: Int
     
@@ -24,4 +25,18 @@ public struct OPMeta {
     
     /// OSM User name
     public let username: String
+
+    public init(
+        version: Int,
+        timestamp: String,
+        changeset: Int,
+        userId: Int,
+        username: String
+    ) {
+        self.version = version
+        self.timestamp = timestamp
+        self.changeset = changeset
+        self.userId = userId
+        self.username = username
+    }
 }

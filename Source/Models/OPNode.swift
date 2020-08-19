@@ -17,4 +17,20 @@ public struct OPNode: OPElement {
 	public var isSkippable: Bool // Node is already rendered by a parent way or relation
 	public let geometry: OPGeometry // For nodes this will always be a single coordinate
     public let meta: OPMeta?
+
+    public init(
+        id: Int,
+        tags: [String : String],
+        isInteresting: Bool,
+        isSkippable: Bool,
+        geometry: OPGeometry,
+        meta: OPMeta?
+    ) {
+        self.id = id
+        self.tags = tags
+        self.isInteresting = isInteresting
+        self.isSkippable = isSkippable
+        self.geometry = geometry
+        self.meta = meta
+    }
 }
